@@ -11,7 +11,7 @@ const Pricing = () => {
     {
       name: "Pro Plan",
       price: 19.99,
-      duration: "1 Month Access",
+      duration: "month",
       originalPrice: null,
       popular: false,
       promo: "$50 First Month Promo",
@@ -25,7 +25,7 @@ const Pricing = () => {
     {
       name: "Business Plan",
       price: 99.99,
-      duration: "3 Months Access",
+      duration: "month",
       originalPrice: null,
       popular: true,
       promo: null,
@@ -41,7 +41,7 @@ const Pricing = () => {
     {
       name: "Lifetime Access",
       price: 499,
-      duration: "Lifetime Access",
+      duration: "lifetime",
       originalPrice: null,
       popular: false,
       promo: null,
@@ -187,31 +187,22 @@ const Pricing = () => {
               </div>
             </div>
 
-            {/* Animated Curved Cards */}
+            {/* Pricing Cards - New Design */}
             <div className="relative max-w-6xl mx-auto">
-              <div className={`grid gap-6 transition-all duration-700 ${
-                activeTab === 'signals' ? 'lg:grid-cols-3' : 'lg:grid-cols-1 max-w-md mx-auto'
+              <div className={`grid gap-8 transition-all duration-700 ${
+                activeTab === 'signals' ? 'lg:grid-cols-3' : 'lg:grid-cols-1 max-w-lg mx-auto'
               }`}>
                 {currentPlans.map((plan, index) => (
                   <div
                     key={`${activeTab}-${index}`}
-                    className={`pricing-card relative group ${
-                      plan.popular ? 'popular-card' : ''
-                    }`}
+                    className="relative group"
                     style={{
-                      animationDelay: `${index * 0.2}s`,
-                      transform: activeTab === 'signals' && currentPlans.length === 3 
-                        ? index === 0 
-                          ? 'perspective(1000px) rotateY(5deg) translateX(10px)'
-                          : index === 2
-                          ? 'perspective(1000px) rotateY(-5deg) translateX(-10px)'
-                          : 'translateZ(20px)'
-                        : 'none'
+                      animationDelay: `${index * 0.2}s`
                     }}
                   >
                     {/* Promo Badge */}
                     {plan.promo && (
-                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
                         <div className="bg-crypto-green text-crypto-dark px-6 py-2 rounded-full text-sm font-semibold animate-pulse">
                           {plan.promo}
                         </div>
@@ -220,47 +211,62 @@ const Pricing = () => {
 
                     {/* Popular Badge */}
                     {plan.popular && !plan.promo && (
-                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
                         <div className="bg-crypto-green text-crypto-dark px-6 py-2 rounded-full text-sm font-semibold">
                           Most Popular
                         </div>
                       </div>
                     )}
 
-                    <div className="glass-card p-8 rounded-3xl h-full relative overflow-hidden border-2 border-transparent hover:border-crypto-green/40 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-crypto-green/20">
-                      {/* Animated Border Glow */}
-                      <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        <div className="absolute inset-0 rounded-3xl border-2 border-crypto-green animate-pulse"></div>
-                      </div>
-
-                      <div className="relative z-10">
-                        <div className="text-center mb-8">
-                          <div className="text-crypto-green font-semibold mb-2">● {plan.name}</div>
-                          <div className="text-5xl font-bold text-white mb-2 font-general">
-                            ${plan.price}
-                            <span className="text-lg text-gray-400 font-normal font-inter">/month</span>
-                          </div>
-                          <div className="text-gray-400">{plan.duration}</div>
+                    {/* Card Container with Glow Effect */}
+                    <div className="relative">
+                      {/* Glowing Border */}
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-crypto-green via-crypto-green-light to-crypto-green rounded-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 blur-sm"></div>
+                      
+                      {/* Main Card */}
+                      <div className="relative bg-crypto-dark border border-gray-800 rounded-3xl p-8 h-full overflow-hidden group-hover:border-crypto-green/40 transition-all duration-500">
+                        {/* Plan Name Badge */}
+                        <div className="inline-flex items-center gap-2 mb-6">
+                          <div className="w-2 h-2 bg-crypto-green rounded-full"></div>
+                          <span className="text-crypto-green font-semibold text-sm uppercase tracking-wide">
+                            {plan.name}
+                          </span>
                         </div>
 
-                        <p className="text-gray-300 mb-8 text-center">
-                          Unlock automated trading, lower fees, and in-depth market insights to optimize your trades
+                        {/* Price Section */}
+                        <div className="mb-8">
+                          <div className="flex items-baseline gap-1 mb-2">
+                            <span className="text-5xl font-bold text-white font-general">
+                              ${plan.price}
+                            </span>
+                            <span className="text-gray-400 text-lg">
+                              /{plan.duration}
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-gray-300 mb-8 leading-relaxed">
+                          Unlock automated trading, lower fees, and in-depth market insights to optimize your trades.
                         </p>
 
-                        <ul className="space-y-4 mb-8">
+                        {/* Features List */}
+                        <ul className="space-y-4 mb-12">
                           {plan.features.map((feature, idx) => (
                             <li key={idx} className="flex items-center text-gray-300">
-                              <div className="w-5 h-5 rounded-full bg-crypto-green/20 flex items-center justify-center mr-3 flex-shrink-0">
-                                <div className="w-2 h-2 bg-crypto-green rounded-full"></div>
+                              <div className="w-5 h-5 rounded-full bg-crypto-green/20 flex items-center justify-center mr-4 flex-shrink-0">
+                                <svg className="w-3 h-3 text-crypto-green" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                </svg>
                               </div>
-                              {feature}
+                              <span>{feature}</span>
                             </li>
                           ))}
                         </ul>
 
-                        <Button className="w-full glow-button text-crypto-dark font-semibold py-4 font-general relative overflow-hidden group">
-                          <span className="relative z-10">Get started →</span>
-                          <div className="absolute inset-0 bg-gradient-to-r from-crypto-green via-crypto-green-light to-crypto-green opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                        {/* CTA Button */}
+                        <Button className="w-full bg-crypto-green hover:bg-crypto-green/90 text-crypto-dark font-semibold py-4 rounded-full text-lg transition-all duration-300 group-hover:shadow-lg group-hover:shadow-crypto-green/25">
+                          Get started →
                         </Button>
                       </div>
                     </div>

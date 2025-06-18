@@ -11,7 +11,7 @@ import {
   CheckCircle, 
   Play,
   Download,
-  Certificate
+  Award
 } from 'lucide-react';
 
 const Courses = () => {
@@ -120,7 +120,7 @@ const Courses = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               <Badge className="bg-crypto-green/20 text-crypto-green px-4 py-2">
-                <Certificate className="w-4 h-4 mr-2" />
+                <Award className="w-4 h-4 mr-2" />
                 Certificate Included
               </Badge>
               <Badge className="bg-crypto-green/20 text-crypto-green px-4 py-2">

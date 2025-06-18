@@ -78,4 +78,76 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  /* Pricing Card Animations */
+  .pricing-card {
+    animation: cardEntrance 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+
+  .pricing-card.popular-card {
+    transform: translateY(50px) scale(0.95);
+  }
+
+  @keyframes cardEntrance {
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .pricing-card.popular-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #96F048, #73E212, #96F048);
+    border-radius: 1.75rem;
+    z-index: -1;
+    animation: popularGlow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes popularGlow {
+    0% {
+      opacity: 0.5;
+      box-shadow: 0 0 20px rgba(150, 240, 72, 0.3);
+    }
+    100% {
+      opacity: 0.8;
+      box-shadow: 0 0 40px rgba(150, 240, 72, 0.6);
+    }
+  }
+
+  /* Curved Card Effect */
+  .pricing-card:nth-child(1) {
+    transform-origin: right center;
+  }
+
+  .pricing-card:nth-child(3) {
+    transform-origin: left center;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    transition: all 0.3s ease-out;
+  }
+
+  /* Glowing Border Animation */
+  @keyframes border-glow {
+    0% {
+      background: linear-gradient(0deg, #96F048, #73E212, #96F048);
+    }
+    25% {
+      background: linear-gradient(90deg, #96F048, #73E212, #96F048);
+    }
+    50% {
+      background: linear-gradient(180deg, #96F048, #73E212, #96F048);
+    }
+    75% {
+      background: linear-gradient(270deg, #96F048, #73E212, #96F048);
+    }
+    100% {
+      background: linear-gradient(360deg, #96F048, #73E212, #96F048);
+    }
+  }
 }

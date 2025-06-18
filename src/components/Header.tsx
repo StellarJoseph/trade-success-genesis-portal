@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,7 +12,7 @@ const Header = () => {
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
     { name: 'Pricing', href: '/pricing' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'Shop', href: '/shop' },
     { name: 'Contact', href: '/contact' }
   ];
 
@@ -20,36 +21,40 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-to-r from-crypto-green to-crypto-green-light rounded-lg flex items-center justify-center">
               <span className="text-crypto-dark font-bold text-xl">T</span>
             </div>
             <span className="text-xl font-bold font-general text-gradient">
               TradeSuccess.VIP
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigationItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 className="text-white hover:text-crypto-green transition-colors duration-300 font-medium"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </nav>
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="border-crypto-green text-crypto-green hover:bg-crypto-green hover:text-crypto-dark">
-              Login
-            </Button>
-            <Button className="glow-button text-crypto-dark font-semibold">
-              Get Started
-            </Button>
+            <Link to="/login">
+              <Button variant="outline" className="border-crypto-green text-crypto-green hover:bg-crypto-green hover:text-crypto-dark">
+                Login
+              </Button>
+            </Link>
+            <Link to="/signup">
+              <Button className="glow-button text-crypto-dark font-semibold">
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -66,22 +71,26 @@ const Header = () => {
           <div className="md:hidden mt-4 pb-4 border-t border-crypto-green/20">
             <nav className="flex flex-col space-y-4 mt-4">
               {navigationItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className="text-white hover:text-crypto-green transition-colors duration-300 font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
               <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="outline" className="border-crypto-green text-crypto-green hover:bg-crypto-green hover:text-crypto-dark">
-                  Login
-                </Button>
-                <Button className="glow-button text-crypto-dark font-semibold">
-                  Get Started
-                </Button>
+                <Link to="/login">
+                  <Button variant="outline" className="w-full border-crypto-green text-crypto-green hover:bg-crypto-green hover:text-crypto-dark">
+                    Login
+                  </Button>
+                </Link>
+                <Link to="/signup">
+                  <Button className="w-full glow-button text-crypto-dark font-semibold">
+                    Get Started
+                  </Button>
+                </Link>
               </div>
             </nav>
           </div>

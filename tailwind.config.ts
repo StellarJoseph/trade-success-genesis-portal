@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -25,12 +26,23 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					DEFAULT: '#96F048',
+					foreground: '#100F19'
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					DEFAULT: '#73E212',
+					foreground: '#100F19'
+				},
+				accent: {
+					DEFAULT: '#2729ee',
+					foreground: '#ffffff'
+				},
+				crypto: {
+					dark: '#100F19',
+					darker: '#07051e',
+					purple: '#13133f',
+					green: '#96F048',
+					'green-light': '#73E212'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -40,10 +52,6 @@ export default {
 					DEFAULT: 'hsl(var(--muted))',
 					foreground: 'hsl(var(--muted-foreground))'
 				},
-				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
-				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
 					foreground: 'hsl(var(--popover-foreground))'
@@ -51,17 +59,12 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
-				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			fontFamily: {
+				'general': ['General Sans', 'sans-serif'],
+				'inter': ['Inter', 'sans-serif'],
+				'syne': ['Syne', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +87,43 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'glow-pulse': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px rgba(150, 240, 72, 0.3)'
+					},
+					'50%': {
+						boxShadow: '0 0 40px rgba(150, 240, 72, 0.6)'
+					}
+				},
+				'border-glow': {
+					'0%': {
+						borderImageSource: 'linear-gradient(0deg, #96F048, #73E212, #96F048)'
+					},
+					'25%': {
+						borderImageSource: 'linear-gradient(90deg, #96F048, #73E212, #96F048)'
+					},
+					'50%': {
+						borderImageSource: 'linear-gradient(180deg, #96F048, #73E212, #96F048)'
+					},
+					'75%': {
+						borderImageSource: 'linear-gradient(270deg, #96F048, #73E212, #96F048)'
+					},
+					'100%': {
+						borderImageSource: 'linear-gradient(360deg, #96F048, #73E212, #96F048)'
+					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+				'border-glow': 'border-glow 3s linear infinite',
+				'float': 'float 3s ease-in-out infinite'
 			}
 		}
 	},

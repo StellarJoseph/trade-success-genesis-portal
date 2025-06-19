@@ -5,101 +5,94 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { 
-  Clock, 
-  Users, 
-  Star, 
-  CheckCircle, 
-  Play,
-  Download,
-  Award
+  Clock,
+  Users,
+  Star,
+  PlayCircle,
+  Award,
+  BookOpen
 } from 'lucide-react';
 
 const Courses = () => {
   const courses = [
     {
-      id: 1,
-      title: "Complete Crypto Trading Mastery",
-      description: "Master cryptocurrency trading from beginner to expert level with comprehensive strategies and risk management techniques.",
+      name: "Complete Crypto Trading Mastery",
+      category: "Signal Mastery",
       price: "$299",
       originalPrice: "$499",
       rating: 4.9,
       students: 2340,
       duration: "12 hours",
       lessons: 45,
-      level: "All Levels",
-      category: "Trading",
       image: "🎯",
-      featured: true,
-      highlights: [
-        "Technical Analysis Mastery",
-        "Risk Management Strategies", 
-        "Portfolio Diversification",
-        "Advanced Chart Patterns",
-        "Psychology of Trading"
-      ]
+      description: "Master the fundamentals of cryptocurrency trading with our comprehensive course covering technical analysis, risk management,",
+      level: "Beginner to Advanced",
+      features: ["Lifetime Access", "Certificate of Completion", "Community Access", "Live Q&A Sessions"]
     },
     {
-      id: 2,
-      title: "Memecoin & Altcoin Strategies",
-      description: "Learn how to identify and profit from emerging altcoins and memecoins with proven strategies.",
+      name: "Advanced Signal Analysis",
+      category: "Signal Mastery", 
       price: "$199",
-      originalPrice: "$349",
       rating: 4.8,
       students: 1890,
       duration: "8 hours",
       lessons: 32,
+      image: "📊",
+      description: "Learn to read and interpret trading signals like a pro. Understand market patterns, indicators, and timing.",
       level: "Intermediate",
-      category: "Altcoins",
-      image: "🚀",
-      highlights: [
-        "Memecoin Analysis Framework",
-        "Early Project Identification",
-        "Community Assessment",
-        "Exit Strategies",
-        "Risk vs Reward Calculation"
-      ]
+      features: ["Advanced Strategies", "Real-time Examples", "Practice Exercises", "Expert Support"]
     },
     {
-      id: 3,
-      title: "DeFi Yield farming & Staking",
-      description: "Maximize your crypto returns through decentralized finance protocols, yield farming, and staking strategies.",
+      name: "Gemcoin Research & Discovery",
+      category: "Gemcoin Research",
       price: "$249",
-      originalPrice: "$399",
-      rating: 4.7,
-      students: 1567,
-      duration: "10 hours",
+      rating: 4.9,
+      students: 1456,
+      duration: "10 hours", 
       lessons: 38,
-      level: "Advanced",
-      category: "DeFi",
-      image: "🌾",
-      highlights: [
-        "DeFi Protocol Analysis",
-        "Yield Optimization",
-        "Impermanent Loss Management",
-        "Staking Strategies",
-        "Smart Contract Risks"
-      ]
+      image: "💎",
+      description: "Discover the next big crypto gems before they explode. Learn research techniques and evaluation methods.",
+      level: "Intermediate to Advanced",
+      features: ["Research Tools", "Case Studies", "Community Insights", "Monthly Updates"]
     },
     {
-      id: 4,
-      title: "Signal Analysis & Interpretation",
-      description: "Learn how to analyze and interpret trading signals like a professional trader.",
-      price: "$149",
-      originalPrice: "$249",
-      rating: 4.9,
-      students: 3420,
+      name: "Trading Bot Automation",
+      category: "Trading Automation",
+      price: "$399",
+      rating: 4.7,
+      students: 987,
+      duration: "15 hours",
+      lessons: 52,
+      image: "🤖",
+      description: "Set up and optimize trading bots for passive income. Learn automation strategies and risk management.",
+      level: "Advanced",
+      features: ["Bot Setup Guide", "Strategy Templates", "Risk Management", "24/7 Support"]
+    },
+    {
+      name: "DeFi Yield Farming Strategies",
+      category: "Trading Automation",
+      price: "$179",
+      rating: 4.6,
+      students: 1234,
       duration: "6 hours",
       lessons: 24,
-      level: "Beginner",
-      category: "Signals",
+      image: "🌾",
+      description: "Maximize your returns with DeFi yield farming. Learn about liquidity pools, staking, and protocol analysis.",
+      level: "Intermediate", 
+      features: ["Protocol Analysis", "Yield Optimization", "Risk Assessment", "Weekly Updates"]
+    },
+    {
+      name: "Crypto Portfolio Management",
+      category: "Signal Mastery",
+      price: "$149",
+      rating: 4.8,
+      students: 2156,
+      duration: "7 hours",
+      lessons: 28,
       image: "📈",
-      highlights: [
-        "Signal Types & Formats",
-        "Entry & Exit Timing",
-        "Risk Management with Signals",
-        "Signal Provider Evaluation",
-        "Building Your Own Signals"
-      ]
+      description: "Build and manage a diversified crypto portfolio. Learn allocation strategies and rebalancing techniques.",
+      level: "Beginner to Intermediate",
+      features: ["Portfolio Tools", "Allocation Strategies", "Rebalancing Guide", "Performance Tracking"]
     }
   ];
 
@@ -115,161 +108,118 @@ const Courses = () => {
               Trading <span className="text-gradient">Courses</span>
             </h1>
             <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
-              Master cryptocurrency trading with our comprehensive courses designed by 
-              professional traders with proven track records.
+              Master cryptocurrency trading with our expert-led courses. From beginners to advanced traders, 
+              we have the perfect course to accelerate your trading journey.
             </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <Badge className="bg-crypto-green/20 text-crypto-green px-4 py-2">
-                <Award className="w-4 h-4 mr-2" />
-                Certificate Included
-              </Badge>
-              <Badge className="bg-crypto-green/20 text-crypto-green px-4 py-2">
-                <Download className="w-4 h-4 mr-2" />
-                Lifetime Access
-              </Badge>
-              <Badge className="bg-crypto-green/20 text-crypto-green px-4 py-2">
-                <Users className="w-4 h-4 mr-2" />
-                7,000+ Students
-              </Badge>
+            <div className="flex flex-wrap justify-center items-center gap-8 mb-16">
+              <div className="flex items-center gap-2">
+                <Users className="w-5 h-5 text-crypto-green" />
+                <span className="text-gray-300">10,000+ Students</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Award className="w-5 h-5 text-crypto-green" />
+                <span className="text-gray-300">Expert-Led Content</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <PlayCircle className="w-5 h-5 text-crypto-green" />
+                <span className="text-gray-300">Lifetime Access</span>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Featured Course */}
+        {/* Courses Grid */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <div className="text-crypto-green mb-4">● Featured Course</div>
-              <h2 className="text-4xl font-bold font-general">
-                Most Popular Training
-              </h2>
-            </div>
-
-            <div className="max-w-4xl mx-auto">
-              <Card className="glass-card border-crypto-green/60 p-8">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  <div>
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="text-6xl">{courses[0].image}</div>
-                      <Badge className="bg-crypto-green text-crypto-dark">
-                        BESTSELLER
-                      </Badge>
-                    </div>
-                    <h3 className="text-3xl font-bold font-general text-white mb-4">
-                      {courses[0].title}
-                    </h3>
-                    <p className="text-gray-300 mb-6">
-                      {courses[0].description}
-                    </p>
-                    <div className="flex items-center gap-6 mb-6 text-sm text-gray-400">
-                      <div className="flex items-center">
-                        <Clock className="w-4 h-4 mr-2" />
-                        {courses[0].duration}
-                      </div>
-                      <div className="flex items-center">
-                        <Play className="w-4 h-4 mr-2" />
-                        {courses[0].lessons} lessons
-                      </div>
-                      <div className="flex items-center">
-                        <Users className="w-4 h-4 mr-2" />
-                        {courses[0].students} students
-                      </div>
-                      <div className="flex items-center">
-                        <Star className="w-4 h-4 mr-2 text-yellow-400 fill-current" />
-                        {courses[0].rating}
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="mb-6">
-                      <div className="text-gray-400 line-through text-xl">{courses[0].originalPrice}</div>
-                      <div className="text-4xl font-bold text-crypto-green">{courses[0].price}</div>
-                      <div className="text-sm text-gray-400">One-time payment</div>
-                    </div>
-                    <Button className="w-full glow-button text-crypto-dark font-semibold text-lg py-4 mb-4">
-                      Enroll Now
-                    </Button>
-                    <p className="text-xs text-gray-400">30-day money-back guarantee</p>
-                  </div>
-                </div>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* All Courses */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold font-general mb-6">
-                All <span className="text-gradient">Courses</span>
-              </h2>
-            </div>
-
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {courses.slice(1).map((course) => (
-                <Card key={course.id} className="glass-card hover:border-crypto-green/40 transition-all duration-300">
+              {courses.map((course, index) => (
+                <Card key={index} className="glass-card hover:border-crypto-green/40 transition-all duration-300 group h-full flex flex-col">
                   <CardHeader>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="text-4xl">{course.image}</div>
-                      <Badge className="bg-crypto-green/20 text-crypto-green">
-                        {course.category}
-                      </Badge>
+                    <div className="text-5xl text-center mb-4">{course.image}</div>
+                    <div className="flex items-center justify-between mb-2">
+                      <Badge className="bg-crypto-green/20 text-crypto-green">{course.category}</Badge>
+                      <div className="flex items-center">
+                        <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                        <span className="text-sm text-gray-300 ml-1">{course.rating}</span>
+                      </div>
                     </div>
-                    <CardTitle className="text-white font-general">{course.title}</CardTitle>
-                    <CardDescription className="text-gray-300">
-                      {course.description}
-                    </CardDescription>
+                    <CardTitle className="text-white font-general mb-2">{course.name}</CardTitle>
+                    <CardDescription className="text-gray-300 mb-4">{course.description}</CardDescription>
+                    
+                    <div className="space-y-2 text-sm text-gray-400">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                          <Clock className="w-4 h-4 mr-2" />
+                          {course.duration}
+                        </div>
+                        <div className="flex items-center">
+                          <BookOpen className="w-4 h-4 mr-2" />
+                          {course.lessons} lessons
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                          <Users className="w-4 h-4 mr-2" />
+                          {course.students} students
+                        </div>
+                        <Badge variant="outline" className="text-xs">
+                          {course.level}
+                        </Badge>
+                      </div>
+                    </div>
                   </CardHeader>
-                  <CardContent>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center">
-                        <Star className="w-4 h-4 text-yellow-400 fill-current mr-1" />
-                        <span className="text-sm text-gray-300">{course.rating}</span>
-                      </div>
-                      <Badge variant="outline" className="text-xs">
-                        {course.level}
-                      </Badge>
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-2 text-xs text-gray-400 mb-6">
-                      <div className="flex items-center">
-                        <Clock className="w-3 h-3 mr-1" />
-                        {course.duration}
-                      </div>
-                      <div className="flex items-center">
-                        <Play className="w-3 h-3 mr-1" />
-                        {course.lessons} lessons
-                      </div>
-                      <div className="flex items-center">
-                        <Users className="w-3 h-3 mr-1" />
-                        {course.students}
-                      </div>
-                    </div>
-
-                    <ul className="space-y-2 mb-6">
-                      {course.highlights.slice(0, 3).map((highlight, idx) => (
-                        <li key={idx} className="flex items-center text-sm text-gray-300">
-                          <CheckCircle className="w-4 h-4 text-crypto-green mr-2 flex-shrink-0" />
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="flex items-center justify-between mb-4">
+                  
+                  <CardContent className="flex-1 flex flex-col">
+                    <div className="flex items-center justify-between mb-6">
                       <div>
                         <span className="text-2xl font-bold text-crypto-green">{course.price}</span>
-                        <span className="text-gray-400 line-through ml-2 text-sm">{course.originalPrice}</span>
+                        {course.originalPrice && (
+                          <span className="text-gray-400 line-through ml-2">{course.originalPrice}</span>
+                        )}
                       </div>
                     </div>
 
-                    <Button className="w-full glow-button text-crypto-dark font-semibold">
+                    <div className="mb-6 flex-1">
+                      <h4 className="text-white font-semibold mb-3">What you'll get:</h4>
+                      <ul className="space-y-2">
+                        {course.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-center text-gray-300 text-sm">
+                            <div className="w-2 h-2 bg-crypto-green rounded-full mr-3 flex-shrink-0"></div>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <Button className="w-full glow-button text-crypto-dark font-semibold mt-auto">
                       Enroll Now
                     </Button>
                   </CardContent>
                 </Card>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="glass-card p-12 rounded-3xl text-center">
+              <h2 className="text-4xl font-bold font-general mb-6">
+                Ready to Master{' '}
+                <span className="text-gradient">Crypto Trading?</span>
+              </h2>
+              <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                Join thousands of students who have transformed their trading skills and achieved financial success.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button className="glow-button text-crypto-dark font-semibold px-8 py-4">
+                  View All Courses
+                </Button>
+                <Button variant="outline" className="border-crypto-green text-crypto-green hover:bg-crypto-green hover:text-crypto-dark px-8 py-4">
+                  Free Preview
+                </Button>
+              </div>
             </div>
           </div>
         </section>

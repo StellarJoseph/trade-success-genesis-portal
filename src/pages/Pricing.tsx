@@ -2,79 +2,9 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import UnifiedPricingCard from '@/components/UnifiedPricingCard';
 
 const Pricing = () => {
-  const [activeTab, setActiveTab] = useState('signals');
-
-  const signalPlans = [
-    {
-      name: "Trading Bot",
-      price: 299,
-      duration: "month",
-      originalPrice: null,
-      popular: false,
-      promo: null,
-      features: [
-        "Auto-Buy & Sell Orders",
-        "Enhanced Efficiency", 
-        "Customizable Dashboards",
-        "Scalability for Growth"
-      ]
-    },
-    {
-      name: "VIP Signals",
-      price: 99,
-      duration: "month",
-      originalPrice: null,
-      popular: true,
-      promo: null,
-      features: [
-        "5-7 Daily Premium Signals",
-        "Entry, Stop Loss & Take Profit",
-        "Enhanced Efficiency",
-        "Customizable Dashboards", 
-        "Priority Support",
-        "Advanced Analytics"
-      ]
-    },
-    {
-      name: "40 Day Challenge",
-      price: 499,
-      duration: "40 Days",
-      originalPrice: null,
-      popular: false,
-      promo: "Coming Soon",
-      features: [
-        "Intensive Training Program",
-        "Personal Guidance",
-        "Expert Trade Analysis",
-        "Exclusive Community Access",
-        "2200-4000% ROI Target"
-      ]
-    }
-  ];
-
-  const challengePlans = [
-    {
-      name: "40-Day Challenge",
-      price: 499,
-      duration: "40 Days",
-      originalPrice: null,
-      popular: true,
-      promo: "Coming Soon",
-      features: [
-        "1 Powerful Signal Daily",
-        "2200-4000% ROI Target",
-        "Personal Guidance",
-        "Expert Trade Analysis",
-        "Exclusive Community Access"
-      ]
-    }
-  ];
-
-  const currentPlans = activeTab === 'signals' ? signalPlans : challengePlans;
-
   const faqs = [
     {
       question: "How do I buy cryptocurrency?",
@@ -98,19 +28,19 @@ const Pricing = () => {
     {
       name: "James R.",
       role: "Crypto Investor",
-      content: "I was new to crypto, but Crysiam made everything so simple. The platform is beginner-friendly and their support team was super helpful when I had questions!",
+      content: "I was new to crypto, but TradeSuccess made everything so simple. The platform is beginner-friendly and their support team was super helpful when I had questions!",
       rating: 5
     },
     {
       name: "David G.",
       role: "Crypto Investor", 
-      content: "I was new to crypto, but Crysiam made everything so simple. The platform is beginner-friendly and their support team was super helpful when I had questions!",
+      content: "I was new to crypto, but TradeSuccess made everything so simple. The platform is beginner-friendly and their support team was super helpful when I had questions!",
       rating: 5
     },
     {
       name: "Jessica Q.",
       role: "Crypto Investor",
-      content: "I've used multiple exchanges, but Crysiam stands out with its seamless transactions and real-time market insights. The lower trading fees with the Pro Plan are a huge plus!",
+      content: "I've used multiple exchanges, but TradeSuccess stands out with its seamless transactions and real-time market insights. The lower trading fees with the Pro Plan are a huge plus!",
       rating: 5
     },
     {
@@ -148,11 +78,11 @@ const Pricing = () => {
           </div>
         </section>
 
-        {/* Pricing Plans */}
-        <section className="py-20 relative overflow-hidden">
+        {/* Unified Pricing Cards */}
+        <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <div className="text-crypto-green mb-4">● Let our people say about us</div>
+              <div className="text-crypto-green mb-4">● Choose Your Plan</div>
               <h2 className="text-4xl md:text-5xl font-bold font-general mb-6">
                 Choose the plan that fits your<br />
                 crypto needs and start trading<br />
@@ -161,119 +91,9 @@ const Pricing = () => {
               <p className="text-xl text-gray-300 mb-8">
                 Start earning with confidence. No delays, no guesswork.
               </p>
-              
-              {/* Plan Toggle */}
-              <div className="flex items-center justify-center gap-2 mb-12">
-                <button
-                  onClick={() => setActiveTab('signals')}
-                  className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                    activeTab === 'signals'
-                      ? 'bg-crypto-green text-crypto-dark'
-                      : 'glass-card text-gray-300 hover:text-crypto-green'
-                  }`}
-                >
-                  Signal Plans
-                </button>
-                <button
-                  onClick={() => setActiveTab('challenge')}
-                  className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                    activeTab === 'challenge'
-                      ? 'bg-crypto-green text-crypto-dark'
-                      : 'glass-card text-gray-300 hover:text-crypto-green'
-                  }`}
-                >
-                  Trading Challenge
-                </button>
-              </div>
             </div>
 
-            {/* Pricing Cards - New Design */}
-            <div className="relative max-w-6xl mx-auto">
-              <div className={`grid gap-8 transition-all duration-700 ${
-                activeTab === 'signals' ? 'lg:grid-cols-3' : 'lg:grid-cols-1 max-w-lg mx-auto'
-              }`}>
-                {currentPlans.map((plan, index) => (
-                  <div
-                    key={`${activeTab}-${index}`}
-                    className="relative group"
-                    style={{
-                      animationDelay: `${index * 0.2}s`
-                    }}
-                  >
-                    {/* Promo Badge */}
-                    {plan.promo && (
-                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
-                        <div className="bg-crypto-green text-crypto-dark px-6 py-2 rounded-full text-sm font-semibold animate-pulse">
-                          {plan.promo}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Popular Badge */}
-                    {plan.popular && !plan.promo && (
-                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
-                        <div className="bg-crypto-green text-crypto-dark px-6 py-2 rounded-full text-sm font-semibold">
-                          Most Popular
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Card Container with Glow Effect */}
-                    <div className="relative">
-                      {/* Glowing Border */}
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-crypto-green via-crypto-green-light to-crypto-green rounded-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 blur-sm"></div>
-                      
-                      {/* Main Card */}
-                      <div className="relative bg-crypto-dark border border-gray-800 rounded-3xl p-8 h-full overflow-hidden group-hover:border-crypto-green/40 transition-all duration-500">
-                        {/* Plan Name Badge */}
-                        <div className="inline-flex items-center gap-2 mb-6">
-                          <div className="w-2 h-2 bg-crypto-green rounded-full"></div>
-                          <span className="text-crypto-green font-semibold text-sm uppercase tracking-wide">
-                            {plan.name}
-                          </span>
-                        </div>
-
-                        {/* Price Section */}
-                        <div className="mb-8">
-                          <div className="flex items-baseline gap-1 mb-2">
-                            <span className="text-5xl font-bold text-white font-general">
-                              ${plan.price}
-                            </span>
-                            <span className="text-gray-400 text-lg">
-                              /{plan.duration}
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* Description */}
-                        <p className="text-gray-300 mb-8 leading-relaxed">
-                          Unlock automated trading, lower fees, and in-depth market insights to optimize your trades.
-                        </p>
-
-                        {/* Features List */}
-                        <ul className="space-y-4 mb-12">
-                          {plan.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-center text-gray-300">
-                              <div className="w-5 h-5 rounded-full bg-crypto-green/20 flex items-center justify-center mr-4 flex-shrink-0">
-                                <svg className="w-3 h-3 text-crypto-green" fill="currentColor" viewBox="0 0 20 20">
-                                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                </svg>
-                              </div>
-                              <span>{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        {/* CTA Button */}
-                        <Button className="w-full bg-crypto-green hover:bg-crypto-green/90 text-crypto-dark font-semibold py-4 rounded-full text-lg transition-all duration-300 group-hover:shadow-lg group-hover:shadow-crypto-green/25">
-                          Get started →
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <UnifiedPricingCard showTitle={false} />
 
             <div className="text-center mt-12">
               <p className="text-gray-400 mb-4">First month promo: $50</p>

@@ -2,6 +2,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import UnifiedPricingCard from '@/components/UnifiedPricingCard';
 
 const Services = () => {
   const services = [
@@ -29,6 +30,11 @@ const Services = () => {
       title: "Trading Challenge (40-Day Profit Plan)",
       description: "Participate in our high-stakes challenge with 1 expert signal daily, aiming for 2200–4000% in 40 days.",
       icon: "📈"
+    },
+    {
+      title: "Merchant Services",
+      description: "Accept payments in crypto and fiat securely with our integrated merchant gateway. Tailored for ecommerce platforms and creators looking to receive crypto payments easily.",
+      icon: "💳"
     }
   ];
 
@@ -316,6 +322,9 @@ const Services = () => {
             </div>
           </div>
         </section>
+
+        {/* Unified Pricing Section */}
+        <UnifiedPricingCard />
 
         {/* Final CTA */}
         <section className="py-20">

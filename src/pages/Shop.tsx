@@ -11,11 +11,15 @@ import {
   ArrowRight,
   Star,
   Clock,
-  Users
+  Users,
+  Filter
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const Shop = () => {
+  const [activeFilter, setActiveFilter] = useState('all');
+
   const categories = [
     {
       title: "Trading Courses",
@@ -46,36 +50,121 @@ const Shop = () => {
     }
   ];
 
-  const featuredProducts = [
+  const filters = [
+    { id: 'all', name: 'All Products' },
+    { id: 'apparel', name: 'Apparel' },
+    { id: 'tech', name: 'Tech Accessories' },
+    { id: 'drinkware', name: 'Drinkware' },
+    { id: 'collectibles', name: 'Collectibles' },
+    { id: 'decor', name: 'Decor & Figurines' },
+    { id: 'utility', name: 'Utility & Eco' }
+  ];
+
+  const products = [
     {
-      name: "Complete Crypto Mastery Course",
-      category: "Course",
-      price: "$299",
-      originalPrice: "$499",
-      rating: 4.9,
-      students: 2340,
-      image: "🎯",
-      duration: "12 hours"
-    },
-    {
-      name: "Private Portfolio Review",
-      category: "Consultancy",
-      price: "$399",
-      rating: 5.0,
-      sessions: 156,
-      image: "📊",
-      duration: "90 minutes"
-    },
-    {
-      name: "TradeSuccess Hoodie",
-      category: "Merchandise",
-      price: "$79",
+      name: "Crypto Logo T-Shirt",
+      category: "apparel",
+      price: "$29",
       rating: 4.8,
-      sold: 892,
-      image: "🔥",
-      sizes: "S-XXL"
+      image: "👕",
+      description: "High-quality cotton tee featuring popular crypto logos",
+      badge: "Best Seller"
+    },
+    {
+      name: "Bitcoin Embroidered Cap", 
+      category: "apparel",
+      price: "$35",
+      rating: 4.9,
+      image: "🧢",
+      description: "Classic snapback with sleek Bitcoin logo embroidery"
+    },
+    {
+      name: "Custom Crypto Water Bottle",
+      category: "drinkware", 
+      price: "$25",
+      rating: 4.7,
+      image: "🍶",
+      description: "Durable, leak-proof stainless steel bottle"
+    },
+    {
+      name: "Bitcoin LED Mouse Pad",
+      category: "tech",
+      price: "$45",
+      rating: 4.9,
+      image: "🖱️",
+      description: "Glowing desk mat with animated BTC visuals",
+      badge: "New"
+    },
+    {
+      name: "HODL Mouse Pad",
+      category: "tech",
+      price: "$25",
+      rating: 4.6,
+      image: "🖱️",
+      description: "Premium stitched mat with bold HODL text"
+    },
+    {
+      name: "Crypto Key Holder",
+      category: "collectibles",
+      price: "$15",
+      rating: 4.8,
+      image: "🔑",
+      description: "Sleek metal keychain with engraved Bitcoin logo"
+    },
+    {
+      name: "Crypto Hoodie",
+      category: "apparel",
+      price: "$65",
+      rating: 4.9,
+      image: "🏀",
+      description: "Premium, warm hoodie made of eco-blended cotton"
+    },
+    {
+      name: "Bitcoin Socks",
+      category: "apparel", 
+      price: "$12",
+      rating: 4.5,
+      image: "🧦",
+      description: "Bold, comfortable socks with woven crypto symbols"
+    },
+    {
+      name: "Bitcoin Mug",
+      category: "drinkware",
+      price: "$18",
+      rating: 4.7,
+      image: "☕",
+      description: "Ceramic coffee mug with Buy the Dip slogan"
+    },
+    {
+      name: "Crypto Backpack",
+      category: "utility",
+      price: "$85",
+      rating: 4.8,
+      image: "🎒",
+      description: "Spacious and minimal with waterproof design"
+    },
+    {
+      name: "Bitcoin Miner Gnome Figurine",
+      category: "decor",
+      price: "$35",
+      rating: 4.9,
+      image: "🎭",
+      description: "Whimsical desk piece with miner hat and crypto pickaxe"
+    },
+    {
+      name: "Gold Bitcoin Collector Coin",
+      category: "collectibles",
+      price: "$120",
+      rating: 5.0,
+      image: "🪙",
+      description: "Limited edition 3D metal Bitcoin with display case",
+      badge: "Limited"
     }
   ];
+
+  const filteredProducts = activeFilter === 'all' 
+    ? products 
+    : products.filter(product => product.category === activeFilter);
 
   return (
     <div className="min-h-screen">
@@ -145,53 +234,54 @@ const Shop = () => {
           </div>
         </section>
 
-        {/* Featured Products */}
+        {/* Product Filters */}
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <div className="text-crypto-green mb-4">● Featured Products</div>
               <h2 className="text-4xl font-bold font-general mb-6">
-                Most Popular Items
+                Browse Our Collection
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {featuredProducts.map((product, index) => (
-                <Card key={index} className="glass-card hover:border-crypto-green/40 transition-all duration-300">
+            {/* Filter Tabs */}
+            <div className="flex flex-wrap justify-center gap-2 mb-12">
+              {filters.map((filter) => (
+                <button
+                  key={filter.id}
+                  onClick={() => setActiveFilter(filter.id)}
+                  className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                    activeFilter === filter.id
+                      ? 'bg-crypto-green text-crypto-dark'
+                      : 'glass-card text-gray-300 hover:text-crypto-green hover:border-crypto-green/40'
+                  }`}
+                >
+                  {filter.name}
+                </button>
+              ))}
+            </div>
+
+            {/* Products Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {filteredProducts.map((product, index) => (
+                <Card key={index} className="glass-card hover:border-crypto-green/40 transition-all duration-300 group">
                   <CardHeader>
                     <div className="text-4xl text-center mb-4">{product.image}</div>
                     <div className="flex items-center justify-between mb-2">
-                      <Badge className="bg-crypto-green/20 text-crypto-green">{product.category}</Badge>
-                      <div className="flex items-center">
+                      {product.badge && (
+                        <Badge className="bg-crypto-green/20 text-crypto-green">{product.badge}</Badge>
+                      )}
+                      <div className="flex items-center ml-auto">
                         <Star className="w-4 h-4 text-yellow-400 fill-current" />
                         <span className="text-sm text-gray-300 ml-1">{product.rating}</span>
                       </div>
                     </div>
                     <CardTitle className="text-white font-general">{product.name}</CardTitle>
+                    <CardDescription className="text-gray-400">{product.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <span className="text-2xl font-bold text-crypto-green">{product.price}</span>
-                        {product.originalPrice && (
-                          <span className="text-gray-400 line-through ml-2">{product.originalPrice}</span>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="space-y-2 text-sm text-gray-400 mb-6">
-                      {product.students && (
-                        <div className="flex items-center">
-                          <Users className="w-4 h-4 mr-2" />
-                          {product.students} students
-                        </div>
-                      )}
-                      {product.duration && (
-                        <div className="flex items-center">
-                          <Clock className="w-4 h-4 mr-2" />
-                          {product.duration}
-                        </div>
-                      )}
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="text-2xl font-bold text-crypto-green">{product.price}</span>
                     </div>
 
                     <Button className="w-full glow-button text-crypto-dark font-semibold">

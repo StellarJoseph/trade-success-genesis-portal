@@ -2,26 +2,24 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import UnifiedPricingCard from '@/components/UnifiedPricingCard';
 
 const About = () => {
-  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-
   const impactNumbers = [
     {
-      number: "$2.5M+",
+      value: "$2.5M+",
       label: "Assets Under Management",
-      description: "Trusted with millions in crypto assets"
+      description: "Trusted by investors worldwide"
     },
     {
-      number: "300+",
+      value: "300+",
       label: "Signals Delivered",
-      description: "Expert signals sent to clients globally"
+      description: "Expert calls sent globally"
     },
     {
-      number: "135+",
-      label: "Active Investors",
-      description: "Growing community of successful traders"
+      value: "135+",
+      label: "Growing Investors",
+      description: "Active members daily"
     }
   ];
 
@@ -29,7 +27,7 @@ const About = () => {
     {
       title: "Transparency",
       description: "Open performance reporting and full access to your funds.",
-      icon: "📊"
+      icon: "🔍"
     },
     {
       title: "Security",
@@ -57,15 +55,9 @@ const About = () => {
     },
     {
       name: "Rachel M.",
-      role: "Professional Trader",
+      role: "Portfolio Manager",
       quote: "From zero to steady gains every week. I feel in control again.",
       avatar: "RM"
-    },
-    {
-      name: "David L.",
-      role: "Portfolio Manager",
-      quote: "TradeSuccess helped me scale my investment strategy efficiently.",
-      avatar: "DL"
     }
   ];
 
@@ -98,17 +90,17 @@ const About = () => {
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-20">
+        <section className="py-20 relative overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h1 className="text-5xl md:text-6xl font-bold font-general mb-6">
-                  We're on a mission to <span className="text-gradient">simplify and scale</span> crypto investing for everyone.
+                  We're on a mission to simplify and scale <span className="text-gradient">crypto investing</span> for everyone.
                 </h1>
-                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                <p className="text-xl text-gray-300 leading-relaxed mb-8">
                   Our goal is to eliminate complexity from crypto trading and portfolio growth — helping beginners, busy professionals, and seasoned investors make smarter decisions with automation, expert signals, and full portfolio visibility.
                 </p>
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-4">
                   <Button className="glow-button text-crypto-dark font-semibold">
                     Learn More
                   </Button>
@@ -118,8 +110,11 @@ const About = () => {
                 </div>
               </div>
               <div className="relative">
-                <div className="w-full h-96 glass-card rounded-3xl flex items-center justify-center">
-                  <div className="text-6xl animate-pulse">🌍</div>
+                <div className="w-80 h-80 mx-auto relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-crypto-green/20 to-crypto-green-light/20 rounded-full animate-pulse"></div>
+                  <div className="absolute top-10 left-10 w-16 h-16 bg-crypto-green/30 rounded-full animate-bounce"></div>
+                  <div className="absolute bottom-10 right-10 w-12 h-12 bg-crypto-green/40 rounded-full animate-pulse"></div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-6xl">🌍</div>
                 </div>
               </div>
             </div>
@@ -130,17 +125,13 @@ const About = () => {
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-3 gap-8">
-              {impactNumbers.map((item, index) => (
+              {impactNumbers.map((stat, index) => (
                 <div key={index} className="glass-card p-8 rounded-3xl text-center hover:border-crypto-green/40 transition-all duration-300">
-                  <div className="text-4xl font-bold text-gradient mb-4 font-general">
-                    {item.number}
+                  <div className="text-4xl font-bold text-crypto-green mb-2 font-general">
+                    {stat.value}
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-2 font-general">
-                    {item.label}
-                  </h3>
-                  <p className="text-gray-300">
-                    {item.description}
-                  </p>
+                  <h3 className="text-xl font-semibold text-white mb-2">{stat.label}</h3>
+                  <p className="text-gray-400">{stat.description}</p>
                 </div>
               ))}
             </div>
@@ -152,24 +143,25 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="relative">
-                <div className="w-full h-96 glass-card rounded-3xl flex items-center justify-center">
-                  <div className="text-6xl animate-bounce">💰</div>
+                <div className="w-80 h-80 mx-auto relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-crypto-green/10 to-transparent rounded-full"></div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-8xl">💰</div>
                 </div>
               </div>
               <div>
                 <h2 className="text-4xl font-bold font-general mb-6">
                   A new era of <span className="text-gradient">crypto investments</span> has arrived
                 </h2>
-                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                <p className="text-xl text-gray-300 leading-relaxed mb-8">
                   Decentralized finance is reshaping how wealth is built. TradeSuccess helps you benefit from this shift with hands-free tools, trusted signals, and institutional-grade management options.
                 </p>
                 <div className="grid grid-cols-2 gap-6">
-                  <div>
-                    <div className="text-3xl font-bold text-crypto-green mb-2">268%</div>
+                  <div className="glass-card p-6 rounded-2xl">
+                    <div className="text-2xl font-bold text-crypto-green">268%</div>
                     <div className="text-gray-400">Investment Growth YoY</div>
                   </div>
-                  <div>
-                    <div className="text-3xl font-bold text-crypto-green mb-2">1K+</div>
+                  <div className="glass-card p-6 rounded-2xl">
+                    <div className="text-2xl font-bold text-crypto-green">1K+</div>
                     <div className="text-gray-400">Daily New Members</div>
                   </div>
                 </div>
@@ -182,8 +174,8 @@ const About = () => {
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold font-general mb-6">
-                The values that drive <span className="text-gradient">our company</span>
+              <h2 className="text-4xl font-bold font-general mb-6">
+                The values that drive our <span className="text-gradient">company</span>
               </h2>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -208,40 +200,40 @@ const About = () => {
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12">
-              <div className="glass-card p-8 rounded-3xl hover:border-crypto-green/40 transition-all duration-300">
-                <h3 className="text-2xl font-bold font-general mb-6 text-gradient">
+              <div className="glass-card p-12 rounded-3xl">
+                <h3 className="text-3xl font-bold font-general mb-6 text-gradient">
                   Personal Investors
                 </h3>
                 <ul className="space-y-4 text-gray-300">
                   <li className="flex items-center">
-                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-3"></div>
+                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-4"></div>
                     Confidentiality and privacy-first
                   </li>
                   <li className="flex items-center">
-                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-3"></div>
+                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-4"></div>
                     Easy access to signals and insights
                   </li>
                   <li className="flex items-center">
-                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-3"></div>
+                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-4"></div>
                     Secure auto-buy/sell feature
                   </li>
                 </ul>
               </div>
-              <div className="glass-card p-8 rounded-3xl hover:border-crypto-green/40 transition-all duration-300">
-                <h3 className="text-2xl font-bold font-general mb-6 text-gradient">
+              <div className="glass-card p-12 rounded-3xl">
+                <h3 className="text-3xl font-bold font-general mb-6 text-gradient">
                   Commercial Clients
                 </h3>
                 <ul className="space-y-4 text-gray-300">
                   <li className="flex items-center">
-                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-3"></div>
+                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-4"></div>
                     Automation-ready tools for institutions
                   </li>
                   <li className="flex items-center">
-                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-3"></div>
+                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-4"></div>
                     Regulatory-friendly structures
                   </li>
                   <li className="flex items-center">
-                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-3"></div>
+                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-4"></div>
                     Portfolio control for DeFi startups
                   </li>
                 </ul>
@@ -277,13 +269,13 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold font-general mb-6">
-                What <span className="text-gradient">Our Members</span> Say
+                What Our <span className="text-gradient">Members Say</span>
               </h2>
             </div>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="glass-card p-8 rounded-3xl hover:border-crypto-green/40 transition-all duration-300">
-                  <p className="text-gray-300 mb-6 italic">
+                  <p className="text-gray-300 mb-6 italic leading-relaxed">
                     "{testimonial.quote}"
                   </p>
                   <div className="flex items-center">
@@ -308,32 +300,18 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold font-general mb-6">
-                Have questions? <span className="text-gradient">We have answers!</span>
+                Have questions? <span className="text-gradient">We've got answers.</span>
               </h2>
             </div>
-            <div className="max-w-3xl mx-auto space-y-4">
+            <div className="max-w-3xl mx-auto space-y-6">
               {faqs.map((faq, index) => (
-                <div key={index} className="glass-card rounded-2xl overflow-hidden">
-                  <button
-                    onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
-                    className="w-full p-6 text-left hover:bg-white/5 transition-colors"
-                  >
-                    <div className="flex justify-between items-center">
-                      <h3 className="text-lg font-semibold text-white">
-                        {faq.question}
-                      </h3>
-                      <span className="text-crypto-green text-xl">
-                        {openFAQ === index ? '−' : '+'}
-                      </span>
-                    </div>
-                  </button>
-                  {openFAQ === index && (
-                    <div className="px-6 pb-6">
-                      <p className="text-gray-300">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  )}
+                <div key={index} className="glass-card p-6 rounded-2xl hover:border-crypto-green/40 transition-all duration-300">
+                  <h3 className="text-lg font-semibold text-white mb-3 font-general">
+                    {faq.question}
+                  </h3>
+                  <p className="text-gray-300">
+                    {faq.answer}
+                  </p>
                 </div>
               ))}
             </div>
@@ -347,40 +325,46 @@ const About = () => {
               <h2 className="text-4xl font-bold font-general mb-6">
                 Our <span className="text-gradient">Partners</span>
               </h2>
-              <p className="text-xl text-gray-300">
-                Trusted by innovators and institutions across blockchain, DeFi, and fintech.
-              </p>
+              <p className="text-gray-400">Trusted by innovators and institutions across blockchain, DeFi, and fintech.</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
               {partners.map((partner, index) => (
-                <div key={index} className="glass-card p-6 rounded-xl text-center hover:border-crypto-green/40 transition-all duration-300 grayscale hover:grayscale-0">
-                  <span className="text-gray-400 font-medium">{partner}</span>
+                <div key={index} className="glass-card p-6 rounded-xl text-center hover:border-crypto-green/40 transition-all duration-300 group">
+                  <span className="text-gray-400 group-hover:text-crypto-green font-medium transition-colors">
+                    {partner}
+                  </span>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CTA Footer */}
+        {/* Pricing Section */}
+        <UnifiedPricingCard showTitle={false} />
+
+        {/* Final CTA */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="glass-card p-12 rounded-3xl text-center">
-              <h2 className="text-4xl font-bold font-general mb-6">
-                Ready to grow your portfolio with <span className="text-gradient">TradeSuccess</span>?
-              </h2>
-              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                We're here to help you make smarter crypto decisions — whether you want to trade manually, use a bot, or let us manage your entire portfolio.
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <Button className="glow-button text-crypto-dark font-semibold">
-                  Explore Services
-                </Button>
-                <Button variant="outline" className="border-crypto-green text-crypto-green hover:bg-crypto-green hover:text-crypto-dark">
-                  View Pricing
-                </Button>
-                <Button className="bg-crypto-green hover:bg-crypto-green/90 text-crypto-dark font-semibold">
-                  Get Started Today
-                </Button>
+            <div className="glass-card p-12 rounded-3xl text-center relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-crypto-green/10 via-transparent to-crypto-green/10"></div>
+              <div className="relative z-10">
+                <h2 className="text-4xl font-bold font-general mb-6">
+                  Ready to grow your portfolio with <span className="text-gradient">TradeSuccess?</span>
+                </h2>
+                <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                  We're here to help you make smarter crypto decisions — whether you want to trade manually, use a bot, or let us manage your entire portfolio.
+                </p>
+                <div className="flex gap-4 justify-center">
+                  <Button className="glow-button text-crypto-dark font-semibold text-lg px-8 py-4 h-auto">
+                    Explore Services
+                  </Button>
+                  <Button variant="outline" className="border-crypto-green text-crypto-green hover:bg-crypto-green hover:text-crypto-dark text-lg px-8 py-4 h-auto">
+                    View Pricing
+                  </Button>
+                  <Button className="glow-button text-crypto-dark font-semibold text-lg px-8 py-4 h-auto">
+                    Get Started Today
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

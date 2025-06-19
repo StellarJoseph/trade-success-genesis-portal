@@ -7,16 +7,16 @@
 
 @layer base {
   :root {
-    --background: 16 15 25;
+    --background: 0 0 0;
     --foreground: 255 255 255;
     --card: 19 19 63;
     --card-foreground: 255 255 255;
-    --popover: 16 15 25;
+    --popover: 0 0 0;
     --popover-foreground: 255 255 255;
     --primary: 150 240 72;
-    --primary-foreground: 16 15 25;
+    --primary-foreground: 0 0 0;
     --secondary: 115 226 18;
-    --secondary-foreground: 16 15 25;
+    --secondary-foreground: 0 0 0;
     --muted: 39 41 238;
     --muted-foreground: 255 255 255;
     --accent: 39 41 238;
@@ -40,8 +40,8 @@
   }
 
   body {
-    @apply bg-crypto-dark text-white font-inter antialiased;
-    background: linear-gradient(135deg, #100F19 0%, #07051e 50%, #13133f 100%);
+    @apply bg-black text-white font-inter antialiased;
+    background: #000000;
     background-attachment: fixed;
   }
   

@@ -9,12 +9,12 @@ const Pricing = () => {
 
   const signalPlans = [
     {
-      name: "Pro Plan",
-      price: 19.99,
+      name: "Trading Bot",
+      price: 299,
       duration: "month",
       originalPrice: null,
       popular: false,
-      promo: "$50 First Month Promo",
+      promo: null,
       features: [
         "Auto-Buy & Sell Orders",
         "Enhanced Efficiency", 
@@ -23,34 +23,34 @@ const Pricing = () => {
       ]
     },
     {
-      name: "Business Plan",
-      price: 99.99,
+      name: "VIP Signals",
+      price: 99,
       duration: "month",
       originalPrice: null,
       popular: true,
       promo: null,
       features: [
-        "Auto-Buy & Sell Orders",
+        "5-7 Daily Premium Signals",
+        "Entry, Stop Loss & Take Profit",
         "Enhanced Efficiency",
         "Customizable Dashboards", 
-        "Scalability for Growth",
         "Priority Support",
         "Advanced Analytics"
       ]
     },
     {
-      name: "Lifetime Access",
+      name: "40 Day Challenge",
       price: 499,
-      duration: "lifetime",
+      duration: "40 Days",
       originalPrice: null,
       popular: false,
-      promo: null,
+      promo: "Coming Soon",
       features: [
-        "All Business Plan Features",
-        "Lifetime Updates",
-        "VIP Support",
-        "Exclusive Strategies",
-        "Personal Account Manager"
+        "Intensive Training Program",
+        "Personal Guidance",
+        "Expert Trade Analysis",
+        "Exclusive Community Access",
+        "2200-4000% ROI Target"
       ]
     }
   ];
@@ -58,11 +58,11 @@ const Pricing = () => {
   const challengePlans = [
     {
       name: "40-Day Challenge",
-      price: 999,
+      price: 499,
       duration: "40 Days",
       originalPrice: null,
       popular: true,
-      promo: "Limited Spots Available",
+      promo: "Coming Soon",
       features: [
         "1 Powerful Signal Daily",
         "2200-4000% ROI Target",

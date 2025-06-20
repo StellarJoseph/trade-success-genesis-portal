@@ -26,7 +26,7 @@ const Features = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold font-general mb-6">
             Decentralized Trading For{' '}
-            <span className="text-gradient">Reasonable Price</span>
+            <span className="text-gradient">Everyone</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Experience the future of cryptocurrency trading with our cutting-edge platform

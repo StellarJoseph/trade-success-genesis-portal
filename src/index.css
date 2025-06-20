@@ -79,6 +79,20 @@
     background-clip: text;
   }
 
+  /* Continuous Scroll Animation */
+  @keyframes scroll-infinite {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll-infinite {
+    animation: scroll-infinite 30s linear infinite;
+  }
+
   /* Pricing Card Animations */
   .pricing-card {
     animation: cardEntrance 0.8s ease-out forwards;
@@ -209,6 +223,10 @@
     .glass-card {
       background: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(5px);
+    }
+
+    .animate-scroll-infinite {
+      animation: scroll-infinite 20s linear infinite;
     }
   }
 }

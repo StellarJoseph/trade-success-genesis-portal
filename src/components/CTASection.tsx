@@ -14,8 +14,8 @@ const CTASection = () => {
 
           <div className="relative z-10">
             <h2 className="text-4xl md:text-6xl font-bold font-general mb-6">
-              Let's Start Your Crypto{' '}
-              <span className="text-gradient">Investment Now!</span>
+              Activate Your Bot, Fund Your Account,{' '}
+              <span className="text-gradient">and Earn Profits Daily</span>
             </h2>
             
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">

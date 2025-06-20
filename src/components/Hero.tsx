@@ -1,5 +1,6 @@
 
 import { Button } from '@/components/ui/button';
+import { Bitcoin } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -10,10 +11,28 @@ const Hero = () => {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-crypto-green/10 rounded-full blur-3xl animate-float"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-crypto-green-light/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
         
-        {/* Circular badge element like in reference */}
+        {/* Floating Icons */}
         <div className="absolute top-32 right-1/4 w-24 h-24 border border-crypto-green/30 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '2s' }}>
           <div className="w-12 h-12 bg-crypto-green/20 rounded-full flex items-center justify-center">
-            <span className="text-crypto-green text-xs font-bold">VIP</span>
+            <Bitcoin className="w-6 h-6 text-crypto-green" />
+          </div>
+        </div>
+
+        <div className="absolute top-48 left-16 w-20 h-20 border border-crypto-green/20 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '3s' }}>
+          <div className="w-10 h-10 bg-crypto-green/15 rounded-full flex items-center justify-center">
+            <span className="text-crypto-green text-xs font-bold">SOL</span>
+          </div>
+        </div>
+
+        <div className="absolute bottom-32 left-1/3 w-18 h-18 border border-crypto-green/25 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '4s' }}>
+          <div className="w-8 h-8 bg-crypto-green/20 rounded-full flex items-center justify-center">
+            <span className="text-crypto-green text-xs font-bold">USDT</span>
+          </div>
+        </div>
+
+        <div className="absolute top-64 right-12 w-16 h-16 border border-crypto-green/20 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '5s' }}>
+          <div className="w-8 h-8 bg-crypto-green/15 rounded-full flex items-center justify-center">
+            <span className="text-crypto-green text-xs font-bold">⛏</span>
           </div>
         </div>
       </div>
@@ -22,11 +41,6 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="text-center lg:text-left">
-            {/* Badge like in reference */}
-            <div className="inline-flex items-center gap-2 mb-6 text-crypto-green">
-              <span className="text-sm">🔥 Best Crypto Template</span>
-            </div>
-            
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-general mb-6 leading-tight">
               Make Your life{' '}
               <span className="text-gradient">Easier With</span>{' '}
@@ -54,18 +68,18 @@ const Hero = () => {
               </Button>
             </div>
 
-            {/* Stats */}
+            {/* Updated Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-crypto-green/20">
               <div className="text-center">
-                <div className="text-2xl font-bold text-crypto-green">84M+</div>
+                <div className="text-2xl font-bold text-crypto-green">400+</div>
                 <div className="text-sm text-gray-400">Users</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-crypto-green">49M+</div>
-                <div className="text-sm text-gray-400">Transactions</div>
+                <div className="text-2xl font-bold text-crypto-green">300+</div>
+                <div className="text-sm text-gray-400">Monthly Signals</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-crypto-green">79M+</div>
+                <div className="text-2xl font-bold text-crypto-green">$12M+</div>
                 <div className="text-sm text-gray-400">Profit Made</div>
               </div>
             </div>

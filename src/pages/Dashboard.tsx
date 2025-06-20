@@ -24,7 +24,8 @@ import {
   Eye,
   RefreshCw,
   ArrowUpRight,
-  ArrowDownRight
+  ArrowDownRight,
+  Send
 } from 'lucide-react';
 
 const Dashboard = () => {

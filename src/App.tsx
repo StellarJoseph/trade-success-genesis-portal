@@ -11,6 +11,7 @@ import Pricing from "./pages/Pricing";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
+import AdminDashboard from "./pages/AdminDashboard";
 import Shop from "./pages/Shop";
 import Courses from "./pages/Courses";
 import Consultancy from "./pages/Consultancy";
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/shop/courses" element={<Courses />} />
           <Route path="/shop/consultancy" element={<Consultancy />} />

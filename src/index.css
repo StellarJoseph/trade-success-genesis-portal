@@ -13,7 +13,7 @@
     --card-foreground: 255 255 255;
     --popover: 0 0 0;
     --popover-foreground: 255 255 255;
-    --primary: 150 240 72;
+    --primary: 115 226 18;
     --primary-foreground: 0 0 0;
     --secondary: 115 226 18;
     --secondary-foreground: 0 0 0;
@@ -25,7 +25,7 @@
     --destructive-foreground: 255 255 255;
     --border: 115 226 18;
     --input: 19 19 63;
-    --ring: 150 240 72;
+    --ring: 115 226 18;
     --radius: 0.5rem;
   }
 }
@@ -48,13 +48,13 @@
   .glass-card {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(150, 240, 72, 0.2);
+    border: 1px solid rgba(115, 226, 18, 0.2);
   }
   
   .glow-button {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(45deg, #96F048, #73E212);
+    background: linear-gradient(45deg, #73E212, #73E212);
     border: 2px solid transparent;
     background-clip: padding-box;
   }
@@ -66,14 +66,14 @@
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #96F048, #73E212, #96F048, #73E212);
+    background: linear-gradient(45deg, #73E212, #73E212, #73E212, #73E212);
     border-radius: inherit;
     z-index: -1;
     animation: border-glow 3s linear infinite;
   }
   
   .text-gradient {
-    background: linear-gradient(45deg, #96F048, #73E212);
+    background: linear-gradient(45deg, #73E212, #73E212);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -101,7 +101,7 @@
     content: '';
     position: absolute;
     inset: -2px;
-    background: linear-gradient(45deg, #96F048, #73E212, #96F048);
+    background: linear-gradient(45deg, #73E212, #73E212, #73E212);
     border-radius: 1.75rem;
     z-index: -1;
     animation: popularGlow 2s ease-in-out infinite alternate;
@@ -110,11 +110,11 @@
   @keyframes popularGlow {
     0% {
       opacity: 0.5;
-      box-shadow: 0 0 20px rgba(150, 240, 72, 0.3);
+      box-shadow: 0 0 20px rgba(115, 226, 18, 0.3);
     }
     100% {
       opacity: 0.8;
-      box-shadow: 0 0 40px rgba(150, 240, 72, 0.6);
+      box-shadow: 0 0 40px rgba(115, 226, 18, 0.6);
     }
   }
 
@@ -135,19 +135,80 @@
   /* Glowing Border Animation */
   @keyframes border-glow {
     0% {
-      background: linear-gradient(0deg, #96F048, #73E212, #96F048);
+      background: linear-gradient(0deg, #73E212, #73E212, #73E212);
     }
     25% {
-      background: linear-gradient(90deg, #96F048, #73E212, #96F048);
+      background: linear-gradient(90deg, #73E212, #73E212, #73E212);
     }
     50% {
-      background: linear-gradient(180deg, #96F048, #73E212, #96F048);
+      background: linear-gradient(180deg, #73E212, #73E212, #73E212);
     }
     75% {
-      background: linear-gradient(270deg, #96F048, #73E212, #96F048);
+      background: linear-gradient(270deg, #73E212, #73E212, #73E212);
     }
     100% {
-      background: linear-gradient(360deg, #96F048, #73E212, #96F048);
+      background: linear-gradient(360deg, #73E212, #73E212, #73E212);
+    }
+  }
+
+  /* Page Transition Animations */
+  .page-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .page-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+
+  .page-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .page-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+
+  /* Tab Transition Animations */
+  .tab-content-enter {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+
+  .tab-content-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  }
+
+  .tab-content-exit {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .tab-content-exit-active {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  }
+
+  /* Smooth Scrolling */
+  @media (prefers-reduced-motion: no-preference) {
+    .smooth-scroll {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .glass-card {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
     }
   }
 }

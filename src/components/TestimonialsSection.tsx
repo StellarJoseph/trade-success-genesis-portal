@@ -40,12 +40,17 @@ const TestimonialsSection = () => {
   ];
 
   const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentIndex((prev) => (prev + 2) % testimonials.length);
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex((prev) => (prev - 2 + testimonials.length) % testimonials.length);
   };
+
+  const currentTestimonials = [
+    testimonials[currentIndex],
+    testimonials[(currentIndex + 1) % testimonials.length]
+  ];
 
   return (
     <section className="py-20">
@@ -60,58 +65,60 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
-          <div className="glass-card p-8 md:p-12 rounded-3xl">
-            <div className="grid md:grid-cols-3 gap-8 items-center">
-              <div className="text-center">
-                <div className="w-24 h-24 bg-gradient-to-r from-crypto-green to-crypto-green-light rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-crypto-dark font-bold text-xl">
-                    {testimonials[currentIndex].image}
-                  </span>
+        <div className="relative max-w-6xl mx-auto">
+          {/* Desktop: 2 cards side-by-side, Mobile: stacked */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {currentTestimonials.map((testimonial, index) => (
+              <div key={index} className="glass-card p-8 rounded-3xl shadow-lg border border-crypto-green/20 hover:border-crypto-green/40 transition-all duration-300">
+                <div className="text-center mb-6">
+                  <div className="w-20 h-20 bg-gradient-to-r from-crypto-green to-crypto-green-light rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-crypto-dark font-bold text-lg">
+                      {testimonial.image}
+                    </span>
+                  </div>
+                  <div className="text-white font-bold text-lg">{testimonial.name}</div>
+                  <div className="text-gray-400 mb-2">{testimonial.role}</div>
+                  <div className="text-crypto-green font-bold text-xl">{testimonial.profit}</div>
+                  <div className="text-xs text-gray-400">Portfolio Growth</div>
                 </div>
-                <div className="text-white font-bold text-lg">{testimonials[currentIndex].name}</div>
-                <div className="text-gray-400 mb-4">{testimonials[currentIndex].role}</div>
-                <div className="text-crypto-green font-bold text-xl">{testimonials[currentIndex].profit}</div>
-                <div className="text-xs text-gray-400">Portfolio Growth</div>
-              </div>
 
-              <div className="md:col-span-2">
-                <div className="flex mb-4">
-                  {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                <div className="flex justify-center mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
                     <span key={i} className="text-crypto-green text-xl">★</span>
                   ))}
                 </div>
                 
-                <blockquote className="text-xl text-gray-300 italic mb-6">
-                  "{testimonials[currentIndex].content}"
+                <blockquote className="text-lg text-gray-300 italic text-center">
+                  "{testimonial.content}"
                 </blockquote>
-
-                <div className="flex gap-4">
-                  <button
-                    onClick={prevTestimonial}
-                    className="w-12 h-12 border border-crypto-green/30 rounded-full flex items-center justify-center hover:border-crypto-green/60 transition-colors"
-                  >
-                    <span className="text-crypto-green">←</span>
-                  </button>
-                  <button
-                    onClick={nextTestimonial}
-                    className="w-12 h-12 border border-crypto-green/30 rounded-full flex items-center justify-center hover:border-crypto-green/60 transition-colors"
-                  >
-                    <span className="text-crypto-green">→</span>
-                  </button>
-                </div>
               </div>
-            </div>
+            ))}
+          </div>
+
+          {/* Navigation */}
+          <div className="flex justify-center gap-4 mt-8">
+            <button
+              onClick={prevTestimonial}
+              className="w-12 h-12 border border-crypto-green/30 rounded-full flex items-center justify-center hover:border-crypto-green/60 transition-colors"
+            >
+              <span className="text-crypto-green">←</span>
+            </button>
+            <button
+              onClick={nextTestimonial}
+              className="w-12 h-12 border border-crypto-green/30 rounded-full flex items-center justify-center hover:border-crypto-green/60 transition-colors"
+            >
+              <span className="text-crypto-green">→</span>
+            </button>
           </div>
 
           {/* Dots indicator */}
-          <div className="flex justify-center gap-2 mt-8">
-            {testimonials.map((_, index) => (
+          <div className="flex justify-center gap-2 mt-6">
+            {Array.from({ length: Math.ceil(testimonials.length / 2) }).map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => setCurrentIndex(index * 2)}
                 className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentIndex ? 'bg-crypto-green' : 'bg-crypto-green/30'
+                  Math.floor(currentIndex / 2) === index ? 'bg-crypto-green' : 'bg-crypto-green/30'
                 }`}
               />
             ))}

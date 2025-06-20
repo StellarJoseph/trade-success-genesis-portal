@@ -40,7 +40,7 @@ const Features = () => {
               key={index}
               className="glass-card p-8 rounded-3xl hover:border-crypto-green/40 transition-all duration-300 group hover:transform hover:scale-105"
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-crypto-green to-crypto-green-light rounded-2xl flex items-center justify-center mb-6 group-hover:animate-glow-pulse">
+              <div className="w-20 h-20 bg-gradient-to-r from-crypto-green to-crypto-green-light rounded-2xl flex items-center justify-center mb-6 group-hover:animate-glow-pulse">
                 <div className="text-crypto-dark">
                   {feature.icon}
                 </div>

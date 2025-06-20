@@ -4,6 +4,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Switch } from '@/components/ui/switch';
+import NotificationsModal from '@/components/NotificationsModal';
+import SettingsSidebar from '@/components/SettingsSidebar';
+import SettingsContent from '@/components/SettingsContent';
 import { 
   TrendingUp, 
   Wallet, 
@@ -42,6 +45,8 @@ const Dashboard = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [payoutAmount, setPayoutAmount] = useState('');
   const [showPayoutForm, setShowPayoutForm] = useState(false);
+  const [showNotificationsModal, setShowNotificationsModal] = useState(false);
+  const [activeSettingsSection, setActiveSettingsSection] = useState('account');
   const [bankAccount, setBankAccount] = useState({
     accountName: '',
     accountNumber: '',
@@ -193,11 +198,16 @@ const Dashboard = () => {
                 />
                 <Moon className={`w-4 h-4 ${isDarkMode ? 'text-[#73E212]' : 'text-gray-400'}`} />
               </div>
-              <Button variant="outline" size="sm" className={`transition-colors ${
-                isDarkMode 
-                  ? 'border-[#73E212]/30 text-[#73E212] hover:bg-[#73E212]/10' 
-                  : 'border-[#73E212] text-[#73E212] hover:bg-[#73E212]/10'
-              }`}>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={() => setShowNotificationsModal(true)}
+                className={`transition-colors hover:border-[#73E212]/50 ${
+                  isDarkMode 
+                    ? 'border-[#73E212]/30 text-[#73E212] hover:bg-[#73E212]/10' 
+                    : 'border-[#73E212] text-[#73E212] hover:bg-[#73E212]/10'
+                }`}
+              >
                 <Bell className="w-4 h-4 mr-2" />
                 Notifications
               </Button>
@@ -217,7 +227,7 @@ const Dashboard = () => {
       <div className="container mx-auto px-4 py-8">
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card className={`transition-colors duration-300 ${
+          <Card className={`transition-colors duration-300 hover:border-[#73E212]/50 ${
             isDarkMode 
               ? 'glass-card border-[#73E212]/20 bg-black/40' 
               : 'border-gray-200 bg-white shadow-sm'
@@ -237,7 +247,7 @@ const Dashboard = () => {
             </CardContent>
           </Card>
 
-          <Card className={`transition-colors duration-300 ${
+          <Card className={`transition-colors duration-300 hover:border-[#73E212]/50 ${
             isDarkMode 
               ? 'glass-card border-[#73E212]/20 bg-black/40' 
               : 'border-gray-200 bg-white shadow-sm'
@@ -254,7 +264,7 @@ const Dashboard = () => {
             </CardContent>
           </Card>
 
-          <Card className={`transition-colors duration-300 ${
+          <Card className={`transition-colors duration-300 hover:border-[#73E212]/50 ${
             isDarkMode 
               ? 'glass-card border-[#73E212]/20 bg-black/40' 
               : 'border-gray-200 bg-white shadow-sm'
@@ -271,7 +281,7 @@ const Dashboard = () => {
             </CardContent>
           </Card>
 
-          <Card className={`transition-colors duration-300 ${
+          <Card className={`transition-colors duration-300 hover:border-[#73E212]/50 ${
             isDarkMode 
               ? 'glass-card border-[#73E212]/20 bg-black/40' 
               : 'border-gray-200 bg-white shadow-sm'
@@ -295,13 +305,48 @@ const Dashboard = () => {
               ? 'bg-black/60 border-[#73E212]/20' 
               : 'bg-gray-100 border-gray-200'
           }`}>
-            <TabsTrigger value="portfolio" className="data-[state=active]:bg-[#73E212] data-[state=active]:text-black">Portfolio</TabsTrigger>
-            <TabsTrigger value="signals" className="data-[state=active]:bg-[#73E212] data-[state=active]:text-black">Live Signals</TabsTrigger>
-            <TabsTrigger value="subscription" className="data-[state=active]:bg-[#73E212] data-[state=active]:text-black">Subscription</TabsTrigger>
-            <TabsTrigger value="payments" className="data-[state=active]:bg-[#73E212] data-[state=active]:text-black">Payments</TabsTrigger>
-            <TabsTrigger value="reports" className="data-[state=active]:bg-[#73E212] data-[state=active]:text-black">Reports</TabsTrigger>
-            <TabsTrigger value="community" className="data-[state=active]:bg-[#73E212] data-[state=active]:text-black">Community</TabsTrigger>
-            <TabsTrigger value="settings" className="data-[state=active]:bg-[#73E212] data-[state=active]:text-black">Settings</TabsTrigger>
+            <TabsTrigger 
+              value="portfolio" 
+              className="data-[state=active]:bg-[#73E212] data-[state=active]:text-black hover:border hover:border-[#73E212] hover:rounded-md transition-all"
+            >
+              Portfolio
+            </TabsTrigger>
+            <TabsTrigger 
+              value="signals" 
+              className="data-[state=active]:bg-[#73E212] data-[state=active]:text-black hover:border hover:border-[#73E212] hover:rounded-md transition-all"
+            >
+              Live Signals
+            </TabsTrigger>
+            <TabsTrigger 
+              value="subscription" 
+              className="data-[state=active]:bg-[#73E212] data-[state=active]:text-black hover:border hover:border-[#73E212] hover:rounded-md transition-all"
+            >
+              Subscription
+            </TabsTrigger>
+            <TabsTrigger 
+              value="reports" 
+              className="data-[state=active]:bg-[#73E212] data-[state=active]:text-black hover:border hover:border-[#73E212] hover:rounded-md transition-all"
+            >
+              Reports
+            </TabsTrigger>
+            <TabsTrigger 
+              value="payments" 
+              className="data-[state=active]:bg-[#73E212] data-[state=active]:text-black hover:border hover:border-[#73E212] hover:rounded-md transition-all"
+            >
+              Payments
+            </TabsTrigger>
+            <TabsTrigger 
+              value="community" 
+              className="data-[state=active]:bg-[#73E212] data-[state=active]:text-black hover:border hover:border-[#73E212] hover:rounded-md transition-all"
+            >
+              Community
+            </TabsTrigger>
+            <TabsTrigger 
+              value="settings" 
+              className="data-[state=active]:bg-[#73E212] data-[state=active]:text-black hover:border hover:border-[#73E212] hover:rounded-md transition-all"
+            >
+              Settings
+            </TabsTrigger>
           </TabsList>
 
           {/* Portfolio Overview */}
@@ -983,96 +1028,35 @@ const Dashboard = () => {
             </div>
           </TabsContent>
 
-          {/* Settings Panel */}
+          {/* Settings Panel with Sidebar Layout */}
           <TabsContent value="settings" className="space-y-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <Card className={`transition-colors duration-300 ${
-                isDarkMode 
-                  ? 'glass-card border-[#73E212]/20 bg-black/40' 
-                  : 'border-gray-200 bg-white shadow-sm'
-              }`}>
-                <CardHeader>
-                  <CardTitle className={`font-general flex items-center ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                    <User className="w-5 h-5 mr-2 text-[#73E212]" />
-                    Profile Settings
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-2">
-                    <label className="text-sm text-gray-400">Full Name</label>
-                    <input 
-                      type="text" 
-                      defaultValue="John Doe"
-                      className={`w-full p-3 rounded border transition-colors ${
-                        isDarkMode 
-                          ? 'bg-[#73E212]/10 border-[#73E212]/30 text-white' 
-                          : 'bg-white border-gray-300 text-black'
-                      }`}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm text-gray-400">Email</label>
-                    <input 
-                      type="email" 
-                      defaultValue="john@example.com"
-                      className={`w-full p-3 rounded border transition-colors ${
-                        isDarkMode 
-                          ? 'bg-[#73E212]/10 border-[#73E212]/30 text-white' 
-                          : 'bg-white border-gray-300 text-black'
-                      }`}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm text-gray-400">Phone</label>
-                    <input 
-                      type="tel" 
-                      defaultValue="+1 (555) 123-4567"
-                      className={`w-full p-3 rounded border transition-colors ${
-                        isDarkMode 
-                          ? 'bg-[#73E212]/10 border-[#73E212]/30 text-white' 
-                          : 'bg-white border-gray-300 text-black'
-                      }`}
-                    />
-                  </div>
-                  <Button className="w-full bg-[#73E212] text-black font-semibold hover:bg-[#73E212]/90">
-                    Update Profile
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className={`transition-colors duration-300 ${
-                isDarkMode 
-                  ? 'glass-card border-[#73E212]/20 bg-black/40' 
-                  : 'border-gray-200 bg-white shadow-sm'
-              }`}>
-                <CardHeader>
-                  <CardTitle className={`font-general flex items-center ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                    <Lock className="w-5 h-5 mr-2 text-[#73E212]" />
-                    Security Settings
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {[
-                    { icon: Lock, text: 'Change Password' },
-                    { icon: Shield, text: 'Enable 2FA' },
-                    { icon: Wallet, text: 'Link Wallets' },
-                    { icon: Eye, text: 'Privacy Settings' }
-                  ].map((item, index) => (
-                    <Button key={index} variant="outline" className={`w-full justify-start transition-colors ${
-                      isDarkMode 
-                        ? 'border-[#73E212]/30 text-[#73E212] hover:bg-[#73E212]/10' 
-                        : 'border-[#73E212] text-[#73E212] hover:bg-[#73E212]/10'
-                    }`}>
-                      <item.icon className="w-4 h-4 mr-2" />
-                      {item.text}
-                    </Button>
-                  ))}
-                </CardContent>
-              </Card>
-            </div>
+            <Card className={`transition-colors duration-300 ${
+              isDarkMode 
+                ? 'glass-card border-[#73E212]/20 bg-black/40' 
+                : 'border-gray-200 bg-white shadow-sm'
+            }`}>
+              <div className="flex min-h-[600px]">
+                <SettingsSidebar 
+                  activeSection={activeSettingsSection}
+                  onSectionChange={setActiveSettingsSection}
+                  isDarkMode={isDarkMode}
+                />
+                <SettingsContent 
+                  activeSection={activeSettingsSection}
+                  isDarkMode={isDarkMode}
+                />
+              </div>
+            </Card>
           </TabsContent>
         </Tabs>
       </div>
+
+      {/* Notifications Modal */}
+      <NotificationsModal 
+        isOpen={showNotificationsModal}
+        onClose={() => setShowNotificationsModal(false)}
+        isDarkMode={isDarkMode}
+      />
     </div>
   );
 };

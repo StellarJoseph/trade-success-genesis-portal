@@ -1,4 +1,3 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -7,19 +6,19 @@ import UnifiedPricingCard from '@/components/UnifiedPricingCard';
 const About = () => {
   const impactNumbers = [
     {
-      value: "$2.5M+",
-      label: "Assets Under Management",
+      value: "70K+",
+      label: "Active Traders",
       description: "Trusted by investors worldwide"
     },
     {
-      value: "300+",
-      label: "Signals Delivered",
+      value: "$6M+",
+      label: "Trading Volume",
       description: "Expert calls sent globally"
     },
     {
-      value: "135+",
-      label: "Growing Investors",
-      description: "Active members daily"
+      value: "19+",
+      label: "Countries",
+      description: "Growing investors daily"
     }
   ];
 
@@ -43,6 +42,42 @@ const About = () => {
       title: "Smart Automation",
       description: "Designed for speed, scalability, and ease-of-use.",
       icon: "🤖"
+    }
+  ];
+
+  const clientSegments = [
+    {
+      title: "Wealth Managers",
+      description: "Designed for family offices, private wealth advisors, and institutional portfolio managers.",
+      image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&h=300&fit=crop",
+      features: [
+        "Multi-asset portfolio management",
+        "Institutional dashboard views", 
+        "Custom strategy support",
+        "Risk-adjusted profile configurations"
+      ]
+    },
+    {
+      title: "Personal Investors",
+      description: "Secure, simplified crypto for everyday investors.",
+      image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop",
+      features: [
+        "Daily trading signals",
+        "Auto-buy/sell bots",
+        "ROI reporting",
+        "Full privacy control"
+      ]
+    },
+    {
+      title: "Commercial Clients",
+      description: "Infrastructure for trading firms and startups.",
+      image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=400&h=300&fit=crop",
+      features: [
+        "Signal API",
+        "KYC & multi-user dashboards",
+        "DeFi-friendly control structures",
+        "Onboarding & scaling support"
+      ]
     }
   ];
 
@@ -81,7 +116,7 @@ const About = () => {
   ];
 
   const partners = [
-    "Binance", "CoinMarketCap", "Bybit", "Maestro Bot", "Solana", "Ledger"
+    "Binance", "Bull X", "Bybit", "Maestro Bot", "Solana", "Ledger"
   ];
 
   return (
@@ -92,30 +127,23 @@ const About = () => {
         {/* Hero Section */}
         <section className="py-20 relative overflow-hidden">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h1 className="text-5xl md:text-6xl font-bold font-general mb-6">
-                  We're on a mission to simplify and scale <span className="text-gradient">crypto investing</span> for everyone.
-                </h1>
-                <p className="text-xl text-gray-300 leading-relaxed mb-8">
-                  Our goal is to eliminate complexity from crypto trading and portfolio growth — helping beginners, busy professionals, and seasoned investors make smarter decisions with automation, expert signals, and full portfolio visibility.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <Button className="glow-button text-crypto-dark font-semibold">
-                    Learn More
-                  </Button>
-                  <Button variant="outline" className="border-crypto-green text-crypto-green hover:bg-crypto-green hover:text-crypto-dark">
-                    View Services
-                  </Button>
-                </div>
-              </div>
-              <div className="relative">
-                <div className="w-80 h-80 mx-auto relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-crypto-green/20 to-crypto-green-light/20 rounded-full animate-pulse"></div>
-                  <div className="absolute top-10 left-10 w-16 h-16 bg-crypto-green/30 rounded-full animate-bounce"></div>
-                  <div className="absolute bottom-10 right-10 w-12 h-12 bg-crypto-green/40 rounded-full animate-pulse"></div>
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-6xl">🌍</div>
-                </div>
+            <div className="text-center max-w-6xl mx-auto">
+              <h1 className="text-5xl md:text-6xl font-bold font-general mb-6">
+                Revolutionizing Crypto Trading—<span className="text-gradient">One Strategy at a Time</span>
+              </h1>
+              <p className="text-xl text-gray-300 leading-relaxed mb-8 max-w-4xl mx-auto">
+                At TradeSuccess.VIP, we're transforming how people trade crypto by combining AI-powered automation (trading bots), real-time market data, and proven signal strategies—all in one seamless experience.
+              </p>
+              <p className="text-xl text-gray-300 leading-relaxed mb-12 max-w-4xl mx-auto">
+                Trusted by a growing global community of 70,000+ traders, we empower both beginners and experienced investors to trade smarter, reduce risk, and grow their portfolios with confidence. Whether you're after daily profit signals, bot-powered trades, or fully managed portfolios, our platform provides everything you need—securely and transparently. Join the future of crypto trading. Let results speak for themselves.
+              </p>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <Button className="glow-button text-crypto-dark font-semibold">
+                  Explore Our Services
+                </Button>
+                <Button variant="outline" className="border-crypto-green text-crypto-green hover:bg-crypto-green hover:text-crypto-dark">
+                  View Membership Plans
+                </Button>
               </div>
             </div>
           </div>
@@ -126,7 +154,7 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-3 gap-8">
               {impactNumbers.map((stat, index) => (
-                <div key={index} className="glass-card p-8 rounded-3xl text-center hover:border-crypto-green/40 transition-all duration-300">
+                <div key={index} className="glass-card p-8 rounded-3xl text-center hover:border-crypto-green/40 transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="text-4xl font-bold text-crypto-green mb-2 font-general">
                     {stat.value}
                   </div>
@@ -138,34 +166,55 @@ const About = () => {
           </div>
         </section>
 
-        {/* Market Shift Highlight */}
+        {/* Who We Serve Section */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="relative">
-                <div className="w-80 h-80 mx-auto relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-crypto-green/10 to-transparent rounded-full"></div>
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-8xl">💰</div>
-                </div>
-              </div>
-              <div>
-                <h2 className="text-4xl font-bold font-general mb-6">
-                  A new era of <span className="text-gradient">crypto investments</span> has arrived
-                </h2>
-                <p className="text-xl text-gray-300 leading-relaxed mb-8">
-                  Decentralized finance is reshaping how wealth is built. TradeSuccess helps you benefit from this shift with hands-free tools, trusted signals, and institutional-grade management options.
-                </p>
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="glass-card p-6 rounded-2xl">
-                    <div className="text-2xl font-bold text-crypto-green">268%</div>
-                    <div className="text-gray-400">Investment Growth YoY</div>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold font-general mb-6">
+                Who We <span className="text-gradient">Serve</span>
+              </h2>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                Whether you're trading solo or managing portfolios for others, we have tools built just for you.
+              </p>
+            </div>
+            
+            <div className="grid lg:grid-cols-3 gap-8 mb-12">
+              {clientSegments.map((segment, index) => (
+                <div
+                  key={index}
+                  className="glass-card rounded-3xl overflow-hidden hover:border-crypto-green/40 transition-all duration-300 group animate-fade-in"
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  <div className="relative overflow-hidden">
+                    <img 
+                      src={segment.image} 
+                      alt={segment.title}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div className="absolute bottom-4 left-6">
+                      <h3 className="text-2xl font-bold font-general text-white mb-2">
+                        {segment.title}
+                      </h3>
+                    </div>
                   </div>
-                  <div className="glass-card p-6 rounded-2xl">
-                    <div className="text-2xl font-bold text-crypto-green">1K+</div>
-                    <div className="text-gray-400">Daily New Members</div>
+                  
+                  <div className="p-8">
+                    <p className="text-gray-300 mb-6">
+                      {segment.description}
+                    </p>
+                    
+                    <ul className="space-y-3">
+                      {segment.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center text-sm text-gray-300">
+                          <div className="w-2 h-2 bg-crypto-green rounded-full mr-3 flex-shrink-0"></div>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -180,7 +229,7 @@ const About = () => {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {coreValues.map((value, index) => (
-                <div key={index} className="glass-card p-8 rounded-3xl text-center hover:border-crypto-green/40 transition-all duration-300 group">
+                <div key={index} className="glass-card p-8 rounded-3xl text-center hover:border-crypto-green/40 transition-all duration-300 group animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
                     {value.icon}
                   </div>
@@ -192,52 +241,6 @@ const About = () => {
                   </p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Who We Serve */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12">
-              <div className="glass-card p-12 rounded-3xl">
-                <h3 className="text-3xl font-bold font-general mb-6 text-gradient">
-                  Personal Investors
-                </h3>
-                <ul className="space-y-4 text-gray-300">
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-4"></div>
-                    Confidentiality and privacy-first
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-4"></div>
-                    Easy access to signals and insights
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-4"></div>
-                    Secure auto-buy/sell feature
-                  </li>
-                </ul>
-              </div>
-              <div className="glass-card p-12 rounded-3xl">
-                <h3 className="text-3xl font-bold font-general mb-6 text-gradient">
-                  Commercial Clients
-                </h3>
-                <ul className="space-y-4 text-gray-300">
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-4"></div>
-                    Automation-ready tools for institutions
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-4"></div>
-                    Regulatory-friendly structures
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-crypto-green rounded-full mr-4"></div>
-                    Portfolio control for DeFi startups
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
         </section>

@@ -11,28 +11,28 @@ const Hero = () => {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-crypto-green/10 rounded-full blur-3xl animate-float"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-crypto-green-light/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
         
-        {/* New Floating Icons with Images */}
-        <div className="absolute top-24 right-1/4 w-20 h-20 border border-crypto-green/30 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '2s' }}>
-          <div className="w-12 h-12 bg-crypto-green/20 rounded-full flex items-center justify-center">
-            <img src="https://res.cloudinary.com/dt7mxnrxo/image/upload/v1750432714/bitcoin_7617086_xs6crd.png" alt="Bitcoin" className="w-8 h-8" />
+        {/* Enhanced Floating Icons with Images - Better spacing and larger sizes */}
+        <div className="absolute top-20 right-1/4 w-24 h-24 border border-crypto-green/30 rounded-full flex items-center justify-center animate-float shadow-lg" style={{ animationDelay: '2s' }}>
+          <div className="w-16 h-16 bg-crypto-green/20 rounded-full flex items-center justify-center">
+            <img src="https://res.cloudinary.com/dt7mxnrxo/image/upload/v1750432714/bitcoin_7617086_xs6crd.png" alt="Bitcoin" className="w-10 h-10" />
           </div>
         </div>
 
-        <div className="absolute top-32 right-12 w-18 h-18 border border-crypto-green/25 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '3s' }}>
-          <div className="w-10 h-10 bg-crypto-green/15 rounded-full flex items-center justify-center">
-            <img src="https://res.cloudinary.com/dt7mxnrxo/image/upload/v1750432713/solana_6557105_l5j1w0.png" alt="Solana" className="w-6 h-6" />
+        <div className="absolute top-36 right-8 w-20 h-20 border border-crypto-green/25 rounded-full flex items-center justify-center animate-float shadow-lg" style={{ animationDelay: '3s' }}>
+          <div className="w-12 h-12 bg-crypto-green/15 rounded-full flex items-center justify-center">
+            <img src="https://res.cloudinary.com/dt7mxnrxo/image/upload/v1750432713/solana_6557105_l5j1w0.png" alt="Solana" className="w-8 h-8" />
           </div>
         </div>
 
-        <div className="absolute top-48 right-1/3 w-16 h-16 border border-crypto-green/20 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '4s' }}>
-          <div className="w-8 h-8 bg-crypto-green/20 rounded-full flex items-center justify-center">
-            <img src="https://res.cloudinary.com/dt7mxnrxo/image/upload/v1750432714/tenge_3611642_udagom.png" alt="USDT" className="w-5 h-5" />
+        <div className="absolute top-52 right-1/3 w-18 h-18 border border-crypto-green/20 rounded-full flex items-center justify-center animate-float shadow-lg" style={{ animationDelay: '4s' }}>
+          <div className="w-10 h-10 bg-crypto-green/20 rounded-full flex items-center justify-center">
+            <img src="https://res.cloudinary.com/dt7mxnrxo/image/upload/v1750432714/tenge_3611642_udagom.png" alt="USDT" className="w-6 h-6" />
           </div>
         </div>
 
-        <div className="absolute top-40 right-8 w-14 h-14 border border-crypto-green/20 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '5s' }}>
-          <div className="w-7 h-7 bg-crypto-green/15 rounded-full flex items-center justify-center">
-            <img src="https://res.cloudinary.com/dt7mxnrxo/image/upload/v1750432714/mining_11107279_qka6o3.png" alt="Mining" className="w-4 h-4" />
+        <div className="absolute top-44 right-12 w-16 h-16 border border-crypto-green/20 rounded-full flex items-center justify-center animate-float shadow-lg" style={{ animationDelay: '5s' }}>
+          <div className="w-8 h-8 bg-crypto-green/15 rounded-full flex items-center justify-center">
+            <img src="https://res.cloudinary.com/dt7mxnrxo/image/upload/v1750432714/mining_11107279_qka6o3.png" alt="Mining" className="w-5 h-5" />
           </div>
         </div>
 
@@ -72,12 +72,9 @@ const Hero = () => {
               </Button>
               <Button 
                 variant="outline" 
-                className="border-crypto-green text-crypto-green hover:bg-crypto-green hover:text-crypto-dark text-lg px-8 py-4 h-auto flex items-center gap-2"
+                className="border-crypto-green text-crypto-green hover:bg-crypto-green hover:text-crypto-dark text-lg px-8 py-4 h-auto"
                 onClick={() => window.location.href = '/results'}
               >
-                <div className="w-8 h-8 bg-crypto-green/20 rounded-full flex items-center justify-center">
-                  <span className="text-crypto-green">▶</span>
-                </div>
                 See Results
               </Button>
             </div>
@@ -85,7 +82,7 @@ const Hero = () => {
             {/* Updated Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-crypto-green/20">
               <div className="text-center">
-                <div className="text-2xl font-bold text-crypto-green">70,000+</div>
+                <div className="text-2xl font-bold text-crypto-green">7,000+</div>
                 <div className="text-sm text-gray-400">Users</div>
               </div>
               <div className="text-center">

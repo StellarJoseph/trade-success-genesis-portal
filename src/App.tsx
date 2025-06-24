@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -12,6 +11,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
+import AdminLogin from "./pages/AdminLogin";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Shop from "./pages/Shop";
 import Courses from "./pages/Courses";
 import Consultancy from "./pages/Consultancy";
@@ -33,7 +34,15 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin-login" element={<AdminLogin />} />
+          <Route 
+            path="/admin" 
+            element={
+              <ProtectedRoute requiredRole="admin" fallbackPath="/admin-login">
+                <AdminDashboard />
+              </ProtectedRoute>
+            } 
+          />
           <Route path="/shop" element={<Shop />} />
           <Route path="/shop/courses" element={<Courses />} />
           <Route path="/shop/consultancy" element={<Consultancy />} />

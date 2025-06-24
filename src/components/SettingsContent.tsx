@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -33,11 +32,11 @@ const SettingsContent = ({ activeSection, isDarkMode }: SettingsContentProps) =>
             isDarkMode ? 'glass-card border-[#73E212]/20 bg-black/40' : 'border-gray-200 bg-white shadow-sm'
           }`}>
             <CardHeader>
-              <CardTitle className={`${isDarkMode ? 'text-white' : 'text-black'}`}>Account Information</CardTitle>
+              <CardTitle className={`${isDarkMode ? 'text-white' : 'text-[#000]'}`}>Account Information</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <label className="text-sm text-gray-400 mb-2 block">Full Name</label>
+                <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-[#2C2C2C]'} mb-2 block`}>Full Name</p>
                 <input 
                   type="text" 
                   defaultValue="John Doe"
@@ -49,7 +48,7 @@ const SettingsContent = ({ activeSection, isDarkMode }: SettingsContentProps) =>
                 />
               </div>
               <div>
-                <label className="text-sm text-gray-400 mb-2 block">Email</label>
+                <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-[#2C2C2C]'} mb-2 block`}>Email</p>
                 <input 
                   type="email" 
                   defaultValue="john@example.com"
@@ -61,7 +60,7 @@ const SettingsContent = ({ activeSection, isDarkMode }: SettingsContentProps) =>
                 />
               </div>
               <div>
-                <label className="text-sm text-gray-400 mb-2 block">Phone Number</label>
+                <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-[#2C2C2C]'} mb-2 block`}>Phone Number</p>
                 <input 
                   type="tel" 
                   defaultValue="+1 (555) 123-4567"
@@ -72,7 +71,7 @@ const SettingsContent = ({ activeSection, isDarkMode }: SettingsContentProps) =>
                   }`}
                 />
               </div>
-              <Button className="bg-[#73E212] text-black hover:bg-[#73E212]/90">
+              <Button className={`bg-[#73E212] text-black hover:bg-[#73E212]/90 ${isDarkMode ? '' : 'bg-[#4CAF50]'}`}>
                 Update Account Info
               </Button>
             </CardContent>
@@ -85,11 +84,11 @@ const SettingsContent = ({ activeSection, isDarkMode }: SettingsContentProps) =>
             isDarkMode ? 'glass-card border-[#73E212]/20 bg-black/40' : 'border-gray-200 bg-white shadow-sm'
           }`}>
             <CardHeader>
-              <CardTitle className={`${isDarkMode ? 'text-white' : 'text-black'}`}>Trading Preferences</CardTitle>
+              <CardTitle className={`${isDarkMode ? 'text-white' : 'text-[#000]'}`}>Trading Preferences</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
-                <label className="text-sm text-gray-400 mb-2 block">Preferred Signal Types</label>
+                <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-[#2C2C2C]'} mb-2 block`}>Preferred Signal Types</p>
                 <div className="grid grid-cols-2 gap-2">
                   {['Futures', 'Altcoins', 'Memecoins', 'Gemcoins'].map((type) => (
                     <label key={type} className="flex items-center space-x-2">
@@ -100,7 +99,7 @@ const SettingsContent = ({ activeSection, isDarkMode }: SettingsContentProps) =>
                 </div>
               </div>
               <div>
-                <label className="text-sm text-gray-400 mb-2 block">Risk Level</label>
+                <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-[#2C2C2C]'} mb-2 block`}>Risk Level</p>
                 <select className={`w-full p-3 rounded border transition-colors ${
                   isDarkMode 
                     ? 'bg-[#73E212]/10 border-[#73E212]/30 text-white' 
@@ -112,7 +111,7 @@ const SettingsContent = ({ activeSection, isDarkMode }: SettingsContentProps) =>
                 </select>
               </div>
               <div>
-                <label className="text-sm text-gray-400 mb-2 block">Preferred Exchange</label>
+                <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-[#2C2C2C]'} mb-2 block`}>Preferred Exchange</p>
                 <select className={`w-full p-3 rounded border transition-colors ${
                   isDarkMode 
                     ? 'bg-[#73E212]/10 border-[#73E212]/30 text-white' 
@@ -124,7 +123,7 @@ const SettingsContent = ({ activeSection, isDarkMode }: SettingsContentProps) =>
                   <option value="kucoin">KuCoin</option>
                 </select>
               </div>
-              <Button className="bg-[#73E212] text-black hover:bg-[#73E212]/90">
+              <Button className={`bg-[#73E212] text-black hover:bg-[#73E212]/90 ${isDarkMode ? '' : 'bg-[#4CAF50]'}`}>
                 Save Preferences
               </Button>
             </CardContent>
@@ -137,13 +136,13 @@ const SettingsContent = ({ activeSection, isDarkMode }: SettingsContentProps) =>
             isDarkMode ? 'glass-card border-[#73E212]/20 bg-black/40' : 'border-gray-200 bg-white shadow-sm'
           }`}>
             <CardHeader>
-              <CardTitle className={`${isDarkMode ? 'text-white' : 'text-black'}`}>Portfolio & Wallet</CardTitle>
+              <CardTitle className={`${isDarkMode ? 'text-white' : 'text-[#000]'}`}>Portfolio & Wallet</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
                   <p className={`font-medium ${isDarkMode ? 'text-white' : 'text-black'}`}>Hide Balance</p>
-                  <p className="text-sm text-gray-400">Show/hide portfolio values</p>
+                  <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-[#2C2C2C]'}`}>Show/hide portfolio values</p>
                 </div>
                 <Switch 
                   checked={!showBalance}
@@ -152,7 +151,7 @@ const SettingsContent = ({ activeSection, isDarkMode }: SettingsContentProps) =>
                 />
               </div>
               <div>
-                <label className="text-sm text-gray-400 mb-2 block">Connected Wallets</label>
+                <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-[#2C2C2C]'} mb-2 block`}>Connected Wallets</p>
                 <div className="space-y-2">
                   <div className={`p-3 rounded border flex items-center justify-between ${
                     isDarkMode ? 'border-[#73E212]/30 bg-[#73E212]/10' : 'border-gray-300 bg-gray-50'
@@ -181,7 +180,7 @@ const SettingsContent = ({ activeSection, isDarkMode }: SettingsContentProps) =>
             isDarkMode ? 'glass-card border-[#73E212]/20 bg-black/40' : 'border-gray-200 bg-white shadow-sm'
           }`}>
             <CardHeader>
-              <CardTitle className={`${isDarkMode ? 'text-white' : 'text-black'}`}>Account Management</CardTitle>
+              <CardTitle className={`${isDarkMode ? 'text-white' : 'text-[#000]'}`}>Account Management</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className={`p-4 rounded-lg border ${
@@ -191,7 +190,7 @@ const SettingsContent = ({ activeSection, isDarkMode }: SettingsContentProps) =>
                   <AlertTriangle className="w-5 h-5 text-red-500" />
                   <h3 className="font-semibold text-red-500">Danger Zone</h3>
                 </div>
-                <p className="text-sm text-gray-400 mb-4">
+                <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-[#666]'} mb-4`}>
                   These actions are permanent and cannot be undone.
                 </p>
                 
@@ -208,7 +207,7 @@ const SettingsContent = ({ activeSection, isDarkMode }: SettingsContentProps) =>
 
                 {deleteAccountStep === 1 && (
                   <div className="space-y-3">
-                    <p className="text-sm text-red-400">
+                    <p className={`text-sm ${isDarkMode ? 'text-red-400' : 'text-[#2C2C2C]'}`}>
                       Are you sure? This will permanently delete your account and all data.
                     </p>
                     <div className="flex space-x-2">
@@ -234,7 +233,7 @@ const SettingsContent = ({ activeSection, isDarkMode }: SettingsContentProps) =>
 
                 {deleteAccountStep === 2 && (
                   <div className="space-y-3">
-                    <p className="text-sm text-red-400">
+                    <p className={`text-sm ${isDarkMode ? 'text-red-400' : 'text-[#2C2C2C]'}`}>
                       Type "DELETE" to confirm account deletion:
                     </p>
                     <input 
@@ -270,7 +269,7 @@ const SettingsContent = ({ activeSection, isDarkMode }: SettingsContentProps) =>
             isDarkMode ? 'glass-card border-[#73E212]/20 bg-black/40' : 'border-gray-200 bg-white shadow-sm'
           }`}>
             <CardContent className="p-8 text-center">
-              <p className="text-gray-400">Select a section from the sidebar to view settings.</p>
+              <p className={`text-gray-400 ${isDarkMode ? '' : 'text-[#666]'}`}>Select a section from the sidebar to view settings.</p>
             </CardContent>
           </Card>
         );

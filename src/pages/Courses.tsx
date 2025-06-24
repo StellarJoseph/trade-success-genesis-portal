@@ -1,4 +1,3 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -107,22 +106,22 @@ const Courses = () => {
             <h1 className="text-5xl md:text-6xl font-bold font-general mb-6">
               Trading <span className="text-gradient">Courses</span>
             </h1>
-            <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
+            <p className="text-xl text-[#73E212]/80 mb-12 max-w-3xl mx-auto">
               Master cryptocurrency trading with our expert-led courses. From beginners to advanced traders, 
               we have the perfect course to accelerate your trading journey.
             </p>
             <div className="flex flex-wrap justify-center items-center gap-8 mb-16">
               <div className="flex items-center gap-2">
                 <Users className="w-5 h-5 text-crypto-green" />
-                <span className="text-gray-300">10,000+ Students</span>
+                <span className="text-[#73E212]/80">10,000+ Students</span>
               </div>
               <div className="flex items-center gap-2">
                 <Award className="w-5 h-5 text-crypto-green" />
-                <span className="text-gray-300">Expert-Led Content</span>
+                <span className="text-[#73E212]/80">Expert-Led Content</span>
               </div>
               <div className="flex items-center gap-2">
                 <PlayCircle className="w-5 h-5 text-crypto-green" />
-                <span className="text-gray-300">Lifetime Access</span>
+                <span className="text-[#73E212]/80">Lifetime Access</span>
               </div>
             </div>
           </div>
@@ -140,13 +139,13 @@ const Courses = () => {
                       <Badge className="bg-crypto-green/20 text-crypto-green">{course.category}</Badge>
                       <div className="flex items-center">
                         <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                        <span className="text-sm text-gray-300 ml-1">{course.rating}</span>
+                        <span className="text-sm text-[#73E212]/80 ml-1">{course.rating}</span>
                       </div>
                     </div>
                     <CardTitle className="text-white font-general mb-2">{course.name}</CardTitle>
-                    <CardDescription className="text-gray-300 mb-4">{course.description}</CardDescription>
+                    <CardDescription className="text-[#73E212]/80 mb-4">{course.description}</CardDescription>
                     
-                    <div className="space-y-2 text-sm text-gray-400">
+                    <div className="space-y-2 text-sm text-[#73E212]/70">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center">
                           <Clock className="w-4 h-4 mr-2" />
@@ -174,7 +173,7 @@ const Courses = () => {
                       <div>
                         <span className="text-2xl font-bold text-crypto-green">{course.price}</span>
                         {course.originalPrice && (
-                          <span className="text-gray-400 line-through ml-2">{course.originalPrice}</span>
+                          <span className="text-[#73E212]/70 line-through ml-2">{course.originalPrice}</span>
                         )}
                       </div>
                     </div>
@@ -183,7 +182,7 @@ const Courses = () => {
                       <h4 className="text-white font-semibold mb-3">What you'll get:</h4>
                       <ul className="space-y-2">
                         {course.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-center text-gray-300 text-sm">
+                          <li key={idx} className="flex items-center text-[#73E212]/80 text-sm">
                             <div className="w-2 h-2 bg-crypto-green rounded-full mr-3 flex-shrink-0"></div>
                             {feature}
                           </li>
@@ -209,7 +208,7 @@ const Courses = () => {
                 Ready to Master{' '}
                 <span className="text-gradient">Crypto Trading?</span>
               </h2>
-              <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              <p className="text-xl text-[#73E212]/80 mb-8 max-w-2xl mx-auto">
                 Join thousands of students who have transformed their trading skills and achieved financial success.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

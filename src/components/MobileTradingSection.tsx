@@ -1,4 +1,3 @@
-
 const MobileTradingSection = () => {
   return (
     <section className="py-20">
@@ -21,7 +20,7 @@ const MobileTradingSection = () => {
                 <div className="w-16 h-16 bg-gradient-to-r from-crypto-green/20 to-crypto-green-light/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">💳</span>
                 </div>
-                <div className="text-sm text-gray-400">Instant Payments</div>
+                <div className="text-sm text-[#73E212]/70">Instant Payments</div>
               </div>
               
               <div className="text-center">

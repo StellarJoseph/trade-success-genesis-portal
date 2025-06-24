@@ -131,10 +131,10 @@ const About = () => {
               <h1 className="text-5xl md:text-6xl font-bold font-general mb-6">
                 Revolutionizing Crypto Trading—<span className="text-gradient">One Strategy at a Time</span>
               </h1>
-              <p className="text-xl text-gray-300 leading-relaxed mb-8 max-w-4xl mx-auto">
+              <p className="text-xl text-[#73E212]/80 leading-relaxed mb-8 max-w-4xl mx-auto">
                 At TradeSuccess.VIP, we're transforming how people trade crypto by combining AI-powered automation (trading bots), real-time market data, and proven signal strategies—all in one seamless experience.
               </p>
-              <p className="text-xl text-gray-300 leading-relaxed mb-12 max-w-4xl mx-auto">
+              <p className="text-xl text-[#73E212]/80 leading-relaxed mb-12 max-w-4xl mx-auto">
                 Trusted by a growing global community of 70,000+ traders, we empower both beginners and experienced investors to trade smarter, reduce risk, and grow their portfolios with confidence. Whether you're after daily profit signals, bot-powered trades, or fully managed portfolios, our platform provides everything you need—securely and transparently. Join the future of crypto trading. Let results speak for themselves.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
@@ -159,7 +159,7 @@ const About = () => {
                     {stat.value}
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-2">{stat.label}</h3>
-                  <p className="text-gray-400">{stat.description}</p>
+                  <p className="text-[#73E212]/70">{stat.description}</p>
                 </div>
               ))}
             </div>
@@ -173,7 +173,7 @@ const About = () => {
               <h2 className="text-4xl font-bold font-general mb-6">
                 Who We <span className="text-gradient">Serve</span>
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+              <p className="text-xl text-[#73E212]/80 max-w-3xl mx-auto mb-8">
                 Whether you're trading solo or managing portfolios for others, we have tools built just for you.
               </p>
             </div>
@@ -206,7 +206,7 @@ const About = () => {
                     
                     <ul className="space-y-3">
                       {segment.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center text-sm text-gray-300">
+                        <li key={featureIndex} className="flex items-center text-sm text-[#73E212]/80">
                           <div className="w-2 h-2 bg-crypto-green rounded-full mr-3 flex-shrink-0"></div>
                           {feature}
                         </li>
@@ -236,7 +236,7 @@ const About = () => {
                   <h3 className="text-xl font-bold font-general mb-4 text-gradient">
                     {value.title}
                   </h3>
-                  <p className="text-gray-300">
+                  <p className="text-[#73E212]/80">
                     {value.description}
                   </p>
                 </div>
@@ -252,7 +252,7 @@ const About = () => {
               <h2 className="text-4xl font-bold font-general mb-6">
                 Your dream, <span className="text-gradient">automated</span>
               </h2>
-              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              <p className="text-xl text-[#73E212]/80 mb-8 max-w-3xl mx-auto">
                 Whether you want to start trading or let experts manage it for you, our platform is designed to translate your financial goals into profitable actions — with the right mix of strategy, automation, and insight.
               </p>
               <div className="flex gap-4 justify-center">
@@ -278,7 +278,7 @@ const About = () => {
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="glass-card p-8 rounded-3xl hover:border-crypto-green/40 transition-all duration-300">
-                  <p className="text-gray-300 mb-6 italic leading-relaxed">
+                  <p className="text-[#73E212]/80 mb-6 italic leading-relaxed">
                     "{testimonial.quote}"
                   </p>
                   <div className="flex items-center">
@@ -289,7 +289,7 @@ const About = () => {
                     </div>
                     <div>
                       <div className="font-semibold text-white">{testimonial.name}</div>
-                      <div className="text-sm text-gray-400">{testimonial.role}</div>
+                      <div className="text-sm text-[#73E212]/70">{testimonial.role}</div>
                     </div>
                   </div>
                 </div>
@@ -312,7 +312,7 @@ const About = () => {
                   <h3 className="text-lg font-semibold text-white mb-3 font-general">
                     {faq.question}
                   </h3>
-                  <p className="text-gray-300">
+                  <p className="text-[#73E212]/80">
                     {faq.answer}
                   </p>
                 </div>
@@ -328,12 +328,12 @@ const About = () => {
               <h2 className="text-4xl font-bold font-general mb-6">
                 Our <span className="text-gradient">Partners</span>
               </h2>
-              <p className="text-gray-400">Trusted by innovators and institutions across blockchain, DeFi, and fintech.</p>
+              <p className="text-[#73E212]/70">Trusted by innovators and institutions across blockchain, DeFi, and fintech.</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
               {partners.map((partner, index) => (
                 <div key={index} className="glass-card p-6 rounded-xl text-center hover:border-crypto-green/40 transition-all duration-300 group">
-                  <span className="text-gray-400 group-hover:text-crypto-green font-medium transition-colors">
+                  <span className="text-[#73E212]/70 group-hover:text-crypto-green font-medium transition-colors">
                     {partner}
                   </span>
                 </div>
@@ -354,7 +354,7 @@ const About = () => {
                 <h2 className="text-4xl font-bold font-general mb-6">
                   Ready to grow your portfolio with <span className="text-gradient">TradeSuccess?</span>
                 </h2>
-                <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                <p className="text-xl text-[#73E212]/80 mb-8 max-w-3xl mx-auto">
                   We're here to help you make smarter crypto decisions — whether you want to trade manually, use a bot, or let us manage your entire portfolio.
                 </p>
                 <div className="flex gap-4 justify-center">

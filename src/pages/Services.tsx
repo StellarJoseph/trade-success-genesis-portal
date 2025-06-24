@@ -1,4 +1,3 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -125,7 +124,7 @@ const Services = () => {
               <h1 className="text-5xl md:text-6xl font-bold font-general mb-6">
                 Take Full Control of Your <span className="text-gradient">Crypto Journey</span>
               </h1>
-              <p className="text-xl text-gray-300 leading-relaxed mb-8">
+              <p className="text-xl text-[#73E212]/80 leading-relaxed mb-8">
                 Discover expert-managed crypto solutions built for individuals and institutions who want more than just hype — real results, reliable signals, and professional portfolio strategies.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
@@ -154,7 +153,7 @@ const Services = () => {
               <h2 className="text-4xl md:text-5xl font-bold font-general mb-6">
                 What We <span className="text-gradient">Offer</span>
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="text-xl text-[#73E212]/80 max-w-3xl mx-auto">
                 Comprehensive crypto solutions designed to maximize your investment potential
               </p>
             </div>
@@ -173,7 +172,7 @@ const Services = () => {
                     {service.title}
                   </h3>
                   
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-[#73E212]/80 leading-relaxed">
                     {service.description}
                   </p>
                 </div>
@@ -205,7 +204,7 @@ const Services = () => {
                     {item.title}
                   </h3>
                   
-                  <p className="text-gray-300">
+                  <p className="text-[#73E212]/80">
                     {item.description}
                   </p>
                 </div>
@@ -223,7 +222,7 @@ const Services = () => {
                 <h2 className="text-4xl font-bold font-general mb-6">
                   Get Ahead of <span className="text-gradient">the Market</span>
                 </h2>
-                <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                <p className="text-xl text-[#73E212]/80 mb-8 max-w-3xl mx-auto">
                   Join our exclusive signal group and get expert calls across Futures, Memecoins, and Altcoins. No hype — just calculated entries, full trade instructions, and verified win-rates.
                 </p>
                 <div className="flex gap-4 justify-center">
@@ -246,7 +245,7 @@ const Services = () => {
               <h2 className="text-4xl md:text-5xl font-bold font-general mb-6">
                 Portfolio Management <span className="text-gradient">Tiers</span>
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+              <p className="text-xl text-[#73E212]/80 max-w-3xl mx-auto mb-8">
                 Our experts trade directly on your behalf to grow your holdings across the most promising tokens and categories.
               </p>
             </div>
@@ -267,10 +266,10 @@ const Services = () => {
                     <div className="text-2xl font-bold text-crypto-green mb-4">
                       {tier.minimum}
                     </div>
-                    <p className="text-sm text-gray-300 mb-6">
+                    <p className="text-sm text-[#73E212]/80 mb-6">
                       {tier.description}
                     </p>
-                    <ul className="space-y-2 text-sm text-gray-300">
+                    <ul className="space-y-2 text-sm text-[#73E212]/80">
                       {tier.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center">
                           <div className="w-1.5 h-1.5 bg-crypto-green rounded-full mr-2"></div>
@@ -303,7 +302,7 @@ const Services = () => {
             <div className="grid md:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="glass-card p-8 rounded-3xl hover:border-crypto-green/40 transition-all duration-300">
-                  <p className="text-gray-300 mb-6 italic leading-relaxed">
+                  <p className="text-[#73E212]/80 mb-6 italic leading-relaxed">
                     "{testimonial.quote}"
                   </p>
                   <div className="flex items-center">
@@ -314,7 +313,7 @@ const Services = () => {
                     </div>
                     <div>
                       <div className="font-semibold text-white">{testimonial.name}</div>
-                      <div className="text-sm text-gray-400">{testimonial.location}</div>
+                      <div className="text-sm text-[#73E212]/70">{testimonial.location}</div>
                     </div>
                   </div>
                 </div>
@@ -335,7 +334,7 @@ const Services = () => {
                 <h2 className="text-4xl font-bold font-general mb-6">
                   Let's Build Your <span className="text-gradient">Crypto Success Story</span>
                 </h2>
-                <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                <p className="text-xl text-[#73E212]/80 mb-8 max-w-3xl mx-auto">
                   Start trading smarter and growing your assets today with a partner you can trust.
                 </p>
                 <div className="flex gap-4 justify-center">

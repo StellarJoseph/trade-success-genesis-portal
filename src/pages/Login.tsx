@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -45,19 +44,19 @@ const Login = () => {
           <h1 className="text-3xl font-bold font-general text-gradient mb-2">
             Welcome Back
           </h1>
-          <p className="text-gray-400">Access your crypto trading dashboard</p>
+          <p className="text-[#73E212]/70">Access your crypto trading dashboard</p>
         </div>
 
         <Card className="glass-card border-[#73E212]/20 bg-black/40">
           <CardHeader>
             <CardTitle className="text-white font-general">Sign In</CardTitle>
-            <CardDescription className="text-gray-400">
+            <CardDescription className="text-[#73E212]/70">
               Enter your credentials to access your account
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-6">
-              <p className="text-center text-gray-300">
+              <p className="text-center text-[#73E212]/80">
                 Hello! Use email or another service to sign in
               </p>
 
@@ -102,16 +101,16 @@ const Login = () => {
                   <div className="w-full border-t border-[#73E212]/20"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-black text-gray-400">Or sign in with email</span>
+                  <span className="px-2 bg-black text-[#73E212]/70">Or sign in with email</span>
                 </div>
               </div>
 
               {/* Email Form */}
               <form onSubmit={handleLogin} className="space-y-6" id="email-form">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">Email</label>
+                  <label className="text-sm font-medium text-[#73E212]/80">Email</label>
                   <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#73E212]/60 w-5 h-5" />
                     <input
                       type="email"
                       value={email}
@@ -124,9 +123,9 @@ const Login = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">Password</label>
+                  <label className="text-sm font-medium text-[#73E212]/80">Password</label>
                   <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#73E212]/60 w-5 h-5" />
                     <input
                       type={showPassword ? 'text' : 'password'}
                       value={password}
@@ -138,7 +137,7 @@ const Login = () => {
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-[#73E212] transition-colors"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#73E212]/60 hover:text-[#73E212] transition-colors"
                     >
                       {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                     </button>
@@ -147,8 +146,8 @@ const Login = () => {
 
                 <div className="bg-[#73E212]/10 p-4 rounded-lg border border-[#73E212]/30">
                   <p className="text-sm text-[#73E212] font-medium mb-2">Test Login Credentials:</p>
-                  <p className="text-xs text-gray-300">Email: john@example.com</p>
-                  <p className="text-xs text-gray-300">Password: password123</p>
+                  <p className="text-xs text-[#73E212]/80">Email: john@example.com</p>
+                  <p className="text-xs text-[#73E212]/80">Password: password123</p>
                 </div>
 
                 <Button type="submit" className="w-full bg-[#73E212] text-black font-semibold py-3 hover:bg-[#73E212]/90">
@@ -158,7 +157,7 @@ const Login = () => {
             </div>
 
             <div className="mt-6 text-center">
-              <p className="text-gray-400">
+              <p className="text-[#73E212]/70">
                 Don't have an account?{' '}
                 <Link to="/signup" className="text-[#73E212] hover:text-[#73E212]/80 transition-colors font-semibold">
                   Sign up

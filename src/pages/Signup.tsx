@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -48,19 +47,19 @@ const Signup = () => {
           <h1 className="text-3xl font-bold font-general text-gradient mb-2">
             Join TradeSuccess
           </h1>
-          <p className="text-gray-400">Start your crypto trading journey today</p>
+          <p className="text-[#73E212]/70">Start your crypto trading journey today</p>
         </div>
 
         <Card className="glass-card border-[#73E212]/20 bg-black/40">
           <CardHeader>
             <CardTitle className="text-white font-general">Create Account</CardTitle>
-            <CardDescription className="text-gray-400">
+            <CardDescription className="text-[#73E212]/70">
               Join thousands of successful crypto traders
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-6">
-              <p className="text-center text-gray-300">
+              <p className="text-center text-[#73E212]/80">
                 Hello! Use email or another service to sign up
               </p>
 
@@ -105,16 +104,16 @@ const Signup = () => {
                   <div className="w-full border-t border-[#73E212]/20"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-black text-gray-400">Or sign up with email</span>
+                  <span className="px-2 bg-black text-[#73E212]/70">Or sign up with email</span>
                 </div>
               </div>
 
               {/* Email Form */}
               <form onSubmit={handleSignup} className="space-y-6" id="signup-form">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">Full Name</label>
+                  <label className="text-sm font-medium text-[#73E212]/80">Full Name</label>
                   <div className="relative">
-                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#73E212]/60 w-5 h-5" />
                     <input
                       type="text"
                       value={formData.name}
@@ -127,9 +126,9 @@ const Signup = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">Email</label>
+                  <label className="text-sm font-medium text-[#73E212]/80">Email</label>
                   <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#73E212]/60 w-5 h-5" />
                     <input
                       type="email"
                       value={formData.email}
@@ -142,9 +141,9 @@ const Signup = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">Phone Number</label>
+                  <label className="text-sm font-medium text-[#73E212]/80">Phone Number</label>
                   <div className="relative">
-                    <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#73E212]/60 w-5 h-5" />
                     <input
                       type="tel"
                       value={formData.phone}
@@ -157,9 +156,9 @@ const Signup = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">Password</label>
+                  <label className="text-sm font-medium text-[#73E212]/80">Password</label>
                   <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#73E212]/60 w-5 h-5" />
                     <input
                       type={showPassword ? 'text' : 'password'}
                       value={formData.password}
@@ -171,7 +170,7 @@ const Signup = () => {
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-[#73E212] transition-colors"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#73E212]/60 hover:text-[#73E212] transition-colors"
                     >
                       {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                     </button>
@@ -185,7 +184,7 @@ const Signup = () => {
             </div>
 
             <div className="mt-6 text-center">
-              <p className="text-gray-400">
+              <p className="text-[#73E212]/70">
                 Already have an account?{' '}
                 <Link to="/login" className="text-[#73E212] hover:text-[#73E212]/80 transition-colors font-semibold">
                   Log in

@@ -1,4 +1,3 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -145,22 +144,22 @@ const Consultancy = () => {
             <h1 className="text-5xl md:text-6xl font-bold font-general mb-6">
               Expert <span className="text-gradient">Consultancy</span>
             </h1>
-            <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
+            <p className="text-xl text-[#73E212]/80 mb-12 max-w-3xl mx-auto">
               Get personalized crypto investment advice from our team of experienced traders and analysts. 
               Transform your trading strategy with one-on-one expert guidance.
             </p>
             <div className="flex flex-wrap justify-center items-center gap-8 mb-16">
               <div className="flex items-center gap-2">
                 <Shield className="w-5 h-5 text-crypto-green" />
-                <span className="text-gray-300">Trusted Advisors</span>
+                <span className="text-[#73E212]/80">Trusted Advisors</span>
               </div>
               <div className="flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-crypto-green" />
-                <span className="text-gray-300">Proven Results</span>
+                <span className="text-[#73E212]/80">Proven Results</span>
               </div>
               <div className="flex items-center gap-2">
                 <MessageSquare className="w-5 h-5 text-crypto-green" />
-                <span className="text-gray-300">1-on-1 Support</span>
+                <span className="text-[#73E212]/80">1-on-1 Support</span>
               </div>
             </div>
           </div>
@@ -173,7 +172,7 @@ const Consultancy = () => {
               <h2 className="text-4xl font-bold font-general mb-6">
                 Consultation <span className="text-gradient">Services</span>
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="text-xl text-[#73E212]/80 max-w-3xl mx-auto">
                 Choose the consultation service that best fits your needs and goals
               </p>
             </div>
@@ -197,23 +196,23 @@ const Consultancy = () => {
                       </Badge>
                       <div className="flex items-center">
                         <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                        <span className="text-sm text-gray-300 ml-1">{service.rating}</span>
+                        <span className="text-sm text-[#73E212]/80 ml-1">{service.rating}</span>
                       </div>
                     </div>
                     <CardTitle className="text-white font-general mb-2">{service.name}</CardTitle>
-                    <CardDescription className="text-gray-300">{service.description}</CardDescription>
+                    <CardDescription className="text-[#73E212]/80">{service.description}</CardDescription>
                   </CardHeader>
                   
                   <CardContent className="flex-1 flex flex-col">
                     <div className="flex items-center justify-between mb-6">
                       <div>
                         <span className="text-3xl font-bold text-crypto-green">{service.price}</span>
-                        <div className="text-sm text-gray-400">
+                        <div className="text-sm text-[#73E212]/70">
                           <Clock className="w-4 h-4 inline mr-1" />
                           {service.duration}
                         </div>
                       </div>
-                      <div className="text-sm text-gray-400">
+                      <div className="text-sm text-[#73E212]/70">
                         {service.sessions} sessions completed
                       </div>
                     </div>
@@ -222,7 +221,7 @@ const Consultancy = () => {
                       <h4 className="text-white font-semibold mb-3">What's included:</h4>
                       <ul className="space-y-2">
                         {service.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-center text-gray-300 text-sm">
+                          <li key={idx} className="flex items-center text-[#73E212]/80 text-sm">
                             <CheckCircle className="w-4 h-4 text-crypto-green mr-3 flex-shrink-0" />
                             {feature}
                           </li>
@@ -248,7 +247,7 @@ const Consultancy = () => {
               <h2 className="text-4xl font-bold font-general mb-6">
                 Meet Your <span className="text-gradient">Advisors</span>
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="text-xl text-[#73E212]/80 max-w-3xl mx-auto">
                 Our team of expert advisors brings years of experience in crypto trading, DeFi, and portfolio management
               </p>
             </div>
@@ -266,11 +265,11 @@ const Consultancy = () => {
                     <CardDescription className="text-crypto-green font-semibold">{consultant.role}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-2 text-sm text-gray-300 mb-4">
+                    <div className="space-y-2 text-sm text-[#73E212]/80 mb-4">
                       <div>{consultant.experience} Experience</div>
                       <div className="font-medium">{consultant.specialty}</div>
                     </div>
-                    <div className="flex items-center justify-center gap-4 text-sm text-gray-400">
+                    <div className="flex items-center justify-center gap-4 text-sm text-[#73E212]/70">
                       <div className="flex items-center">
                         <Star className="w-4 h-4 text-yellow-400 fill-current mr-1" />
                         {consultant.rating}
@@ -307,7 +306,7 @@ const Consultancy = () => {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-300 mb-6 italic leading-relaxed">
+                    <p className="text-[#73E212]/80 mb-6 italic leading-relaxed">
                       "{testimonial.content}"
                     </p>
                     <div className="flex items-center">
@@ -318,7 +317,7 @@ const Consultancy = () => {
                       </div>
                       <div>
                         <div className="font-semibold text-white">{testimonial.name}</div>
-                        <div className="text-sm text-gray-400">{testimonial.role}</div>
+                        <div className="text-sm text-[#73E212]/70">{testimonial.role}</div>
                       </div>
                     </div>
                   </CardContent>
@@ -336,7 +335,7 @@ const Consultancy = () => {
                 Ready to Accelerate Your{' '}
                 <span className="text-gradient">Trading Success?</span>
               </h2>
-              <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              <p className="text-xl text-[#73E212]/80 mb-8 max-w-2xl mx-auto">
                 Book a consultation with our expert advisors and take your crypto trading to the next level.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

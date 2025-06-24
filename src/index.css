@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -246,4 +245,25 @@
       animation: scroll-infinite 20s linear infinite;
     }
   }
+
+  /* Global CSS Override for CMS Content - Only #b39a8f */
+  [style*="#b39a8f"],
+  [style*="b39a8f"] {
+    color: #73E212 !important;
+    background-color: #131240 !important;
+    border-color: #73E212 !important;
+  }
+
+  /* Override for Webflow CMS content specifically - Only #b39a8f */
+  .w-dyn-content [style*="#b39a8f"],
+  .w-dyn-content [style*="b39a8f"] {
+    color: #73E212 !important;
+    background-color: #131240 !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .dashboard-col-2_4 { flex: 0 0 20%; max-width: 20%; }
+  .dashboard-col-2_8 { flex: 0 0 23.3333%; max-width: 23.3333%; }
+  .dashboard-col-2   { flex: 0 0 16.6667%; max-width: 16.6667%; }
 }

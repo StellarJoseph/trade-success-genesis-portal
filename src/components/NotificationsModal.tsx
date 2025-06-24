@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -38,7 +37,7 @@ const NotificationsModal = ({ isOpen, onClose, isDarkMode }: NotificationsModalP
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Bell className="w-5 h-5 text-[#73E212]" />
-              <CardTitle className={`font-general ${isDarkMode ? 'text-white' : 'text-black'}`}>
+              <CardTitle className={`font-general ${isDarkMode ? 'text-white' : 'text-[#000]'}`}>
                 Notification Preferences
               </CardTitle>
             </div>
@@ -55,7 +54,7 @@ const NotificationsModal = ({ isOpen, onClose, isDarkMode }: NotificationsModalP
               <X className="w-4 h-4" />
             </Button>
           </div>
-          <CardDescription className="text-gray-400">
+          <CardDescription className={`${isDarkMode ? 'text-gray-400' : 'text-[#666]'}`}>
             Choose how you want to receive account alerts and updates
           </CardDescription>
         </CardHeader>
@@ -71,7 +70,7 @@ const NotificationsModal = ({ isOpen, onClose, isDarkMode }: NotificationsModalP
                   <Mail className="w-5 h-5 text-[#73E212]" />
                   <div>
                     <p className={`font-medium ${isDarkMode ? 'text-white' : 'text-black'}`}>Email</p>
-                    <p className="text-sm text-gray-400">Always enabled for security</p>
+                    <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-[#2C2C2C]'}`}>Always enabled for security</p>
                   </div>
                 </div>
                 <Switch 
@@ -86,7 +85,7 @@ const NotificationsModal = ({ isOpen, onClose, isDarkMode }: NotificationsModalP
                   <MessageCircle className="w-5 h-5 text-[#73E212]" />
                   <div>
                     <p className={`font-medium ${isDarkMode ? 'text-white' : 'text-black'}`}>WhatsApp</p>
-                    <p className="text-sm text-gray-400">Instant notifications</p>
+                    <p className={`text-sm ${isDarkMode ? 'text-[#73E212]/70' : 'text-[#2C2C2C]/70'}`}>Instant notifications</p>
                   </div>
                 </div>
                 <Switch 
@@ -101,7 +100,7 @@ const NotificationsModal = ({ isOpen, onClose, isDarkMode }: NotificationsModalP
                   <Send className="w-5 h-5 text-[#73E212]" />
                   <div>
                     <p className={`font-medium ${isDarkMode ? 'text-white' : 'text-black'}`}>Telegram</p>
-                    <p className="text-sm text-gray-400">Bot notifications</p>
+                    <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-[#2C2C2C]'}`}>Bot notifications</p>
                   </div>
                 </div>
                 <Switch 
@@ -116,7 +115,7 @@ const NotificationsModal = ({ isOpen, onClose, isDarkMode }: NotificationsModalP
                   <Phone className="w-5 h-5 text-[#73E212]" />
                   <div>
                     <p className={`font-medium ${isDarkMode ? 'text-white' : 'text-black'}`}>SMS</p>
-                    <p className="text-sm text-gray-400">Text message alerts</p>
+                    <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-[#2C2C2C]'}`}>Text message alerts</p>
                   </div>
                 </div>
                 <Switch 
@@ -175,7 +174,7 @@ const NotificationsModal = ({ isOpen, onClose, isDarkMode }: NotificationsModalP
             </Button>
             <Button
               onClick={onClose}
-              className="bg-[#73E212] text-black hover:bg-[#73E212]/90"
+              className={`bg-[#73E212] text-black hover:bg-[#73E212]/90 ${isDarkMode ? 'bg-[#73E212]' : 'bg-[#4CAF50]'}`}
             >
               Save Preferences
             </Button>

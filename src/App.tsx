@@ -12,7 +12,7 @@ import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminLogin from "./pages/AdminLogin";
-import ProtectedRoute from "./components/ProtectedRoute";
+import {ProtectedRoute} from "./components/ProtectedRoute";
 import Shop from "./pages/Shop";
 import Courses from "./pages/Courses";
 import Consultancy from "./pages/Consultancy";

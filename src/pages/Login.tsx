@@ -2,36 +2,90 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '@/hooks/useAuth';
+import { isSupabaseConfigured } from '@/lib/supabaseClient';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const { signIn, ensureProfile } = useAuth();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Test credentials check
-    if (email === 'john@example.com' && password === 'password123') {
-      console.log('Login successful');
-      window.location.href = '/dashboard';
-    } else {
-      alert('Invalid credentials. Please use: john@example.com / password123');
+    setIsLoading(true);
+    setMessage('');
+
+    if (!isSupabaseConfigured()) {
+      // Fallback to demo mode
+      if (email === 'john@example.com' && password === 'password123') {
+        setMessage('Demo login successful!');
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 1000);
+      } else {
+        setMessage('Invalid credentials. Please use: john@example.com / password123');
+      }
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      const { data, error } = await signIn(email, password);
+      
+      if (error) {
+        setMessage(error.message);
+      } else if (data.user) {
+        // Ensure user has a profile
+        try {
+          await ensureProfile(data.user.id);
+        } catch (profileError) {
+          console.warn('Profile check failed:', profileError);
+          // Continue with login even if profile check fails
+        }
+        
+        setMessage('Login successful!');
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 1000);
+      }
+    } catch (err) {
+      setMessage('An unexpected error occurred');
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const handleGoogleLogin = () => {
-    // Google OAuth logic
+  const handleGoogleLogin = async () => {
+    if (!isSupabaseConfigured()) {
+      // Demo mode
+      setMessage('Demo mode: Google login would redirect to dashboard');
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 1000);
+      return;
+    }
+
+    // Implement Google OAuth with Supabase
     console.log('Google login initiated');
-    // For demo purposes, redirect to dashboard
-    window.location.href = '/dashboard';
   };
 
-  const handleAppleLogin = () => {
-    // Apple OAuth logic
+  const handleAppleLogin = async () => {
+    if (!isSupabaseConfigured()) {
+      // Demo mode
+      setMessage('Demo mode: Apple login would redirect to dashboard');
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 1000);
+      return;
+    }
+
+    // Implement Apple OAuth with Supabase
     console.log('Apple login initiated');
-    // For demo purposes, redirect to dashboard
-    window.location.href = '/dashboard';
   };
 
   return (
@@ -144,14 +198,30 @@ const Login = () => {
                   </div>
                 </div>
 
-                <div className="bg-[#73E212]/10 p-4 rounded-lg border border-[#73E212]/30">
-                  <p className="text-sm text-[#73E212] font-medium mb-2">Test Login Credentials:</p>
-                  <p className="text-xs text-[#73E212]/80">Email: john@example.com</p>
-                  <p className="text-xs text-[#73E212]/80">Password: password123</p>
-                </div>
+                {!isSupabaseConfigured() && (
+                  <div className="bg-[#73E212]/10 p-4 rounded-lg border border-[#73E212]/30">
+                    <p className="text-sm text-[#73E212] font-medium mb-2">Demo Mode - Test Login Credentials:</p>
+                    <p className="text-xs text-[#73E212]/80">Email: john@example.com</p>
+                    <p className="text-xs text-[#73E212]/80">Password: password123</p>
+                  </div>
+                )}
 
-                <Button type="submit" className="w-full bg-[#73E212] text-black font-semibold py-3 hover:bg-[#73E212]/90">
-                  Sign In
+                {message && (
+                  <div className={`p-3 rounded-lg text-sm ${
+                    message.includes('successful') 
+                      ? 'bg-green-500/10 border border-green-500/30 text-green-400' 
+                      : 'bg-red-500/10 border border-red-500/30 text-red-400'
+                  }`}>
+                    {message}
+                  </div>
+                )}
+
+                <Button 
+                  type="submit" 
+                  className="w-full bg-[#73E212] text-black font-semibold py-3 hover:bg-[#73E212]/90"
+                  disabled={isLoading}
+                >
+                  {isLoading ? 'Signing In...' : 'Sign In'}
                 </Button>
               </form>
             </div>

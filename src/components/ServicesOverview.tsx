@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 
 const ServicesOverview = () => {
@@ -24,13 +23,13 @@ const ServicesOverview = () => {
   ];
 
   return (
-    <section className="py-20">
+    <section className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-general mb-6">
-            What We <span className="text-gradient">Offer</span>
+          <h2 className="text-4xl md:text-5xl font-bold font-general mb-6 text-white">
+            What We <span className="text-[#73E212]">Offer</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-white max-w-3xl mx-auto">
             Comprehensive crypto trading solutions designed to maximize your profits
             while minimizing risk through cutting-edge technology and expert guidance.
           </p>
@@ -40,7 +39,7 @@ const ServicesOverview = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="glass-card rounded-3xl overflow-hidden hover:border-crypto-green/40 transition-all duration-300 group hover:transform hover:scale-105 animate-fade-in"
+              className="glass-card rounded-3xl overflow-hidden hover:border-[#73E212]/40 transition-all duration-300 group hover:transform hover:scale-105 animate-fade-in"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="relative overflow-hidden">
@@ -53,18 +52,18 @@ const ServicesOverview = () => {
               </div>
               
               <div className="p-8">
-                <h3 className="text-2xl font-bold font-general mb-4 text-white group-hover:text-crypto-green transition-colors">
+                <h3 className="text-2xl font-bold font-general mb-4 text-white group-hover:text-[#73E212] transition-colors">
                   {service.title}
                 </h3>
                 
-                <p className="text-gray-300 leading-relaxed mb-6">
+                <p className="text-white leading-relaxed mb-6">
                   {service.description}
                 </p>
 
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-gray-400">
-                      <div className="w-2 h-2 bg-crypto-green rounded-full mr-3"></div>
+                    <li key={featureIndex} className="flex items-center text-sm text-white">
+                      <div className="w-2 h-2 bg-[#73E212] rounded-full mr-3"></div>
                       {feature}
                     </li>
                   ))}
@@ -72,7 +71,7 @@ const ServicesOverview = () => {
 
                 <Button 
                   variant="outline" 
-                  className="w-full border-crypto-green/30 text-crypto-green hover:bg-crypto-green hover:text-crypto-dark transition-all duration-300"
+                  className="w-full border-[#73E212]/30 text-black hover:bg-[#73E212] hover:text-black transition-all duration-300"
                 >
                   Learn More
                 </Button>

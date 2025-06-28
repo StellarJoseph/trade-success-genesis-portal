@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 
 const FinalCTA = () => {
@@ -15,9 +14,9 @@ const FinalCTA = () => {
           <div className="relative z-10">
             <div className="text-crypto-green mb-6">● Join The Revolution</div>
             
-            <h2 className="text-4xl md:text-6xl font-bold font-general mb-6">
+            <h2 className="text-4xl md:text-6xl font-bold font-general mb-6 text-white">
               Join thousands building{' '}
-              <span className="text-gradient">wealth with crypto</span>
+              <span className="text-[#73E212]">wealth with crypto</span>
             </h2>
             
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
@@ -31,7 +30,7 @@ const FinalCTA = () => {
               </Button>
               <Button 
                 variant="outline" 
-                className="border-crypto-green text-crypto-green hover:bg-crypto-green hover:text-crypto-dark text-lg px-12 py-4 h-auto"
+                className="border-crypto-green text-black hover:bg-crypto-green hover:text-crypto-dark text-lg px-12 py-4 h-auto"
               >
                 Join VIP Community
               </Button>

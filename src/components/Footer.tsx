@@ -1,4 +1,3 @@
-
 const Footer = () => {
   const footerSections = [
     {
@@ -45,10 +44,12 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-r from-crypto-green to-crypto-green-light rounded-lg flex items-center justify-center">
-                <span className="text-crypto-dark font-bold text-xl">T</span>
-              </div>
+            <div className="flex items-center space-x-3 mb-6">
+              <img 
+                src="https://res.cloudinary.com/dt7mxnrxo/image/upload/v1750696761/TS_LOGO_juw9he.png" 
+                alt="TradeSuccess.VIP Logo" 
+                className="w-10 h-10"
+              />
               <span className="text-xl font-bold font-general text-gradient">
                 TradeSuccess.VIP
               </span>

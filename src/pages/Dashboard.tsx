@@ -231,9 +231,11 @@ const Dashboard = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 bg-gradient-to-r from-[#73E212] to-[#73E212]/80 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-black font-bold">T</span>
-              </div>
+              <img 
+                src="https://res.cloudinary.com/dt7mxnrxo/image/upload/v1750696761/TS_LOGO_juw9he.png" 
+                alt="TradeSuccess.VIP Logo" 
+                className="w-10 h-10"
+              />
               <div>
                 <h1 className={`text-xl font-bold font-general ${isDarkMode ? 'text-white' : 'text-black'} drop-shadow-lg`}>
                   Member Dashboard

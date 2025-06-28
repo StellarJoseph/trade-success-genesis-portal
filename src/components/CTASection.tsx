@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 
 const CTASection = () => {
@@ -13,9 +12,9 @@ const CTASection = () => {
           </div>
 
           <div className="relative z-10">
-            <h2 className="text-4xl md:text-6xl font-bold font-general mb-6">
+            <h2 className="text-4xl md:text-6xl font-bold font-general mb-6 text-white">
               Activate Your Bot, Fund Your Account,{' '}
-              <span className="text-gradient">and Earn Profits Daily</span>
+              <span className="text-[#73E212]">and Earn Profits Daily</span>
             </h2>
             
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">

@@ -1,4 +1,3 @@
-
 const BenefitsSection = () => {
   const benefits = [
     {
@@ -34,15 +33,15 @@ const BenefitsSection = () => {
   ];
 
   return (
-    <section className="py-20">
+    <section className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-general mb-6">
-            <span className="text-gradient">Powerful.</span>{' '}
-            <span className="text-gradient">Secure.</span>{' '}
-            <span className="text-gradient">Effortless.</span>
+          <h2 className="text-4xl md:text-5xl font-bold font-general mb-6 text-white">
+            <span className="text-[#73E212]">Powerful.</span>{' '}
+            <span className="text-[#73E212]">Secure.</span>{' '}
+            <span className="text-[#73E212]">Effortless.</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-white max-w-3xl mx-auto">
             Experience cryptocurrency trading the way it should be - simple, secure, and profitable.
           </p>
         </div>
@@ -51,10 +50,10 @@ const BenefitsSection = () => {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="glass-card p-8 rounded-3xl hover:border-crypto-green/40 transition-all duration-300 group"
+              className="glass-card p-8 rounded-3xl hover:border-[#73E212]/40 transition-all duration-300 group"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-crypto-green/20 to-crypto-green-light/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#73E212]/20 to-[#73E212]/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-2xl">{benefit.icon}</span>
               </div>
               
@@ -62,7 +61,7 @@ const BenefitsSection = () => {
                 {benefit.title}
               </h3>
               
-              <p className="text-gray-300">
+              <p className="text-white">
                 {benefit.description}
               </p>
             </div>

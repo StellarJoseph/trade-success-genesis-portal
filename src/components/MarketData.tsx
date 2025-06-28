@@ -1,30 +1,78 @@
-
 import { useState, useEffect } from 'react';
 
 const MarketData = () => {
   const [marketData, setMarketData] = useState([
-    { symbol: 'BTC', name: 'Bitcoin', price: 45240.32, change: 2.45 },
-    { symbol: 'ETH', name: 'Ethereum', price: 3105.67, change: -1.23 },
-    { symbol: 'SOL', name: 'Solana', price: 98.45, change: 5.67 },
-    { symbol: 'USDT', name: 'Tether', price: 1.00, change: 0.01 }
+    { symbol: 'BTC', name: 'Bitcoin', price: 0, change: 0, priceNGN: 0 },
+    { symbol: 'ETH', name: 'Ethereum', price: 0, change: 0, priceNGN: 0 },
+    { symbol: 'SOL', name: 'Solana', price: 0, change: 0, priceNGN: 0 },
+    { symbol: 'USDT', name: 'Tether', price: 0, change: 0, priceNGN: 0 }
   ]);
 
   const [currentStats, setCurrentStats] = useState({
-    depositeCrypto: 31,
-    earnInterest: 52
+    depositCrypto: 1000,
+    earnInterest: 15
   });
 
-  useEffect(() => {
-    // Simulate real-time price updates
-    const interval = setInterval(() => {
-      setMarketData(prev => 
-        prev.map(coin => ({
-          ...coin,
-          price: coin.price * (1 + (Math.random() - 0.5) * 0.02),
-          change: (Math.random() - 0.5) * 10
-        }))
+  const [isLoading, setIsLoading] = useState(true);
+
+  const fetchCryptoData = async () => {
+    try {
+      // Fetch current prices
+      const priceResponse = await fetch(
+        'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,tether&vs_currencies=usd,ngn'
       );
-    }, 3000);
+      const priceData = await priceResponse.json();
+
+      // Fetch 24h price change data
+      const changeResponse = await fetch(
+        'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,tether&vs_currencies=usd&include_24hr_change=true'
+      );
+      const changeData = await changeResponse.json();
+
+      const updatedMarketData = [
+        {
+          symbol: 'BTC',
+          name: 'Bitcoin',
+          price: priceData.bitcoin?.usd || 0,
+          change: changeData.bitcoin?.usd_24h_change || 0,
+          priceNGN: priceData.bitcoin?.ngn || 0
+        },
+        {
+          symbol: 'ETH',
+          name: 'Ethereum',
+          price: priceData.ethereum?.usd || 0,
+          change: changeData.ethereum?.usd_24h_change || 0,
+          priceNGN: priceData.ethereum?.ngn || 0
+        },
+        {
+          symbol: 'SOL',
+          name: 'Solana',
+          price: priceData.solana?.usd || 0,
+          change: changeData.solana?.usd_24h_change || 0,
+          priceNGN: priceData.solana?.ngn || 0
+        },
+        {
+          symbol: 'USDT',
+          name: 'Tether',
+          price: priceData.tether?.usd || 0,
+          change: changeData.tether?.usd_24h_change || 0,
+          priceNGN: priceData.tether?.ngn || 0
+        }
+      ];
+
+      setMarketData(updatedMarketData);
+      setIsLoading(false);
+    } catch (error) {
+      console.error('Error fetching crypto data:', error);
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchCryptoData();
+    
+    // Update data every 30 seconds
+    const interval = setInterval(fetchCryptoData, 30000);
 
     return () => clearInterval(interval);
   }, []);
@@ -35,39 +83,40 @@ const MarketData = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Stats Section */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold font-general mb-8">
-              Deposite Your Crypto{' '}
+            <h2 className="text-4xl md:text-5xl font-bold font-general mb-8 text-white">
+              Deposit Your Crypto{' '}
+              <br />
               <span className="text-gradient">Earn Interest.</span>
             </h2>
             
-            <p className="text-xl text-gray-300 mb-8">
-              Earn up to 12% APY on your cryptocurrency holdings with our secure 
+            <p className="text-xl text-white mb-8">
+              Earn up to 180% APY on your cryptocurrency holdings with our secure trading, 
               staking and DeFi yield farming strategies.
             </p>
 
             <div className="grid grid-cols-2 gap-8 mb-8">
               <div className="text-center">
-                <div className="text-5xl font-bold text-crypto-green mb-2">
-                  {currentStats.depositeCrypto}%
+                <div className="text-5xl font-bold text-[#73E212] mb-2">
+                  {currentStats.depositCrypto}
                 </div>
-                <div className="text-gray-400">Deposite Crypto</div>
+                <div className="text-white font-medium">Deposit USDT</div>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-bold text-crypto-green mb-2">
+                <div className="text-5xl font-bold text-[#73E212] mb-2">
                   {currentStats.earnInterest}%
                 </div>
-                <div className="text-gray-400">Earn Interest</div>
+                <div className="text-white font-medium">Earn Interest</div>
               </div>
             </div>
 
-            <button className="glow-button px-8 py-4 rounded-xl text-crypto-dark font-semibold">
+            <button className="glow-button px-8 py-4 rounded-xl text-black font-semibold">
               Start Earning Now
             </button>
           </div>
 
           {/* Market Ticker */}
-          <div className="glass-card p-8 rounded-3xl">
-            <h3 className="text-2xl font-bold mb-6 text-center">Live Market Data</h3>
+          <div className="bg-gradient-to-br from-blue-900/80 to-blue-950/90 p-8 rounded-3xl border border-blue-700/30 shadow-2xl shadow-blue-900/20">
+            <h3 className="text-2xl font-bold mb-6 text-center text-white">Live Market Data</h3>
             
             <div className="space-y-4">
               {marketData.map((coin) => (
@@ -76,28 +125,42 @@ const MarketData = () => {
                   className="flex items-center justify-between p-4 bg-crypto-darker/50 rounded-xl hover:bg-crypto-darker/70 transition-colors"
                 >
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-crypto-green to-crypto-green-light rounded-full flex items-center justify-center">
-                      <span className="text-crypto-dark font-bold text-sm">
+                    <div className="w-12 h-12 bg-gradient-to-r from-[#73E212] to-[#73E212]/80 rounded-full flex items-center justify-center">
+                      <span className="text-black font-bold text-sm">
                         {coin.symbol.substring(0, 2)}
                       </span>
                     </div>
                     <div>
-                      <div className="font-semibold">{coin.symbol}</div>
-                      <div className="text-sm text-gray-400">{coin.name}</div>
+                      <div className="font-semibold text-white">{coin.symbol}</div>
+                      <div className="text-sm text-white/80 font-medium">{coin.name}</div>
                     </div>
                   </div>
                   
                   <div className="text-right">
-                    <div className="font-bold">
-                      ${coin.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    <div className="font-bold text-white">
+                      {isLoading ? (
+                        <div className="animate-pulse bg-gray-600 h-6 w-20 rounded"></div>
+                      ) : (
+                        `$${coin.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+                      )}
                     </div>
-                    <div className={`text-sm ${coin.change >= 0 ? 'text-crypto-green' : 'text-red-400'}`}>
-                      {coin.change >= 0 ? '+' : ''}{coin.change.toFixed(2)}%
+                    <div className={`text-sm font-semibold ${coin.change >= 0 ? 'text-[#73E212]' : 'text-red-400'}`}>
+                      {isLoading ? (
+                        <div className="animate-pulse bg-gray-600 h-4 w-16 rounded"></div>
+                      ) : (
+                        `${coin.change >= 0 ? '+' : ''}${coin.change.toFixed(2)}%`
+                      )}
                     </div>
                   </div>
                 </div>
               ))}
             </div>
+            
+            {isLoading && (
+              <div className="text-center mt-4">
+                <div className="text-sm text-white/90 font-medium">Loading live data...</div>
+              </div>
+            )}
           </div>
         </div>
       </div>

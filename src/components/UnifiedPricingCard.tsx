@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
@@ -7,38 +6,41 @@ const UnifiedPricingCard = ({ showTitle = true, className = "" }) => {
     {
       name: "Trading Bot",
       price: 299,
-      description: "Access our proprietary AI-powered trading bot for hands-free execution on top exchanges.",
+      description: "Access our proprietary AI-powered Trading Bot for hands-free trading on top exchanges.",
       features: [
         "AI-Powered Trading Bot",
         "Multi-Exchange Integration",
         "24/7 Automated Trading",
-        "Risk Management Tools",
-        "Real-time Monitoring"
+        "90% Return in 30 Days",
+        "Real-time Monitoring",
+        "Quick Profits Strategy setup"
       ],
       popular: false
     },
     {
       name: "VIP Signals",
       price: 99,
-      description: "Get 5–7 daily profitable signals with full trade instructions (TP, SL, Entry).",
+      description: "Receive Profitable signals with full trade instructions (Entry, Stop Loss, and Take Profit Levels).",
       features: [
-        "5-7 Daily Premium Signals",
-        "Entry, Stop Loss & Take Profit",
-        "Multi-Market Coverage",
-        "Expert Analysis",
-        "Priority Support"
+        "5–7 Premium Daily Signals",
+        "Precise Entry, SL, and TP Instructions",
+        "Covers Multiple Crypto Markets",
+        "Backed by Expert Analysis",
+        "Includes Priority Support",
+        "Optimized for Steady Returns"
       ],
       popular: true
     },
     {
       name: "40-Day Challenge",
       price: 499,
-      description: "Join our high-yield challenge (coming soon). One signal per day aiming for 2200–4000% in 40 days.",
+      description: "Join our high-yield challenge. One signal daily aiming for 2200–4000% in 40 days.",
       features: [
-        "1 Expert Signal Daily",
-        "2200-4000% ROI Target",
-        "Personal Guidance",
-        "Exclusive Community",
+        "1 Premium Signal Daily",
+        "Min. Daily Profit: 55%",
+        "ROI Goal: 2,200% – 4,000%",
+        "Personal Guidance Included",
+        "Access to Private Trading Circle",
         "Performance Tracking"
       ],
       popular: false,
@@ -51,8 +53,8 @@ const UnifiedPricingCard = ({ showTitle = true, className = "" }) => {
       <div className="container mx-auto px-4">
         {showTitle && (
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold font-general mb-6">
-              Trading Access <span className="text-gradient">Plans</span>
+            <h2 className="text-4xl md:text-5xl font-bold font-general mb-6 text-white">
+              Trading Access <span className="text-[#73E212]">Plans</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Choose the plan that fits your trading goals and start your journey to financial freedom.
@@ -106,7 +108,9 @@ const UnifiedPricingCard = ({ showTitle = true, className = "" }) => {
                       <div className="text-4xl font-bold text-white font-general">
                         ${plan.price}
                       </div>
-                      <div className="text-gray-400">/month</div>
+                      <div className="text-gray-400">
+                        {plan.name === "Trading Bot" ? "/Setup" : "/month"}
+                      </div>
                     </div>
                   </div>
 

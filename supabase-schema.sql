@@ -269,7 +269,7 @@ CREATE INDEX IF NOT EXISTS idx_payouts_user_id ON payouts(user_id);
 CREATE INDEX IF NOT EXISTS idx_trades_user_id ON trades(user_id);
 CREATE INDEX IF NOT EXISTS idx_notifications_user_id ON notifications(user_id);
 CREATE INDEX IF NOT EXISTS idx_support_tickets_user_id ON support_tickets(user_id);
-CREATE INDEX IF NOT EXISTS idx_trading_signals_created_at ON trading_signals(created_at);
+CREATE INDEX IF NOT EXISTS idx_trading_signals_created_at ON trading_signals(created_at); 
 
 -- Quick fix - just remove the problematic trigger
 DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;

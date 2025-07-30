@@ -21,7 +21,7 @@ const TrustBadges = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Traded On Leading <span className="text-[#73E212]">Crypto Platforms</span>
+            Trade On Leading <span className="text-[#73E212]">Crypto Platforms</span>
           </h3>
           <p className="text-[#73E212]/70 text-lg">
             Seamlessly integrated with the world's most trusted exchanges

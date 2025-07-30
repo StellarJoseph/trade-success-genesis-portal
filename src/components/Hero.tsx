@@ -1,9 +1,34 @@
 import { Button } from '@/components/ui/button';
 import { Bitcoin } from 'lucide-react';
+import { useEffect, useState } from 'react';
+
+const ROTATING_WORDS = [
+  'Easier',
+  'Richer',
+  'Stronger',
+  'Shielded',
+];
 
 const Hero = () => {
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    const fadeOutTimeout = setTimeout(() => setFade(false), 2000); // fade out after 2s
+    const changeWordTimeout = setTimeout(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
+      setFade(true);
+    }, 2400); // change word after fade out
+    return () => {
+      clearTimeout(fadeOutTimeout);
+      clearTimeout(changeWordTimeout);
+    };
+  }, [currentWordIndex]);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Animated Gradient Background */}
+      <div className="animated-gradient"></div>
       {/* Background Effects - matching the green gradient from reference */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-[#73E212]/20 via-crypto-dark to-crypto-darker"></div>
@@ -58,20 +83,24 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-10 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-general mb-6 leading-tight text-white">
-              Make Your life{' '}
-              <span className="text-[#73E212]">Easier With</span>{' '}
-              Cryptocurrency
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-general mb-6 leading-tight text-white text-center">
+              Make Your Life{' '}
+              <span
+                className={`rotating-word font-bold transition-opacity duration-400 ${fade ? 'opacity-100' : 'opacity-0'}`}
+                style={{ color: '#73E212' }}
+              >
+                {ROTATING_WORDS[currentWordIndex]}
+              </span>{' '}
+              With Cryptocurrency
             </h1>
             
             <p className="text-xl text-white mb-8 max-w-2xl">
-              Join the global crypto revolution with TradeSuccess.VIP. 
-              Our AI-powered trading platform and expert signals help you 
-              maximize profits in the cryptocurrency market.
+            Unlock Smarter Crypto Gains with TradeSuccess.VIP
+            Step into the future of wealth creation with our AI-driven platform. From expert trading signals to automated portfolio strategies, we empower you to profit confidently in the fast-moving crypto market.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">

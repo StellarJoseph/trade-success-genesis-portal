@@ -24,9 +24,9 @@ const Header = () => {
       name: 'Shop', 
       href: '#',
       submenu: [
-        { name: 'Advisory', href: '/consultancy' },
-        { name: 'Courses', href: '/courses' },
-        { name: 'Merch', href: '/merchandise' }
+        { name: 'Advisory', href: '/shop/consultancy' },
+        { name: 'Courses', href: '/shop/courses' },
+        { name: 'Merch', href: '/shop/merchandise' }
       ]
     },
     { name: 'Contact', href: '/contact' }
@@ -89,12 +89,12 @@ const Header = () => {
                     </div>
                   </div>
                 ) : (
-                  <Link
-                    to={item.href}
-                    className="text-white hover:text-crypto-green transition-colors duration-300 font-medium"
-                  >
-                    {item.name}
-                  </Link>
+              <Link
+                to={item.href}
+                className="text-white hover:text-crypto-green transition-colors duration-300 font-medium"
+              >
+                {item.name}
+              </Link>
                 )}
               </div>
             ))}
@@ -154,13 +154,13 @@ const Header = () => {
                       )}
                     </div>
                   ) : (
-                    <Link
-                      to={item.href}
-                      className="text-white hover:text-crypto-green transition-colors duration-300 font-medium"
+                <Link
+                  to={item.href}
+                  className="text-white hover:text-crypto-green transition-colors duration-300 font-medium"
                       onClick={closeDropdowns}
-                    >
-                      {item.name}
-                    </Link>
+                >
+                  {item.name}
+                </Link>
                   )}
                 </div>
               ))}

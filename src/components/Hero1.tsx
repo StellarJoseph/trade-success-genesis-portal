@@ -60,9 +60,8 @@ const Hero = () => {
             </h1>
             
             <p className="text-xl text-gray-300 mb-8 max-w-2xl">
-              Join the global crypto revolution with TradeSuccess.VIP. 
-              Our AI-powered trading platform and expert signals help you 
-              maximize profits in the cryptocurrency market.
+            Unlock Smarter Crypto Gains with TradeSuccess.VIP
+            Step into the future of wealth creation with our AI-driven platform. From expert trading signals to automated portfolio strategies, we empower you to profit confidently in the fast-moving crypto market.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">

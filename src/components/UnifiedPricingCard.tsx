@@ -56,7 +56,7 @@ const UnifiedPricingCard = ({ showTitle = true, className = "" }) => {
             <h2 className="text-4xl md:text-5xl font-bold font-general mb-6 text-white">
               Trading Access <span className="text-[#73E212]">Plans</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-white max-w-3xl mx-auto">
               Choose the plan that fits your trading goals and start your journey to financial freedom.
             </p>
           </div>
@@ -98,8 +98,8 @@ const UnifiedPricingCard = ({ showTitle = true, className = "" }) => {
                   
                   <div className="text-center mb-8">
                     <div className="inline-flex items-center gap-2 mb-4">
-                      <div className="w-2 h-2 bg-crypto-green rounded-full"></div>
-                      <span className="text-crypto-green font-semibold text-sm uppercase tracking-wide">
+                      <div className="w-2 h-2 bg-[#73E212] rounded-full"></div>
+                      <span className="text-[#73E212] font-semibold text-sm uppercase tracking-wide">
                         {plan.name}
                       </span>
                     </div>
@@ -108,21 +108,21 @@ const UnifiedPricingCard = ({ showTitle = true, className = "" }) => {
                       <div className="text-4xl font-bold text-white font-general">
                         ${plan.price}
                       </div>
-                      <div className="text-gray-400">
+                      <div className="text-[#73E212]">
                         {plan.name === "Trading Bot" ? "/Setup" : "/month"}
                       </div>
                     </div>
                   </div>
 
-                  <p className="text-gray-300 mb-8 leading-relaxed text-center">
+                  <p className="text-white mb-8 leading-relaxed text-center">
                     {plan.description}
                   </p>
 
                   <ul className="space-y-4 mb-12">
                     {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-gray-300">
-                        <div className="w-5 h-5 rounded-full bg-crypto-green/20 flex items-center justify-center mr-4 flex-shrink-0">
-                          <svg className="w-3 h-3 text-crypto-green" fill="currentColor" viewBox="0 0 20 20">
+                      <li key={idx} className="flex items-center text-white">
+                        <div className="w-5 h-5 rounded-full bg-[#73E212]/20 flex items-center justify-center mr-4 flex-shrink-0">
+                          <svg className="w-3 h-3 text-[#73E212]" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                           </svg>
                         </div>
@@ -131,7 +131,7 @@ const UnifiedPricingCard = ({ showTitle = true, className = "" }) => {
                     ))}
                   </ul>
 
-                  <Button className="w-full bg-crypto-green hover:bg-crypto-green/90 text-crypto-dark font-semibold py-4 rounded-full text-lg transition-all duration-300 group-hover:shadow-lg group-hover:shadow-crypto-green/25">
+                  <Button className="w-full bg-[#73E212] hover:bg-[#73E212]/90 text-black font-semibold py-4 rounded-full text-lg transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#73E212]/25">
                     Get Started →
                   </Button>
                 </div>

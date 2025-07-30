@@ -1,8 +1,43 @@
-
 import { useState, useEffect } from 'react';
+
+const NATIONAL_HOLDINGS = [
+  { country: 'United States', amount: '$198B' },
+  { country: 'China', amount: '$190B' },
+  { country: 'United Kingdom', amount: '$61.2B' },
+  { country: 'North Korea', amount: '$13.5B' },
+  { country: 'Bhutan', amount: '$11.9B' },
+  { country: 'El Salvador', amount: '$6.2B' },
+];
+
+const TOP_HOLDERS = [
+  { country: 'India', people: '103 million people' },
+  { country: 'China', people: '58 million people' },
+  { country: 'United States', people: '45 million people' },
+  { country: 'Vietnam', people: '20 million people' },
+  { country: 'Brazil', people: '15 million people' },
+  { country: 'Nigeria', people: '13 million people' },
+];
+
+// Helper functions for bar width
+const getNationalBarWidth = (amount) => {
+  // Remove $ and B, convert to number
+  const num = parseFloat(amount.replace(/[$B]/g, ''));
+  // Max is 198 (US)
+  return `${(num / 198) * 100}%`;
+};
+const getHolderBarWidth = (people) => {
+  // Remove ' million people', convert to number
+  const num = parseFloat(people.replace(/[^\d.]/g, ''));
+  // Max is 103 (India)
+  return `${(num / 103) * 100}%`;
+};
+
+const isMobile = () => typeof window !== 'undefined' && window.innerWidth < 768;
 
 const CryptoHistorySection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showNational, setShowNational] = useState(true);
+  const [fade, setFade] = useState(true);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -20,9 +55,22 @@ const CryptoHistorySection = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Swapping animation logic
+  useEffect(() => {
+    if (!isVisible) return;
+    const swapInterval = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setShowNational((prev) => !prev);
+        setFade(true);
+      }, 500); // fade out, then swap, then fade in
+    }, 9000);
+    return () => clearInterval(swapInterval);
+  }, [isVisible]);
+
   return (
     <section id="crypto-history" className="py-20 bg-black">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-2">
         <div className="max-w-6xl mx-auto">
           <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-4xl md:text-5xl font-bold font-general mb-6 text-white">
@@ -38,7 +86,7 @@ const CryptoHistorySection = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Content */}
-            <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}> 
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                 Over the past decade, early adopters of crypto have turned modest investments 
                 into life-changing fortunes. Entrepreneurs, students, institutions — people from 
@@ -58,39 +106,66 @@ const CryptoHistorySection = () => {
               </div>
             </div>
 
-            {/* Visual Element */}
+            {/* Animated Swapping Stats */}
             <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-              <div className="glass-card p-8 rounded-3xl">
+              <div className="glass-card p-8 rounded-3xl min-h-[370px] flex flex-col justify-center items-center">
                 <h3 className="text-2xl font-bold text-crypto-green mb-6 text-center">
-                  Top Countries with Crypto Holdings
+                  {showNational ? 'Top Countries by National Crypto Holdings' : 'Top Countries by Number of Crypto Holders'}
                 </h3>
-                <div className="space-y-4">
-                  {[
-                    { country: "United States", amount: "$5.1B", percentage: 100 },
-                    { country: "China", amount: "$4.2B", percentage: 82 },
-                    { country: "Germany", amount: "$3.1B", percentage: 61 },
-                    { country: "El Salvador", amount: "$2.8B", percentage: 55 },
-                    { country: "Switzerland", amount: "$2.3B", percentage: 45 },
-                    { country: "Singapore", amount: "$1.9B", percentage: 37 }
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-6 bg-crypto-green/20 rounded flex items-center justify-center">
-                          <span className="text-xs text-crypto-green font-bold">{index + 1}</span>
-                        </div>
-                        <span className="text-white font-medium">{item.country}</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-32 bg-gray-800 rounded-full h-2">
-                          <div 
-                            className="bg-gradient-to-r from-crypto-green to-crypto-green-light h-2 rounded-full transition-all duration-1000"
-                            style={{ width: isVisible ? `${item.percentage}%` : '0%' }}
-                          ></div>
-                        </div>
-                        <span className="text-crypto-green font-bold text-sm min-w-16">{item.amount}</span>
-                      </div>
-                    </div>
-                  ))}
+                <div className={`w-full transition-opacity duration-500 ${fade ? 'opacity-100' : 'opacity-0'}`} key={showNational ? 'national' : 'holders'}>
+                  {showNational ? (
+                    <ul className="space-y-4 w-full">
+                      {NATIONAL_HOLDINGS.map((item, idx) => {
+                        let displayCountry = item.country;
+                        if (isMobile() && item.country === 'United States') displayCountry = 'U.S.A';
+                        return (
+                          <li key={item.country} className="flex items-center justify-between text-white text-lg md:text-xl flex-wrap">
+                            <span className="flex items-center gap-3 w-auto md:flex-1">
+                              <span className="w-8 h-8 flex items-center justify-center bg-crypto-green/20 rounded text-crypto-green font-bold text-base md:text-lg">{idx + 1}</span>
+                              <span className="whitespace-nowrap md:truncate">{displayCountry}</span>
+                            </span>
+                            {/* Measurement Bar */}
+                            <span className="mx-2 w-16 md:w-28">
+                              <div className="w-full bg-gray-800 rounded-full h-2">
+                                <div 
+                                  className="bg-gradient-to-r from-crypto-green to-crypto-green-light h-2 rounded-full transition-all duration-1000"
+                                  style={{ width: getNationalBarWidth(item.amount) }}
+                                ></div>
+                              </div>
+                            </span>
+                            <span className="text-crypto-green font-bold text-right min-w-[70px]">{item.amount}</span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  ) : (
+                    <ul className="space-y-4 w-full">
+                      {TOP_HOLDERS.map((item, idx) => {
+                        let displayCountry = item.country;
+                        let displayPeople = item.people;
+                        if (isMobile() && item.country === 'United States') displayCountry = 'U.S.A';
+                        if (isMobile() && item.country === 'Vietnam') displayPeople = '20M People';
+                        return (
+                          <li key={item.country} className="flex items-center justify-between text-white text-lg md:text-xl flex-wrap">
+                            <span className="flex items-center gap-3 w-auto md:flex-1">
+                              <span className="w-8 h-8 flex items-center justify-center bg-crypto-green/20 rounded text-crypto-green font-bold text-base md:text-lg">{idx + 1}</span>
+                              <span className="whitespace-nowrap md:truncate">{displayCountry}</span>
+                            </span>
+                            {/* Measurement Bar */}
+                            <span className="mx-2 w-16 md:w-28">
+                              <div className="w-full bg-gray-800 rounded-full h-2">
+                                <div 
+                                  className="bg-gradient-to-r from-crypto-green to-crypto-green-light h-2 rounded-full transition-all duration-1000"
+                                  style={{ width: getHolderBarWidth(item.people) }}
+                                ></div>
+                              </div>
+                            </span>
+                            <span className="text-crypto-green font-bold text-right min-w-[70px]">{displayPeople}</span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
                 </div>
               </div>
             </div>

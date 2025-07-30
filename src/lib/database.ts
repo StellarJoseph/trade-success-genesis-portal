@@ -178,4 +178,33 @@ export const portfolioService = {
     
     return { data, error };
   }
+};
+
+// Password reset request operations
+export const passwordResetService = {
+  async createRequest(email: string) {
+    const { data, error } = await supabase
+      .from('password_reset_requests')
+      .insert([{ email, status: 'Pending', created_at: new Date().toISOString() }])
+      .select();
+    return { data, error };
+  },
+  async getAllRequests() {
+    const { data, error } = await supabase
+      .from('password_reset_requests')
+      .select('*')
+      .order('created_at', { ascending: false });
+    return { data, error };
+  },
+  async updateRequestStatus(requestId: string, status: string, approvedBy?: string) {
+    const { data, error } = await supabase
+      .from('password_reset_requests')
+      .update({ status, approved_by: approvedBy, updated_at: new Date().toISOString() })
+      .eq('id', requestId)
+      .select();
+    return { data, error };
+  },
+  async sendResetEmail(email: string) {
+    return await supabase.auth.resetPasswordForEmail(email);
+  }
 }; 

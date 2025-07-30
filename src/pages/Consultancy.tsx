@@ -13,8 +13,10 @@ import {
   TrendingUp,
   Shield
 } from 'lucide-react';
+import { useTheme } from '../components/DashboardLayout';
 
 const Consultancy = () => {
+  const { dark } = useTheme();
   const services = [
     {
       name: "Portfolio Review & Strategy",
@@ -135,7 +137,7 @@ const Consultancy = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className={`min-h-screen ${dark ? 'bg-black text-white' : 'bg-white text-black'}`}>
       <Header />
       
       <main className="pt-20">

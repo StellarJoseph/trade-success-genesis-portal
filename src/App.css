@@ -40,3 +40,85 @@
 .read-the-docs {
   color: #888;
 }
+
+.rotating-word {
+  transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+  font-weight: 700;
+  color: #73E212;
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2.2rem !important;
+    line-height: 1.2 !important;
+  }
+}
+
+.animated-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: linear-gradient(90deg, #73E212, #a8ff78, #73E212);
+  background-size: 300% 300%;
+  animation: moveGradient 8s ease-in-out infinite alternate;
+  opacity: 0.15;
+  pointer-events: none;
+}
+@keyframes moveGradient {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.plasma-border {
+  position: relative;
+  border-radius: 16px;
+  background: #0A0A0A;
+  overflow: visible;
+}
+.plasma-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  z-index: 10;
+  border-radius: 18px;
+  padding: 0;
+  background: conic-gradient(
+    from 0deg,
+    #73E212 0%,
+    #4CAF50 25%,
+    #1E88E5 50%,
+    #a162e7 75%,
+    #73E212 100%
+  );
+  filter: blur(4px) brightness(1.2);
+  opacity: 0.85;
+  border: 2px solid transparent;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  will-change: background-position;
+  animation: plasma-rotate 4s linear infinite;
+}
+@keyframes plasma-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .plasma-border {
+    border-radius: 12px;
+  }
+  .plasma-border::before {
+    border-radius: 14px;
+  }
+}

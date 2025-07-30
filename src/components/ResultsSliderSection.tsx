@@ -28,7 +28,7 @@ const ResultsSliderSection = () => {
 
   return (
     <section id="results-section" className="py-20 bg-black overflow-hidden">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold font-general mb-6 text-white">
             See the Power of Your Portfolio in{' '}
@@ -41,42 +41,42 @@ const ResultsSliderSection = () => {
 
         {/* Carousel Container with Border */}
         <div className="border-2 border-[#73E212]/30 rounded-3xl p-8 bg-black/50 backdrop-blur-sm overflow-hidden">
-          <div className="space-y-8">
-            {/* First Row - Slides Left to Right */}
-            <div className="relative">
+        <div className="space-y-8">
+          {/* First Row - Slides Left to Right */}
+          <div className="relative">
               <div className="flex animate-slide-left-to-right-fast gap-4 md:gap-6">
-                {[...firstRowScreenshots, ...firstRowScreenshots].map((screenshot, index) => (
-                  <div
-                    key={`first-${index}`}
+              {[...firstRowScreenshots, ...firstRowScreenshots].map((screenshot, index) => (
+                <div
+                  key={`first-${index}`}
                     className="flex-shrink-0 w-[300px] h-[300px] relative rounded-2xl overflow-hidden carousel-glow-border group hover:pause-animation"
-                  >
-                    <img 
-                      src={screenshot} 
-                      alt={`Trading Result ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
+                >
+                  <img 
+                    src={screenshot} 
+                    alt={`Trading Result ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent group-hover:from-black/20 transition-all duration-300"></div>
-                  </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
+          </div>
 
-            {/* Second Row - Slides Right to Left */}
-            <div className="relative">
+          {/* Second Row - Slides Right to Left */}
+          <div className="relative">
               <div className="flex animate-slide-right-to-left-fast gap-4 md:gap-6">
-                {[...secondRowScreenshots, ...secondRowScreenshots].map((screenshot, index) => (
-                  <div
-                    key={`second-${index}`}
+              {[...secondRowScreenshots, ...secondRowScreenshots].map((screenshot, index) => (
+                <div
+                  key={`second-${index}`}
                     className="flex-shrink-0 w-[300px] h-[300px] relative rounded-2xl overflow-hidden carousel-glow-border group hover:pause-animation"
-                  >
-                    <img 
-                      src={screenshot} 
-                      alt={`Trading Result ${index + 11}`}
-                      className="w-full h-full object-cover"
-                    />
+                >
+                  <img 
+                    src={screenshot} 
+                    alt={`Trading Result ${index + 11}`}
+                    className="w-full h-full object-cover"
+                  />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent group-hover:from-black/20 transition-all duration-300"></div>
-                  </div>
-                ))}
+                </div>
+              ))}
               </div>
             </div>
           </div>

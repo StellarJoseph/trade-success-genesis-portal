@@ -5,6 +5,7 @@ import { Mail, Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { isSupabaseConfigured, supabase } from '@/lib/supabaseClient';
+import { passwordResetService } from '@/lib/database';
 
 const Login = () => {
   const [showEmailForm, setShowEmailForm] = useState(false);
@@ -13,6 +14,9 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [resetEmail, setResetEmail] = useState('');
+  const [resetMessage, setResetMessage] = useState('');
   const navigate = useNavigate();
   const { signIn, ensureProfile } = useAuth();
 
@@ -37,9 +41,6 @@ const Login = () => {
       if (error) {
         console.error('Google sign-in error:', error.message);
         setMessage(`Google login failed: ${error.message}`);
-      } else if (data) {
-        setMessage('Redirecting to Google...');
-        // The redirect will happen automatically
       }
     } catch (err) {
       console.error('Google login error:', err);
@@ -100,6 +101,23 @@ const Login = () => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleForgotPasswordRequest = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setResetMessage('');
+    try {
+      const { error } = await passwordResetService.createRequest(resetEmail);
+      if (error) {
+        setResetMessage('Failed to submit request. Please try again.');
+      } else {
+        setResetMessage('Your password reset request has been submitted for admin approval. You will receive an email if approved.');
+      }
+    } catch (err) {
+      setResetMessage('An unexpected error occurred. Please try again.');
+    }
+    setIsLoading(false);
   };
 
   const goBackToOptions = () => {
@@ -244,6 +262,18 @@ const Login = () => {
                   </div>
                 )}
 
+                {!showForgotPassword && (
+                  <div className="flex justify-end mt-2">
+                    <button
+                      type="button"
+                      className="text-[#73E212] hover:underline text-sm font-medium"
+                      onClick={() => setShowForgotPassword(true)}
+                    >
+                      Forgot password?
+                    </button>
+                  </div>
+                )}
+
                 <Button 
                   type="submit" 
                   className="w-full bg-[#73E212] text-black font-semibold py-3 hover:bg-[#73E212]/90"
@@ -251,6 +281,46 @@ const Login = () => {
                 >
                   {isLoading ? 'Signing In...' : 'Sign In'}
                 </Button>
+              </form>
+            )}
+
+            {showForgotPassword && (
+              <form onSubmit={handleForgotPasswordRequest} className="space-y-6">
+                <Button
+                  type="button"
+                  onClick={() => setShowForgotPassword(false)}
+                  variant="ghost"
+                  className="w-full text-[#73E212] hover:text-[#73E212]/80 transition-colors flex items-center justify-center gap-2 mb-4"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  Back to login
+                </Button>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-[#73E212]/80">Email for Password Reset</label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#73E212]/60 w-5 h-5" />
+                    <input
+                      type="email"
+                      value={resetEmail}
+                      onChange={(e) => setResetEmail(e.target.value)}
+                      className="w-full pl-12 pr-4 py-3 bg-[#73E212]/10 border border-[#73E212]/30 rounded-lg text-white placeholder-gray-400 focus:border-[#73E212] focus:outline-none transition-colors"
+                      placeholder="Enter your email"
+                      required
+                    />
+                  </div>
+                </div>
+                <Button
+                  type="submit"
+                  className="w-full bg-[#73E212] text-black font-semibold py-3 hover:bg-[#73E212]/90 transition-colors"
+                  disabled={isLoading}
+                >
+                  Submit Reset Request
+                </Button>
+                {resetMessage && (
+                  <div className="p-3 rounded-lg text-sm bg-yellow-500/10 border border-yellow-500/30 text-yellow-400">
+                    {resetMessage}
+                  </div>
+                )}
               </form>
             )}
 

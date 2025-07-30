@@ -12,9 +12,11 @@ import {
   Globe
 } from 'lucide-react';
 import { useState } from 'react';
+import { useTheme } from '../components/DashboardLayout';
 
 const Merchandise = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const { dark } = useTheme();
 
   const filters = [
     { id: 'all', name: 'All Products' },
@@ -200,7 +202,7 @@ const Merchandise = () => {
     : products.filter(product => product.category === activeFilter);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className={`min-h-screen ${dark ? 'bg-black text-white' : 'bg-white text-black'}`}>
       <Header />
       
       <main className="pt-20">

@@ -45,6 +45,7 @@ import {
   LogOut
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import DashboardLayout from '@/components/DashboardLayout';
 
 const Dashboard = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -223,76 +224,8 @@ const Dashboard = () => {
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
-      {/* Header */}
-      <header className={`border-b ${isDarkMode
-        ? 'border-[#73E212]/20 bg-gradient-to-r from-[#a162e7] via-[#ffab2f] to-[#2c99d5]'
-        : 'border-[#131240]/20 bg-gradient-to-r from-[#56cdf9] via-[#75ffe9] to-[#a162e7]'}`}>
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <img 
-                src="https://res.cloudinary.com/dt7mxnrxo/image/upload/v1750696761/TS_LOGO_juw9he.png" 
-                alt="TradeSuccess.VIP Logo" 
-                className="w-10 h-10"
-              />
-              <div>
-                <h1 className={`text-xl font-bold font-general ${isDarkMode ? 'text-white' : 'text-black'} drop-shadow-lg`}>
-                  Member Dashboard
-                </h1>
-                <p className={`text-sm ${isDarkMode ? 'text-white/90' : 'text-black/70'} drop-shadow-md`}>Welcome back, John!</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-lg px-3 py-2">
-                <Sun className={`w-4 h-4 ${isDarkMode ? 'text-white' : 'text-black'}`} />
-                <Switch
-                  checked={isDarkMode}
-                  onCheckedChange={setIsDarkMode}
-                  className="data-[state=checked]:bg-[#73E212]"
-                />
-                <Moon className={`w-4 h-4 ${isDarkMode ? 'text-white' : 'text-black'}`} />
-              </div>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setShowNotificationsModal(true)}
-                className={`transition-all duration-300 hover:shadow-lg hover:shadow-[#73E212]/20 ${isDarkMode
-                    ? 'border-white/30 text-white hover:bg-white/20 hover:border-white/50 bg-white/10 backdrop-blur-sm'
-                    : 'border-black/30 text-black hover:bg-black/20 hover:border-black/50 bg-white/20 backdrop-blur-sm'
-                  }`}
-              >
-                <Bell className="w-4 h-4 mr-2" />
-                Notifications
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                className={`transition-all duration-300 hover:shadow-lg hover:shadow-[#73E212]/20 ${isDarkMode
-                    ? 'border-white/30 text-white hover:bg-white/20 hover:border-white/50 bg-white/10 backdrop-blur-sm'
-                    : 'border-black/30 text-black hover:bg-black/20 hover:border-black/50 bg-white/20 backdrop-blur-sm'
-                  }`}
-              >
-                <Settings className="w-4 h-4 mr-2" />
-                Settings
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={handleLogout}
-                className={`transition-all duration-300 hover:bg-white/20 hover:shadow-lg hover:shadow-[#73E212]/20 ${isDarkMode
-                    ? 'text-white/90 hover:text-white bg-white/10 backdrop-blur-sm'
-                    : 'text-black/90 hover:text-black bg-white/20 backdrop-blur-sm'
-                  }`}
-              >
-                <LogOut className="w-4 h-4 mr-2" />
-                Logout
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
+    <DashboardLayout>
+      <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-[#000000] text-[#F0F0F0]' : 'bg-[#FFFFFF] text-[#2C2C2C]'}`}>
       <div className="container mx-auto px-4 py-8">
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
@@ -388,11 +321,11 @@ const Dashboard = () => {
 
         <Tabs defaultValue="portfolio" className="space-y-6">
           <TabsList className={`grid w-full grid-cols-7 gap-2 p-2 ${isDarkMode
-            ? 'bg-black border-[#73E212]/30'
-            : 'bg-[#131240]/10 border-[#131240]/30'}`}>
+              ? 'bg-[#000000] border-[#73E212]/30'
+              : 'bg-[#FFFFFF] border-[#131240]/30'}`}>
             <TabsTrigger
               value="portfolio"
-              className="data-[state=active]:bg-[#a162e7] data-[state=active]:text-white text-white">
+                className="data-[state=active]:bg-[#73E212] data-[state=active]:text-white text-white">
               Portfolio
             </TabsTrigger>
             <TabsTrigger
@@ -896,115 +829,6 @@ const Dashboard = () => {
                             }`}
                         />
                       </div>
-                      <div className="md:col-span-2">
-                        <label className="text-sm text-[#73E212]/70 mb-2 block">Bank Name</label>
-                        <Popover open={nextOfKinBankOpen} onOpenChange={setNextOfKinBankOpen}>
-                          <PopoverTrigger asChild>
-                            <Button
-                              variant="outline"
-                              role="combobox"
-                              aria-expanded={nextOfKinBankOpen}
-                              className={`w-full justify-between ${isDarkMode
-                                ? 'bg-black border-[#73E212]/30 text-white hover:bg-[#73E212]/10'
-                                : 'bg-white border-[#131240]/30 text-black hover:bg-[#131240]/10'}`}
-                            >
-                              {nextOfKin.bankName || "Select bank..."}
-                              <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                            </Button>
-                          </PopoverTrigger>
-                          <PopoverContent className={`w-full p-0 ${isDarkMode ? 'bg-black border-[#73E212]/30' : 'bg-white border-[#131240]/30'}`}>
-                            <Command>
-                              <CommandInput
-                                placeholder="Search bank..."
-                                className={`${isDarkMode ? 'text-white' : 'text-black'}`}
-                              />
-                              <CommandList>
-                                <CommandEmpty>No bank found.</CommandEmpty>
-                                <CommandGroup>
-                                  {nigerianBanks.map((bank) => (
-                                    <CommandItem
-                                      key={bank}
-                                      value={bank}
-                                      onSelect={(currentValue) => {
-                                        setNextOfKin({ ...nextOfKin, bankName: currentValue });
-                                        setNextOfKinBankOpen(false);
-                                      }}
-                                      className={`cursor-pointer ${isDarkMode ? 'hover:bg-[#73E212]/20' : 'hover:bg-[#131240]/20'}`}
-                                    >
-                                      <CheckIcon
-                                        className={`mr-2 h-4 w-4 ${nextOfKin.bankName === bank ? "opacity-100" : "opacity-0"
-                                          }`}
-                                      />
-                                      {bank}
-                                    </CommandItem>
-                                  ))}
-                                </CommandGroup>
-                              </CommandList>
-                            </Command>
-                          </PopoverContent>
-                        </Popover>
-                      </div>
-                    </div>
-                    <Button className="w-full mt-4 bg-[#73E212] text-black hover:bg-[#73E212]/90">
-                      Save Next of Kin Details
-                    </Button>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </TabsContent>
-
-          {/* Reports & Insights */}
-          <TabsContent value="reports" className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <Card className={`rounded-xl ${isDarkMode ? 'bg-black/40' : 'bg-[#f8f9fa]'} border border-[#e5e7eb] shadow-sm`}>
-                  <CardHeader>
-                    <CardTitle className={`font-general flex items-center text-[#041260]`}>
-                      <Download className="w-5 h-5 mr-2 text-white" />
-                      Reports
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    {[
-                      { month: 'January 2024', roi: '+34.7%', trades: 28 },
-                      { month: 'December 2023', roi: '+28.2%', trades: 31 },
-                      { month: 'November 2023', roi: '+41.1%', trades: 26 }
-                    ].map((report, index) => (
-                      <div key={index} className={`flex items-center justify-between p-3 rounded-lg ${isDarkMode ? 'bg-[#73E212]/10' : 'bg-[#f8f9fa]'}`}>
-                        <div>
-                          <p className={`font-medium ${isDarkMode ? 'text-white' : 'text-black'}`}>{report.month} Performance</p>
-                          <p className="text-sm text-[#73E212]/70">ROI: {report.roi} | {report.trades} trades</p>
-                        </div>
-                        <Button variant="outline" size="sm" className={`transition-colors ${isDarkMode
-                            ? 'border-[#73E212]/30 text-[#73E212] hover:bg-[#73E212]/10'
-                            : 'border-[#131240]/30 text-[#131240] hover:bg-[#131240]/10'
-                          }`}>
-                          <Download className="w-4 h-4" />
-                        </Button>
-                      </div>
-                    ))}
-                  </CardContent>
-                </Card>
-              </div>
-              <div>
-                <Card className={`rounded-xl ${isDarkMode ? 'bg-black/40' : 'bg-[#f8f9fa]'} border border-[#e5e7eb] shadow-sm`}>
-                  <CardHeader>
-                    <CardTitle className={`font-general ${isDarkMode ? 'text-white' : 'text-black'}`}>Trading Insights</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      {[
-                        { label: 'Win Rate', value: '87%' },
-                        { label: 'Total Trades', value: '142' },
-                        { label: 'Total Profit', value: '$8.2K' },
-                        { label: 'Avg. Multiplier', value: '2.4x' }
-                      ].map((stat, index) => (
-                        <div key={index} className={`text-center p-3 rounded-lg ${isDarkMode ? 'bg-[#73E212]/10' : 'bg-[#f8f9fa]'}`}>
-                          <p className="text-2xl font-bold text-[#73E212]">{stat.value}</p>
-                          <p className="text-sm text-[#73E212]/70">{stat.label}</p>
-                        </div>
-                      ))}
                     </div>
                   </CardContent>
                 </Card>
@@ -1012,110 +836,25 @@ const Dashboard = () => {
             </div>
           </TabsContent>
 
-          {/* Community Section */}
-          <TabsContent value="community" className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <Card className={`rounded-xl ${isDarkMode ? 'bg-black/40' : 'bg-[#f8f9fa]'} border border-[#e5e7eb] shadow-sm`}>
-                  <CardHeader>
-                    <CardTitle className="font-general flex items-center text-white">
-                      <Users className="w-5 h-5 mr-2 text-white" />
-                      Community Access
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <Button className="w-full justify-start bg-[#5865F2] hover:bg-[#4752C4] text-white">
-                      <MessageCircle className="w-4 h-4 mr-2" />
-                      Join Discord Server
-                    </Button>
-                    <Button className="w-full justify-start bg-[#0088cc] hover:bg-[#006699] text-white">
-                      <Send className="w-4 h-4 mr-2" />
-                      Join Telegram Group
-                    </Button>
-                    <Button variant="outline" className={`w-full justify-start transition-colors ${isDarkMode
-                        ? 'border-[#73E212]/30 text-[#73E212] hover:bg-[#73E212]/10'
-                        : 'border-[#131240]/30 text-[#131240] hover:bg-[#131240]/10'
-                      }`}>
-                      <Mail className="w-4 h-4 mr-2" />
-                      Contact Support
-                    </Button>
-                  </CardContent>
-                </Card>
-              </div>
-              <div>
-                <Card className={`rounded-xl ${isDarkMode ? 'bg-black/40' : 'bg-[#f8f9fa]'} border border-[#e5e7eb] shadow-sm`}>
-                  <CardHeader>
-                    <CardTitle className={`font-general ${isDarkMode ? 'text-white' : 'text-black'}`}>Enrolled Courses</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className={`p-3 rounded-lg ${isDarkMode ? 'bg-[#73E212]/10' : 'bg-[#f8f9fa]'}`}>
-                      <div className="flex items-center justify-between mb-2">
-                        <p className={`font-medium ${isDarkMode ? 'text-white' : 'text-black'}`}>Advanced Signal Analysis</p>
-                        <Badge className="bg-[#73E212] text-black">Active</Badge>
-                      </div>
-                      <p className="text-sm text-[#73E212]/70">Progress: 65% complete</p>
-                      <div className={`w-full rounded-full h-2 mt-2 ${isDarkMode ? 'bg-black/40' : 'bg-[#f8f9fa]'}`}>
-                        <div className="bg-[#73E212] h-2 rounded-full" style={{ width: '65%' }}></div>
-                      </div>
-                    </div>
-                    <div className={`p-3 rounded-lg ${isDarkMode ? 'bg-[#73E212]/10' : 'bg-[#f8f9fa]'}`}>
-                      <div className="flex items-center justify-between mb-2">
-                        <p className={`font-medium ${isDarkMode ? 'text-white' : 'text-black'}`}>Risk Management Mastery</p>
-                        <Badge variant="outline">Completed</Badge>
-                      </div>
-                      <p className="text-sm text-[#73E212]/70">Completed: Jan 10, 2024</p>
-                    </div>
-                    <Button variant="outline" className={`w-full transition-colors ${isDarkMode
-                        ? 'border-[#73E212]/30 text-[#73E212] hover:bg-[#73E212]/10'
-                        : 'border-[#131240]/30 text-[#131240] hover:bg-[#131240]/10'
-                      }`}>
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Browse All Courses
-                    </Button>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </TabsContent>
-
-          {/* Settings Panel with Sidebar Layout */}
+          {/* Settings Tab */}
           <TabsContent value="settings" className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <Card className={`rounded-xl ${isDarkMode ? 'bg-black/40' : 'bg-[#5635BB]'} border-none shadow-none`}>
-                  <CardHeader>
-                    <CardTitle className="font-general flex items-center text-white">
-                      <Settings className="w-5 h-5 mr-2 text-white" />
-                      Settings
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex min-h-[600px]">
-                      <SettingsSidebar
-                        activeSection={activeSettingsSection}
-                        onSectionChange={setActiveSettingsSection}
-                        isDarkMode={isDarkMode}
-                      />
-                      <SettingsContent
-                        activeSection={activeSettingsSection}
-                        isDarkMode={isDarkMode}
-                      />
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
+            <div className="flex">
+              <SettingsSidebar
+                activeSection={activeSettingsSection}
+                onSectionChange={setActiveSettingsSection}
+                isDarkMode={isDarkMode}
+              />
+              <SettingsContent
+                activeSection={activeSettingsSection}
+                isDarkMode={isDarkMode}
+                onToggleDarkMode={setIsDarkMode}
+              />
             </div>
           </TabsContent>
         </Tabs>
       </div>
-
-      {/* Notifications Modal */}
-      <NotificationsModal
-        isOpen={showNotificationsModal}
-        onClose={() => setShowNotificationsModal(false)}
-        isDarkMode={isDarkMode}
-      />
     </div>
+    </DashboardLayout>
   );
 };
 

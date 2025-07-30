@@ -54,7 +54,9 @@ const VIPServicesSection = () => {
             <div className="text-crypto-green mb-4 font-semibold">● Exclusive VIP Services</div>
             <h2 className="text-4xl md:text-5xl font-bold font-general mb-6 text-white">
               Tailored VIP Solutions for{' '}
-              <span className="text-gradient">Traders, Investors & Asset Builders</span>
+              <br />
+              <span className="text-gradient">
+                Traders, Investors & Asset Builders</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto">
               Choose your path to crypto success with our premium services designed for every trading style and investment goal.

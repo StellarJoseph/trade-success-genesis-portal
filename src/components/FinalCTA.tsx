@@ -15,13 +15,12 @@ const FinalCTA = () => {
             <div className="text-crypto-green mb-6">● Join The Revolution</div>
             
             <h2 className="text-4xl md:text-6xl font-bold font-general mb-6 text-white">
-              Join thousands building{' '}
-              <span className="text-[#73E212]">wealth with crypto</span>
+              Join thousands Building{' '}
+              <span className="text-[#73E212]">Wealth with Crypto</span>
             </h2>
             
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Don't let another opportunity pass you by. Start your journey to financial 
-              freedom today with the most trusted crypto investment platform.
+            The bull run is here — don’t just watch it happen. Seize the moment and build real wealth. Whether you're starting with $100 or scaling a six-figure portfolio, TradeSuccess.VIP gives you the tools, insights, and automation to grow with confidence. Start smart. Grow strategically. Profit consistently.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
@@ -38,15 +37,15 @@ const FinalCTA = () => {
 
             <div className="grid md:grid-cols-4 gap-8 pt-8 border-t border-crypto-green/20">
               <div className="text-center">
-                <div className="text-2xl font-bold text-crypto-green mb-2">2M+</div>
+                <div className="text-2xl font-bold text-crypto-green mb-2">300+</div>
                 <div className="text-sm text-gray-400">Active Members</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-crypto-green mb-2">$5B+</div>
+                <div className="text-2xl font-bold text-crypto-green mb-2">$1.2M+</div>
                 <div className="text-sm text-gray-400">Trading Volume</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-crypto-green mb-2">98%</div>
+                <div className="text-2xl font-bold text-crypto-green mb-2">94%</div>
                 <div className="text-sm text-gray-400">Success Rate</div>
               </div>
               <div className="text-center">
@@ -56,7 +55,7 @@ const FinalCTA = () => {
             </div>
 
             <div className="mt-8 text-sm text-gray-400">
-              🔒 Secure • 💎 Insured up to $500K • ⚡ Instant Setup • 🌍 Global Access
+              🔒 Secure • 💎 Robust Infrastructure • ⚡ Instant Setup • 🌍 Global Access
             </div>
           </div>
         </div>

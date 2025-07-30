@@ -42,7 +42,7 @@ const Features = () => {
 
   return (
     <section className="py-20 bg-black">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold font-general mb-6 text-white">
             <span className="text-[#73E212]">Powerful.</span> Secure. <span className="text-[#73E212]">Effortless.</span>
@@ -62,17 +62,17 @@ const Features = () => {
             >
               {/* Image Section */}
               <div className="relative mb-6 overflow-hidden rounded-2xl">
-                <img 
-                  src={feature.image} 
-                  alt={feature.title}
+                  <img 
+                    src={feature.image} 
+                    alt={feature.title}
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
+                  />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 
                 {/* Icon Overlay */}
                 <div className="absolute top-4 right-4 w-12 h-12 bg-[#73E212]/90 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:bg-[#73E212] transition-all duration-300">
                   <div className="text-white">
-                    {feature.icon}
+                      {feature.icon}
                   </div>
                 </div>
               </div>
@@ -84,8 +84,8 @@ const Features = () => {
                 </h3>
                 
                 <p className="text-gray-300 leading-relaxed text-sm">
-                  {feature.description}
-                </p>
+                {feature.description}
+              </p>
                 
                 {/* Hover Effect Line */}
                 <div className="w-0 h-0.5 bg-[#73E212] group-hover:w-full transition-all duration-300"></div>

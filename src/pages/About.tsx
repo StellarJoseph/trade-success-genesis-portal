@@ -513,7 +513,7 @@ const About = () => {
                     <div className="text-white font-bold text-lg">{testimonial.name}</div>
                     <div className="text-gray-400 mb-1">{testimonial.role}</div>
                     <div className="text-gray-500 text-sm">{testimonial.location}</div>
-                  </div>
+                    </div>
                   
                   <div className="flex justify-center mb-4">
                     {[...Array(5)].map((_, i) => (

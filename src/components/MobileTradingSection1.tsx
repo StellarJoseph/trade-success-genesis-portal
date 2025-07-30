@@ -1,7 +1,7 @@
 const MobileTradingSection = () => {
   return (
     <section className="py-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold font-general mb-6">

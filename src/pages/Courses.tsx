@@ -11,6 +11,7 @@ import {
   Award,
   BookOpen
 } from 'lucide-react';
+import { useTheme } from '../components/DashboardLayout';
 
 const Courses = () => {
   const courses = [
@@ -95,8 +96,10 @@ const Courses = () => {
     }
   ];
 
+  const { dark } = useTheme();
+
   return (
-    <div className="min-h-screen bg-black">
+    <div className={`min-h-screen ${dark ? 'bg-black text-white' : 'bg-white text-black'}`}>
       <Header />
       
       <main className="pt-20">

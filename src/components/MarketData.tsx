@@ -79,41 +79,8 @@ const MarketData = () => {
 
   return (
     <section className="py-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Stats Section */}
-          <div>
-            <h2 className="text-4xl md:text-5xl font-bold font-general mb-8 text-white">
-              Deposit Your Crypto{' '}
-              <br />
-              <span className="text-gradient">Earn Interest.</span>
-            </h2>
-            
-            <p className="text-xl text-white mb-8">
-              Earn up to 180% APY on your cryptocurrency holdings with our secure trading, 
-              staking and DeFi yield farming strategies.
-            </p>
-
-            <div className="grid grid-cols-2 gap-8 mb-8">
-              <div className="text-center">
-                <div className="text-5xl font-bold text-[#73E212] mb-2">
-                  {currentStats.depositCrypto}
-                </div>
-                <div className="text-white font-medium">Deposit USDT</div>
-              </div>
-              <div className="text-center">
-                <div className="text-5xl font-bold text-[#73E212] mb-2">
-                  {currentStats.earnInterest}%
-                </div>
-                <div className="text-white font-medium">Earn Interest</div>
-              </div>
-            </div>
-
-            <button className="glow-button px-8 py-4 rounded-xl text-black font-semibold">
-              Start Earning Now
-            </button>
-          </div>
-
           {/* Market Ticker */}
           <div className="bg-gradient-to-br from-blue-900/80 to-blue-950/90 p-8 rounded-3xl border border-blue-700/30 shadow-2xl shadow-blue-900/20">
             <h3 className="text-2xl font-bold mb-6 text-center text-white">Live Market Data</h3>
@@ -161,6 +128,38 @@ const MarketData = () => {
                 <div className="text-sm text-white/90 font-medium">Loading live data...</div>
               </div>
             )}
+          </div>
+          {/* Stats Section */}
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold font-general mb-8 text-white">
+              Deposit Your Crypto{' '}
+              <br />
+              <span className="text-gradient">Earn Interest.</span>
+            </h2>
+            
+            <p className="text-xl text-white mb-8">
+              Earn up to 180% APY on your cryptocurrency holdings with our secure trading, 
+              staking and DeFi yield farming strategies.
+            </p>
+
+            <div className="grid grid-cols-2 gap-8 mb-8">
+              <div className="text-center">
+                <div className="text-5xl font-bold text-[#73E212] mb-2">
+                  {currentStats.depositCrypto}
+                </div>
+                <div className="text-white font-medium">Deposit USDT</div>
+              </div>
+              <div className="text-center">
+                <div className="text-5xl font-bold text-[#73E212] mb-2">
+                  {currentStats.earnInterest}%
+                </div>
+                <div className="text-white font-medium">Earn Interest</div>
+              </div>
+            </div>
+
+            <button className="glow-button px-8 py-4 rounded-xl text-black font-semibold">
+              Start Earning Now
+            </button>
           </div>
         </div>
       </div>

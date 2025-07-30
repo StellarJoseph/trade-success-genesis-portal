@@ -41,9 +41,6 @@ const Signup = () => {
       if (error) {
         console.error('Google sign-up error:', error.message);
         setMessage(`Google signup failed: ${error.message}`);
-      } else if (data) {
-        setMessage('Redirecting to Google...');
-        // The redirect will happen automatically
       }
     } catch (err) {
       console.error('Google signup error:', err);

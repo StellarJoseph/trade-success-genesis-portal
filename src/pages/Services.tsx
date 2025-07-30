@@ -122,8 +122,8 @@ const Services = () => {
         <section className="py-20 relative overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-5xl mx-auto">
-              <h1 className="text-5xl md:text-6xl font-bold font-general mb-6">
-                Take Full Control of Your <span className="text-gradient">Crypto Journey</span>
+              <h1 className="text-5xl md:text-6xl font-bold font-general mb-6 text-white">
+                Take Full Control of Your <span className="text-white">Crypto Journey</span>
               </h1>
               <p className="text-xl text-gray-300 leading-relaxed mb-8">
                 Discover expert-managed crypto solutions built for individuals and institutions who want more than just hype — real results, reliable signals, and professional portfolio strategies.
@@ -151,8 +151,8 @@ const Services = () => {
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold font-general mb-6">
-                What We <span className="text-gradient">Offer</span>
+              <h2 className="text-4xl md:text-5xl font-bold font-general mb-6 text-white">
+                What We <span className="text-white">Offer</span>
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
                 Comprehensive crypto solutions designed to maximize your investment potential
@@ -169,7 +169,7 @@ const Services = () => {
                     {service.icon}
                   </div>
                   
-                  <h3 className="text-xl font-bold font-general mb-4 text-gradient">
+                  <h3 className="text-xl font-bold font-general mb-4 text-white">
                     {service.title}
                   </h3>
                   
@@ -186,8 +186,8 @@ const Services = () => {
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold font-general mb-6">
-                Built on Trust. <span className="text-gradient">Designed for Profit.</span>
+              <h2 className="text-4xl md:text-5xl font-bold font-general mb-6 text-white">
+                Built on Trust. <span className="text-white">Designed for Profit.</span>
               </h2>
             </div>
 
@@ -201,7 +201,7 @@ const Services = () => {
                     {item.icon}
                   </div>
                   
-                  <h3 className="text-xl font-bold font-general mb-4 text-gradient">
+                  <h3 className="text-xl font-bold font-general mb-4 text-white">
                     {item.title}
                   </h3>
                   
@@ -220,8 +220,8 @@ const Services = () => {
             <div className="glass-card p-12 rounded-3xl text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-crypto-green/5 to-transparent"></div>
               <div className="relative z-10">
-                <h2 className="text-4xl font-bold font-general mb-6">
-                  Get Ahead of <span className="text-gradient">the Market</span>
+                <h2 className="text-4xl font-bold font-general mb-6 text-white">
+                  Get Ahead of <span className="text-white">the Market</span>
                 </h2>
                 <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
                   Join our exclusive signal group and get expert calls across Futures, Memecoins, and Altcoins. No hype — just calculated entries, full trade instructions, and verified win-rates.
@@ -243,8 +243,8 @@ const Services = () => {
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold font-general mb-6">
-                Portfolio Management <span className="text-gradient">Tiers</span>
+              <h2 className="text-4xl md:text-5xl font-bold font-general mb-6 text-white">
+                Portfolio Management <span className="text-white">Tiers</span>
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
                 Our experts trade directly on your behalf to grow your holdings across the most promising tokens and categories.
@@ -261,7 +261,7 @@ const Services = () => {
                     <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
                       {tier.icon}
                     </div>
-                    <h3 className="text-xl font-bold font-general mb-2 text-gradient">
+                    <h3 className="text-xl font-bold font-general mb-2 text-white">
                       {tier.tier}
                     </h3>
                     <div className="text-2xl font-bold text-crypto-green mb-4">
@@ -295,8 +295,8 @@ const Services = () => {
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold font-general mb-6">
-                What Our <span className="text-gradient">Clients Are Saying</span>
+              <h2 className="text-4xl font-bold font-general mb-6 text-white">
+                What Our <span className="text-white">Clients Are Saying</span>
               </h2>
             </div>
 
@@ -332,8 +332,8 @@ const Services = () => {
             <div className="glass-card p-12 rounded-3xl text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-crypto-green/10 via-transparent to-crypto-green/10"></div>
               <div className="relative z-10">
-                <h2 className="text-4xl font-bold font-general mb-6">
-                  Let's Build Your <span className="text-gradient">Crypto Success Story</span>
+                <h2 className="text-4xl font-bold font-general mb-6 text-white">
+                  Let's Build Your <span className="text-white">Crypto Success Story</span>
                 </h2>
                 <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
                   Start trading smarter and growing your assets today with a partner you can trust.

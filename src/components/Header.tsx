@@ -10,7 +10,19 @@ const Header = () => {
   const navigationItems = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
+    { 
+      name: 'Services', 
+      href: '#',
+      submenu: [
+        { name: 'All Services', href: '/services' },
+        { name: 'AI-Powered Trading Signals', href: '/ai-trading-signals' },
+        { name: 'Portfolio Management', href: '/portfolio-management' },
+        { name: 'Automated Trading Bot Setup', href: '/automated-bot-setup' },
+        { name: 'Crypto Consulting & Strategy', href: '/crypto-consulting' },
+        { name: 'Trading Challenge (40-Day Profit Plan)', href: '/trading-challenge' },
+        { name: 'Merchant Services', href: '/merchant-services' }
+      ]
+    },
     { name: 'Pricing', href: '/pricing' },
     { 
       name: 'Resources', 
@@ -24,7 +36,6 @@ const Header = () => {
       name: 'Shop', 
       href: '#',
       submenu: [
-        { name: 'Advisory', href: '/shop/consultancy' },
         { name: 'Courses', href: '/shop/courses' },
         { name: 'Merch', href: '/shop/merchandise' }
       ]

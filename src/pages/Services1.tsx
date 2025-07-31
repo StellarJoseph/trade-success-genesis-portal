@@ -122,7 +122,7 @@ const Services = () => {
           <div className="container mx-auto px-4">
             <div className="text-center max-w-5xl mx-auto">
               <h1 className="text-5xl md:text-6xl font-bold font-general mb-6">
-                Take Full Control of Your <span className="text-gradient">Crypto Journey</span>
+                <span className="text-white">Take Full Control of Your</span> <span className="text-[#73E212]">Crypto Journey</span>
               </h1>
               <p className="text-xl text-[#73E212]/80 leading-relaxed mb-8">
                 Discover expert-managed crypto solutions built for individuals and institutions who want more than just hype — real results, reliable signals, and professional portfolio strategies.
@@ -151,7 +151,7 @@ const Services = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold font-general mb-6">
-                What We <span className="text-gradient">Offer</span>
+                <span className="text-white">What We</span> <span className="text-[#73E212]">Offer</span>
               </h2>
               <p className="text-xl text-[#73E212]/80 max-w-3xl mx-auto">
                 Comprehensive crypto solutions designed to maximize your investment potential
@@ -186,7 +186,7 @@ const Services = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold font-general mb-6">
-                Built on Trust. <span className="text-gradient">Designed for Profit.</span>
+                <span className="text-white">Built on Trust.</span> <span className="text-[#73E212]">Designed for Profit.</span>
               </h2>
             </div>
 
@@ -220,16 +220,16 @@ const Services = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-crypto-green/5 to-transparent"></div>
               <div className="relative z-10">
                 <h2 className="text-4xl font-bold font-general mb-6">
-                  Get Ahead of <span className="text-gradient">the Market</span>
+                  <span className="text-white">Get Ahead of</span> <span className="text-[#73E212]">the Market</span>
                 </h2>
                 <p className="text-xl text-[#73E212]/80 mb-8 max-w-3xl mx-auto">
                   Join our exclusive signal group and get expert calls across Futures, Memecoins, and Altcoins. No hype — just calculated entries, full trade instructions, and verified win-rates.
                 </p>
                 <div className="flex gap-4 justify-center">
-                  <Button className="glow-button text-crypto-dark font-semibold">
+                  <Button className="!bg-[#73E212] !text-black hover:!bg-white hover:!text-[#73E212] font-semibold transition-all duration-300">
                     Join the Signal Group
                   </Button>
-                  <Button variant="outline" className="border-crypto-green text-crypto-green hover:bg-crypto-green hover:text-crypto-dark">
+                  <Button variant="outline" className="!border-[#73E212] !text-[#73E212] hover:!bg-white hover:!text-[#73E212] transition-all duration-300">
                     View Signal Plans
                   </Button>
                 </div>
@@ -243,7 +243,7 @@ const Services = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold font-general mb-6">
-                Portfolio Management <span className="text-gradient">Tiers</span>
+                <span className="text-white">Portfolio Management</span> <span className="text-[#73E212]">Tiers</span>
               </h2>
               <p className="text-xl text-[#73E212]/80 max-w-3xl mx-auto mb-8">
                 Our experts trade directly on your behalf to grow your holdings across the most promising tokens and categories.
@@ -283,7 +283,7 @@ const Services = () => {
             </div>
 
             <div className="text-center mt-12">
-              <Button className="glow-button text-crypto-dark font-semibold">
+              <Button className="!bg-[#73E212] !text-black hover:!bg-white hover:!text-[#73E212] font-semibold transition-all duration-300">
                 View Full Pricing Plans
               </Button>
             </div>
@@ -295,7 +295,7 @@ const Services = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold font-general mb-6">
-                What Our <span className="text-gradient">Clients Are Saying</span>
+                <span className="text-white">What Our</span> <span className="text-[#73E212]">Clients Are Saying</span>
               </h2>
             </div>
 
@@ -331,8 +331,8 @@ const Services = () => {
             <div className="glass-card p-12 rounded-3xl text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-crypto-green/10 via-transparent to-crypto-green/10"></div>
               <div className="relative z-10">
-                <h2 className="text-4xl font-bold font-general mb-6">
-                  Let's Build Your <span className="text-gradient">Crypto Success Story</span>
+                <h2 className="text-6xl font-bold font-general mb-6">
+                  <span className="text-white">Let's Build Your</span> <span className="text-[#73E212]">Crypto Success Story</span>
                 </h2>
                 <p className="text-xl text-[#73E212]/80 mb-8 max-w-3xl mx-auto">
                   Start trading smarter and growing your assets today with a partner you can trust.

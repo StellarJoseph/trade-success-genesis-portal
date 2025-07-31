@@ -28,6 +28,12 @@ import Payments from './pages/Payments';
 import Referrals from './pages/Referrals';
 import Settings from './pages/Settings';
 import Merchandise from "./pages/Merchandise";
+import AITradingSignals from './pages/AITradingSignals';
+import PortfolioManagement from './pages/PortfolioManagement';
+import AutomatedBotSetup from './pages/AutomatedBotSetup';
+import CryptoConsulting from './pages/CryptoConsulting';
+import TradingChallenge from './pages/TradingChallenge';
+import MerchantServices from './pages/MerchantServices';
 
 const queryClient = new QueryClient();
 
@@ -76,6 +82,12 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/ai-trading-signals" element={<AITradingSignals />} />
+          <Route path="/portfolio-management" element={<PortfolioManagement />} />
+          <Route path="/automated-bot-setup" element={<AutomatedBotSetup />} />
+          <Route path="/crypto-consulting" element={<CryptoConsulting />} />
+          <Route path="/trading-challenge" element={<TradingChallenge />} />
+          <Route path="/merchant-services" element={<MerchantServices />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />

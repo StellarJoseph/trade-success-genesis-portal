@@ -142,27 +142,75 @@ const Consultancy = () => {
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-5xl md:text-6xl font-bold font-general mb-6 text-white">
-              Tailored Crypto <span className="text-gradient">Coaching</span> for Results
-            </h1>
-            <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
-              Get personalized crypto investment advice from our team of experienced traders and analysts. 
-              Transform your trading strategy with one-on-one expert guidance.
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-8 mb-16">
-              <div className="flex items-center gap-2">
-                <Shield className="w-5 h-5 text-[#73E212]" />
-                <span className="text-gray-300">Trusted Advisors</span>
+        <section className="py-20 relative overflow-hidden">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Text Content */}
+              <div className="text-left">
+                <h1 className="text-5xl md:text-6xl font-bold font-general mb-6 text-white">
+                  <span className="text-white">Tailored Crypto</span> <span className="text-[#73E212]">Coaching</span> for Results
+                </h1>
+                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                  Get personalized crypto investment advice from our team of experienced traders and analysts. 
+                  Transform your trading strategy with one-on-one expert guidance.
+                </p>
+                <div className="flex flex-wrap items-center gap-6 mb-8">
+                  <div className="flex items-center gap-2">
+                    <Shield className="w-5 h-5 text-[#73E212]" />
+                    <span className="text-gray-300">Trusted Advisors</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <TrendingUp className="w-5 h-5 text-[#73E212]" />
+                    <span className="text-gray-300">Proven Results</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MessageSquare className="w-5 h-5 text-[#73E212]" />
+                    <span className="text-gray-300">1-on-1 Support</span>
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button className="bg-[#73E212] hover:bg-[#73E212]/90 text-black font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#73E212]/30 hover:scale-105">
+                    <Calendar className="w-4 h-4 mr-2" />
+                    Book Consultation
+                  </Button>
+                  <Button variant="outline" className="border-[#73E212] text-[#73E212] hover:bg-[#73E212] hover:text-black px-8 py-4 rounded-xl transition-all duration-300">
+                    View Services
+                  </Button>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-[#73E212]" />
-                <span className="text-gray-300">Proven Results</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MessageSquare className="w-5 h-5 text-[#73E212]" />
-                <span className="text-gray-300">1-on-1 Support</span>
+              
+              {/* Hero Image */}
+              <div className="relative">
+                <div className="relative z-10">
+                  {/* Main Hero Image */}
+                  <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#73E212]/20 to-[#73E212]/5 border border-[#73E212]/30">
+                    <div className="aspect-[4/3] bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                      <div className="text-center p-8">
+                        <div className="text-6xl mb-4">👨‍💼</div>
+                        <div className="text-2xl font-bold text-white mb-2">Professional Consultation</div>
+                        <div className="text-gray-300">Expert crypto advisory services</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Floating Elements */}
+                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#73E212]/20 rounded-full flex items-center justify-center border border-[#73E212]/30">
+                    <div className="text-2xl">📊</div>
+                  </div>
+                  <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-[#73E212]/15 rounded-full flex items-center justify-center border border-[#73E212]/20">
+                    <div className="text-xl">💡</div>
+                  </div>
+                  <div className="absolute top-1/2 -left-8 w-16 h-16 bg-[#73E212]/10 rounded-full flex items-center justify-center border border-[#73E212]/15">
+                    <div className="text-lg">🎯</div>
+                  </div>
+                </div>
+                
+                {/* Background Animation Elements */}
+                <div className="absolute inset-0 -z-10">
+                  <div className="absolute top-20 left-10 w-32 h-32 bg-[#73E212]/5 rounded-full animate-pulse"></div>
+                  <div className="absolute bottom-20 right-10 w-24 h-24 bg-[#73E212]/8 rounded-full animate-bounce"></div>
+                  <div className="absolute top-1/2 right-1/2 w-16 h-16 bg-[#73E212]/3 rounded-full animate-pulse"></div>
+                </div>
               </div>
             </div>
           </div>

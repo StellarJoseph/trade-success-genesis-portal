@@ -5,8 +5,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import About from "./pages/About";
+import Blog from "./pages/Blog";
 import Services from "./pages/Services";
 import Pricing from "./pages/Pricing";
+import FAQ from "./pages/FAQ";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
@@ -18,6 +20,7 @@ import Courses from "./pages/Courses";
 import Consultancy from "./pages/Consultancy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import Disclaimer from "./pages/Disclaimer";
 import NotFound from "./pages/NotFound";
 import { useEffect, useState } from "react";
 import DashboardLayout from './components/DashboardLayout';
@@ -34,6 +37,8 @@ import AutomatedBotSetup from './pages/AutomatedBotSetup';
 import CryptoConsulting from './pages/CryptoConsulting';
 import TradingChallenge from './pages/TradingChallenge';
 import MerchantServices from './pages/MerchantServices';
+import FortyDayChallenge from './pages/40DayChallenge';
+import FortyDayHome from './pages/40DayHome';
 
 const queryClient = new QueryClient();
 
@@ -89,6 +94,10 @@ const App = () => (
           <Route path="/trading-challenge" element={<TradingChallenge />} />
           <Route path="/merchant-services" element={<MerchantServices />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/40daychallenge" element={<FortyDayChallenge />} />
+          <Route path="/40day" element={<FortyDayHome />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -107,6 +116,7 @@ const App = () => (
           <Route path="/shop/merchandise" element={<Merchandise />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
           <Route path="/portfolio" element={<DashboardLayout><Portfolio /></DashboardLayout>} />
           <Route path="/plans" element={<DashboardLayout><Plans /></DashboardLayout>} />
           <Route path="/reports" element={<DashboardLayout><Reports /></DashboardLayout>} />

@@ -1,3 +1,14 @@
+import React from 'react';
+
+const assets = [
+  { name: 'Bitcoin', symbol: 'BTC', amount: 52340, change: '+12.5%', color: 'bg-crypto-green', symbolColor: 'text-crypto-dark', changeColor: 'text-crypto-green' },
+  { name: 'Ethereum', symbol: 'ETH', amount: 3240, change: '+8.3%', color: 'bg-purple-500', symbolColor: 'text-white', changeColor: 'text-crypto-green' }
+];
+
+const total = assets.reduce((s, a) => s + a.amount, 0);
+
+const formatCurrency = (value: number) => value.toLocaleString(undefined, { style: 'currency', currency: 'USD', minimumFractionDigits: 2 });
+
 const MobileTradingSection = () => {
   return (
     <section className="py-20">
@@ -59,41 +70,27 @@ const MobileTradingSection = () => {
               <div className="space-y-6">
                 <div className="flex justify-between items-center">
                   <span className="text-gray-400">Portfolio Balance</span>
-                  <span className="text-crypto-green font-bold text-xl">$127,459.32</span>
+                  <span className="text-crypto-green font-bold text-xl">{formatCurrency(total)}</span>
                 </div>
-                
+
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center p-4 bg-crypto-green/10 rounded-xl">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-crypto-green rounded-full flex items-center justify-center">
-                        <span className="text-crypto-dark text-xs font-bold">BTC</span>
+                  {assets.map((asset, idx) => (
+                    <div key={idx} className={`flex justify-between items-center p-4 ${idx === 0 ? 'bg-crypto-green/10' : 'bg-crypto-green/5'} rounded-xl`}>
+                      <div className="flex items-center gap-3">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center ${asset.color}`}>
+                          <span className={`${asset.symbolColor} text-xs font-bold`}>{asset.symbol}</span>
+                        </div>
+                        <div>
+                          <div className="text-white font-semibold">{asset.name}</div>
+                          <div className="text-xs text-gray-400">{asset.symbol}</div>
+                        </div>
                       </div>
-                      <div>
-                        <div className="text-white font-semibold">Bitcoin</div>
-                        <div className="text-xs text-gray-400">BTC</div>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-crypto-green font-bold">+12.5%</div>
-                      <div className="text-xs text-gray-400">$52,340</div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex justify-between items-center p-4 bg-crypto-green/5 rounded-xl">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">ETH</span>
-                      </div>
-                      <div>
-                        <div className="text-white font-semibold">Ethereum</div>
-                        <div className="text-xs text-gray-400">ETH</div>
+                      <div className="text-right">
+                        <div className={`font-bold ${asset.changeColor}`}>{asset.change}</div>
+                        <div className="text-xs text-gray-400">{formatCurrency(asset.amount)}</div>
                       </div>
                     </div>
-                    <div className="text-right">
-                      <div className="text-crypto-green font-bold">+8.3%</div>
-                      <div className="text-xs text-gray-400">$3,240</div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>

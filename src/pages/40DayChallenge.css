@@ -1,0 +1,8 @@
+/* Page-scoped styles for 40-Day Challenge page */
+:root{--brand-1:#73E212; --brand-2:#87e64c; --bg-1:#000000; --bg-2:#131240}
+body { background-color: var(--bg-1); color: white; }
+.glow-btn { box-shadow: 0 0 18px var(--brand-1), inset 0 0 12px var(--brand-1); transition: all 0.25s ease; }
+.glow-btn:hover { box-shadow: 0 0 30px var(--brand-2), inset 0 0 18px var(--brand-2); transform: translateY(-3px); }
+.gradient-border { position: relative; background: linear-gradient(90deg, var(--brand-1), var(--brand-2), var(--brand-1)); background-size: 300% 300%; animation: borderMove 6s linear infinite; border-radius: 1rem; padding: 2px; }
+@keyframes borderMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+.gradient-border > div { background-color: #100F1A; border-radius: 1rem; padding: 1.5rem; }

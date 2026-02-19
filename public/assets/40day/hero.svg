@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#0f1724" />
+      <stop offset="100%" stop-color="#0b0b10" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#g)" />
+  <g transform="translate(80,80)" fill="#d1ffd6">
+    <rect x="20" y="20" rx="18" ry="18" width="1040" height="420" fill="#0f1220" opacity="0.6" />
+    <text x="60" y="120" font-family="Inter, Arial, sans-serif" font-size="36" fill="#73E212">40-Day Challenge — Hero Placeholder</text>
+    <text x="60" y="170" font-family="Inter, Arial, sans-serif" font-size="18" fill="#cbd5c9">Replace this SVG with a licensed image from Envato or Freepik. Suggested keywords: "AI trading dashboard", "crypto growth chart", "trading analytics".</text>
+  </g>
+</svg>

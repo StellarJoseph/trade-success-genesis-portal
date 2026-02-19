@@ -122,3 +122,5 @@
     border-radius: 14px;
   }
 }
+
+/* global app styles remain above; page-specific 40Day styles moved to src/pages/40DayChallenge.css */

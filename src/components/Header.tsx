@@ -10,6 +10,7 @@ const Header = () => {
   const navigationItems = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
+    { name: '40-Day Challenge', href: '/40daychallenge' },
     { 
       name: 'Services', 
       href: '#',
@@ -20,6 +21,7 @@ const Header = () => {
         { name: 'Automated Trading Bot Setup', href: '/automated-bot-setup' },
         { name: 'Crypto Consulting & Strategy', href: '/crypto-consulting' },
         { name: 'Trading Challenge (40-Day Profit Plan)', href: '/trading-challenge' },
+        { name: '40-Day Challenge', href: '/40daychallenge' },
         { name: 'Merchant Services', href: '/merchant-services' }
       ]
     },

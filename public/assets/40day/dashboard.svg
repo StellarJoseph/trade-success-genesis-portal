@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#071026" />
+  <g transform="translate(80,80)" fill="#fff" opacity="0.85">
+    <rect x="0" y="0" width="520" height="320" rx="12" fill="#0f1220" />
+    <rect x="560" y="0" width="520" height="320" rx="12" fill="#0f1220" />
+    <text x="20" y="40" font-family="Inter, Arial, sans-serif" font-size="20" fill="#73E212">Dashboard Placeholder</text>
+    <text x="20" y="80" font-family="Inter, Arial, sans-serif" font-size="14" fill="#cbd5c9">Use licensed UI screenshots from Envato/Freepik (search: "dashboard UI crypto")</text>
+  </g>
+</svg>

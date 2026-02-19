@@ -93,27 +93,55 @@ const Footer = () => {
             </div>
           ))}
         </div>
+        {/* Short transparency line for ad approval / quick notice */}
+        <div className="w-full text-center mt-6 mb-2">
+          <p className="text-xs text-gray-400">For educational purposes only. Not financial advice. This site is not affiliated with Meta or Google.</p>
+        </div>
 
-        <div className="border-t border-crypto-green/20 pt-8 mt-12">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2024 TradeSuccess.VIP. All rights reserved.
-            </div>
-            
-            <div className="flex space-x-6 text-sm">
-              <a href="/privacy" className="text-gray-400 hover:text-crypto-green transition-colors">
-                Privacy Policy
-              </a>
-              <a href="/terms" className="text-gray-400 hover:text-crypto-green transition-colors">
-                Terms of Service
-              </a>
-              <a href="/cookies" className="text-gray-400 hover:text-crypto-green transition-colors">
-                Cookie Policy
-              </a>
+        </div>{/* end .container */}
+
+        {/* Full-width Disclaimer section */}
+        <div className="w-full bg-transparent px-4 md:px-8 lg:px-16">
+          <div className="max-w-[1400px] mx-auto py-8">
+            <div className="text-sm text-gray-300 text-justify leading-relaxed">
+              <h4 className="text-white font-semibold mb-2">Disclaimer:</h4>
+              <p className="mb-2">The information provided on this website is for educational and informational purposes only and should not be construed as financial, investment, or trading advice. Trading or investing in cryptocurrencies carries a high level of risk and may not be suitable for every investor. You should carefully consider your experience level, investment objectives, and seek independent financial advice before acting on any information provided here.</p>
+
+              <p className="mb-2">TradeSuccess.VIP does not guarantee profits, income, or specific results from participation in any of our programs or the use of our tools. Past performance is not indicative of future results.</p>
+
+              <p className="mb-2">By using this website, you acknowledge and agree that TradeSuccess.VIP, its founders, and affiliates shall not be held liable for any direct or indirect financial losses or damages resulting from reliance on the content, products, or services provided.</p>
+
+              <p className="mb-2">This site is not affiliated with, sponsored by, or endorsed by Meta Platforms Inc. (Facebook, Instagram), Google LLC, YouTube, Binance, Bybit, or any other financial or social media platform. All trademarks and logos are the property of their respective owners.</p>
+
+              <p className="mb-0">Cryptocurrency education and services provided through this website are intended only for users in regions where such activities are lawful and compliant with local regulations.</p>
             </div>
           </div>
         </div>
-      </div>
+
+        <div className="border-t border-crypto-green/20 pt-8 mt-4">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <div className="text-gray-400 text-sm mb-4 md:mb-0">
+                © 2024 TradeSuccess.VIP. All rights reserved.
+              </div>
+              
+              <div className="flex space-x-6 text-sm">
+                <a href="/privacy" className="text-gray-400 hover:text-crypto-green transition-colors">
+                  Privacy Policy
+                </a>
+                <a href="/terms" className="text-gray-400 hover:text-crypto-green transition-colors">
+                  Terms of Service
+                </a>
+                <a href="/cookies" className="text-gray-400 hover:text-crypto-green transition-colors">
+                  Cookie Policy
+                </a>
+                <a href="/disclaimer" className="text-gray-400 hover:text-crypto-green transition-colors">
+                  Disclaimer
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
     </footer>
   );
 };

@@ -1,3 +1,19 @@
+import React from 'react';
+
+const assets = [
+  { name: 'Bitcoin', symbol: 'BTC', amount: 52340, change: '+12.5%', color: 'bg-[#73E212]', symbolColor: 'text-black', changeColor: 'text-[#73E212]' },
+  { name: 'Ethereum', symbol: 'ETH', amount: 3240, change: '+8.3%', color: 'bg-purple-500', symbolColor: 'text-white', changeColor: 'text-[#73E212]' },
+  { name: 'BNB', symbol: 'BNB', amount: 2180, change: '+15.7%', color: 'bg-yellow-500', symbolColor: 'text-white', changeColor: 'text-[#73E212]' },
+  { name: 'Solana', symbol: 'SOL', amount: 1890, change: '+22.1%', color: 'bg-gradient-to-r from-purple-600 to-pink-600', symbolColor: 'text-white', changeColor: 'text-[#73E212]' },
+  { name: 'USDT', symbol: 'USDT', amount: 5000, change: '+0.1%', color: 'bg-green-500', symbolColor: 'text-white', changeColor: 'text-white' }
+];
+
+const total = assets.reduce((sum, a) => sum + a.amount, 0);
+
+const formatCurrency = (value: number) => {
+  return value.toLocaleString(undefined, { style: 'currency', currency: 'USD', minimumFractionDigits: 2 });
+};
+
 const MobileTradingSection = () => {
   return (
     <section className="py-20 bg-black">
@@ -59,89 +75,27 @@ const MobileTradingSection = () => {
               <div className="space-y-6">
                 <div className="flex justify-between items-center">
                   <span className="text-white">Portfolio Balance</span>
-                  <span className="text-[#73E212] font-bold text-xl">$127,459.32</span>
+                  <span className="text-[#73E212] font-bold text-xl">{formatCurrency(total)}</span>
                 </div>
-                
+
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center p-4 bg-[#73E212]/10 rounded-xl">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-[#73E212] rounded-full flex items-center justify-center">
-                        <span className="text-black text-xs font-bold">BTC</span>
+                  {assets.map((asset, idx) => (
+                    <div key={idx} className={`flex justify-between items-center p-4 ${idx === 0 ? 'bg-[#73E212]/10' : 'bg-[#73E212]/5'} rounded-xl`}>
+                      <div className="flex items-center gap-3">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center ${asset.color}`}>
+                          <span className={`${asset.symbolColor} text-xs font-bold`}>{asset.symbol}</span>
+                        </div>
+                        <div>
+                          <div className="text-white font-semibold">{asset.name}</div>
+                          <div className="text-xs text-white">{asset.symbol}</div>
+                        </div>
                       </div>
-                      <div>
-                        <div className="text-white font-semibold">Bitcoin</div>
-                        <div className="text-xs text-white">BTC</div>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-[#73E212] font-bold">+12.5%</div>
-                      <div className="text-xs text-white">$52,340</div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex justify-between items-center p-4 bg-[#73E212]/5 rounded-xl">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">ETH</span>
-                      </div>
-                      <div>
-                        <div className="text-white font-semibold">Ethereum</div>
-                        <div className="text-xs text-white">ETH</div>
+                      <div className="text-right">
+                        <div className={`font-bold ${asset.changeColor}`}>{asset.change}</div>
+                        <div className="text-xs text-white">{formatCurrency(asset.amount)}</div>
                       </div>
                     </div>
-                    <div className="text-right">
-                      <div className="text-[#73E212] font-bold">+8.3%</div>
-                      <div className="text-xs text-white">$3,240</div>
-                    </div>
-                  </div>
-
-                  <div className="flex justify-between items-center p-4 bg-[#73E212]/5 rounded-xl">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">BNB</span>
-                      </div>
-                      <div>
-                        <div className="text-white font-semibold">BNB</div>
-                        <div className="text-xs text-white">BNB</div>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-[#73E212] font-bold">+15.7%</div>
-                      <div className="text-xs text-white">$2,180</div>
-                    </div>
-                  </div>
-
-                  <div className="flex justify-between items-center p-4 bg-[#73E212]/5 rounded-xl">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">SOL</span>
-                      </div>
-                      <div>
-                        <div className="text-white font-semibold">Solana</div>
-                        <div className="text-xs text-white">SOL</div>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-[#73E212] font-bold">+22.1%</div>
-                      <div className="text-xs text-white">$1,890</div>
-                    </div>
-                  </div>
-
-                  <div className="flex justify-between items-center p-4 bg-[#73E212]/5 rounded-xl">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">USDT</span>
-                      </div>
-                      <div>
-                        <div className="text-white font-semibold">USDT</div>
-                        <div className="text-xs text-white">USDT</div>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-white font-bold">+0.1%</div>
-                      <div className="text-xs text-white">$5,000</div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>

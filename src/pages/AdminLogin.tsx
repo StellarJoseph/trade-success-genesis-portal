@@ -6,42 +6,135 @@ import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Shield, Eye, EyeOff, Lock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/hooks/useAuth';
+import { supabase, isSupabaseConfigured } from '@/lib/supabaseClient';
 
 const AdminLogin = () => {
   const [credentials, setCredentials] = useState({
-    username: '',
+    email: '',
     password: ''
   });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { signIn } = useAuth();
 
-  // Admin credentials (in production, this should be handled server-side)
-  const ADMIN_CREDENTIALS = {
-    username: 'admin',
-    password: 'admin123'
-  };
+  // Force demo-only mode when set to 'true' in env. Useful for local development
+  // to bypass Supabase entirely until production auth is configured.
+  const FORCE_DEMO = import.meta.env.VITE_FORCE_DEMO === 'true';
+
+  // Demo credentials (if Supabase isn't configured). Prefer setting these in a .env file for local testing.
+  const DEMO_USERNAME = import.meta.env.VITE_DEMO_ADMIN_USERNAME || 'admin';
+  const DEMO_PASSWORD = import.meta.env.VITE_DEMO_ADMIN_PASSWORD || 'admin123';
+
+  // Debug: log demo mode values (will print in browser console)
+  if (typeof window !== 'undefined') {
+    // eslint-disable-next-line no-console
+    console.info('AdminLogin: FORCE_DEMO=', FORCE_DEMO, 'DEMO_USERNAME=', DEMO_USERNAME, 'DEMO_PASSWORD=', DEMO_PASSWORD);
+  }
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
+    try {
+      // If FORCE_DEMO is enabled, skip Supabase and use demo credentials only
+      if (FORCE_DEMO) {
+        // small delay to match UX
+        await new Promise(resolve => setTimeout(resolve, 200));
+        if (credentials.email === DEMO_USERNAME && credentials.password === DEMO_PASSWORD) {
+          localStorage.setItem('adminToken', 'admin-session-token');
+          localStorage.setItem('userRole', 'admin');
+          navigate('/admin');
+        } else {
+          setError('Invalid admin credentials. Please try again.');
+        }
+        setIsLoading(false);
+        return;
+      }
 
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
+      // If Supabase is configured, use real auth
+      if (isSupabaseConfigured()) {
+        const { data, error: signInError } = await signIn(credentials.email, credentials.password);
 
-    if (credentials.username === ADMIN_CREDENTIALS.username && 
-        credentials.password === ADMIN_CREDENTIALS.password) {
-      // Store admin session
-      localStorage.setItem('adminToken', 'admin-session-token');
-      localStorage.setItem('userRole', 'admin');
-      navigate('/admin');
-    } else {
-      setError('Invalid admin credentials. Please try again.');
+        if (signInError) {
+          // If the sign-in failed due to network (e.g. Supabase URL is unreachable),
+          // allow fallback to demo credentials to keep local dev accessible.
+          const msg = signInError.message || '';
+          const lowered = msg.toLowerCase();
+          if (lowered.includes('failed to fetch') || lowered.includes('network')) {
+            // Try demo fallback below (after a small delay)
+            console.warn('Sign-in network error, attempting demo fallback:', msg);
+          } else {
+            setError(signInError.message || 'Authentication failed.');
+            setIsLoading(false);
+            return;
+          }
+        }
+
+        const user = (data as any)?.user || (data as any)?.session?.user;
+
+        if (!user) {
+          setError('Authentication succeeded but no user was returned.');
+          setIsLoading(false);
+          return;
+        }
+
+        // Verify role from profiles table (optional - requires a `profiles` table)
+        try {
+          const { data: profile, error: profileError } = await supabase
+            .from('profiles')
+            .select('role')
+            .eq('user_id', user.id)
+            .single();
+
+          if (profileError) {
+            // If profiles table doesn't exist or query fails, allow login but warn in console
+            console.warn('Could not verify profile role:', profileError);
+          } else if (profile?.role !== 'admin') {
+            setError('You are not authorized to access the admin dashboard.');
+            // Sign out to clear session
+            await supabase.auth.signOut();
+            setIsLoading(false);
+            return;
+          }
+
+          // Successful admin sign-in
+          localStorage.setItem('adminToken', 'supabase-admin-session');
+          localStorage.setItem('userRole', 'admin');
+          navigate('/admin');
+          setIsLoading(false);
+          return;
+        } catch (err) {
+          console.warn('Role check failed:', err);
+          localStorage.setItem('adminToken', 'supabase-admin-session');
+          localStorage.setItem('userRole', 'admin');
+          navigate('/admin');
+          setIsLoading(false);
+          return;
+        }
+      }
+
+      // If Supabase not configured, fall back to demo credentials (read from env)
+      // small delay to match previous UX
+      await new Promise(resolve => setTimeout(resolve, 600));
+
+      // If sign-in previously failed due to network, or Supabase is not configured,
+      // allow the demo credentials to work so developers can access the admin UI.
+      if (credentials.email === DEMO_USERNAME && credentials.password === DEMO_PASSWORD) {
+        localStorage.setItem('adminToken', 'admin-session-token');
+        localStorage.setItem('userRole', 'admin');
+        navigate('/admin');
+      } else {
+        setError('Invalid admin credentials. Please try again.');
+      }
+    } catch (err: any) {
+      console.error('Login error:', err);
+      setError(err?.message || 'An unexpected error occurred.');
+    } finally {
+      setIsLoading(false);
     }
-    
-    setIsLoading(false);
   };
 
   return (
@@ -70,16 +163,16 @@ const AdminLogin = () => {
               )}
               
               <div className="space-y-2">
-                <Label htmlFor="username" className="text-gray-300">
-                  Admin Username
+                <Label htmlFor="email" className="text-gray-300">
+                  Admin Email or Username
                 </Label>
                 <Input
-                  id="username"
+                  id="email"
                   type="text"
-                  value={credentials.username}
-                  onChange={(e) => setCredentials({...credentials, username: e.target.value})}
+                  value={credentials.email}
+                  onChange={(e) => setCredentials({...credentials, email: e.target.value})}
                   className="bg-black/40 border-[#73E212]/30 text-white placeholder:text-gray-500 focus:border-[#73E212]"
-                  placeholder="Enter admin username"
+                  placeholder="Enter admin email or username"
                   required
                 />
               </div>
